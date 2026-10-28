@@ -12,6 +12,8 @@ var roles: Dictionary[StringName, RoleData] = {}
 var tactics: Dictionary[StringName, TacticData] = {}
 var teams: Dictionary[StringName, TeamData] = {}
 var players: Dictionary[StringName, PlayerData] = {}
+var perks: Dictionary[StringName, PerkData] = {}
+var coaches: Dictionary[StringName, CoachData] = {}
 
 
 func _ready() -> void:
@@ -19,15 +21,17 @@ func _ready() -> void:
 
 
 func load_all() -> void:
-	for table: Dictionary in [attributes, die_types, positions, roles, tactics, teams, players]:
+	for table: Dictionary in [attributes, die_types, positions, roles, tactics, teams, players, perks, coaches]:
 		table.clear()
 	_load_attributes()
 	_load_die_types()
 	_load_positions()
 	_load_roles()
+	_load_perks()
 	_load_tactics()
 	_load_tactic_slots()
 	_load_teams()
+	_load_coaches()
 	_load_players()
 	_load_player_dice()
 	print_verbose("GameData: %d teams, %d players, %d tactics" % [teams.size(), players.size(), tactics.size()])
@@ -191,6 +195,58 @@ func _load_teams() -> void:
 		if not tactics.has(team.default_tactic_id):
 			push_warning("GameData: team '%s' has unknown default tactic '%s'" % [team.id, team.default_tactic_id])
 		teams[team.id] = team
+
+
+## Perki trenerów: relacja (action / support / passer / flyover), strona (attack / defense / puste = obie), role
+## i strefy (lista „|”, puste = wszystkie), kanał (center / wing / puste = każdy), mnożnik.
+func _load_perks() -> void:
+	const RELATIONS: Array[String] = ["action", "support", "passer", "flyover"]
+	const SIDES: Array[String] = ["", "attack", "defense"]
+	const LANES: Array[String] = ["", "center", "wing"]
+	for row in _read("perks.csv"):
+		var perk := PerkData.new()
+		perk.id = StringName(row["id"])
+		perk.name_key = row["name_key"]
+		perk.description_key = row["description_key"]
+		var relation := RELATIONS.find(row["relation"])
+		var side := SIDES.find(row.get("side", ""))
+		var lane := LANES.find(row.get("lane", ""))
+		if relation == -1 or side == -1 or lane == -1:
+			push_warning("GameData: perk '%s' has unknown relation, side or lane" % perk.id)
+			continue
+		var modifier := ParticipationModifier.create(relation as ParticipationModifier.Relation,
+				float(row["weight"]), side as ParticipationModifier.SideFilter)
+		modifier.roles = CsvLoader.split_list(row.get("roles", ""))
+		for role_id in modifier.roles:
+			if not roles.has(role_id):
+				push_warning("GameData: perk '%s' has unknown role '%s'" % [perk.id, role_id])
+		for zone in CsvLoader.split_list(row.get("zones", "")):
+			modifier.zones.append(int(String(zone)))
+		modifier.lane = lane as ParticipationModifier.LaneFilter
+		perk.modifier = modifier
+		perks[perk.id] = perk
+
+
+## Trenerzy drużyn (jeden na drużynę): profil ryzyka w procentach (100 = neutralny) i perki (lista „|”).
+func _load_coaches() -> void:
+	for row in _read("coaches.csv"):
+		var coach := CoachData.new()
+		coach.id = StringName(row["id"])
+		coach.team_id = StringName(row["team_id"])
+		coach.first_name = row["first_name"]
+		coach.last_name = row["last_name"]
+		coach.risk_aversion = row.get("risk_percent", "100").to_float() / 100.0
+		for perk_id in CsvLoader.split_list(row.get("perks", "")):
+			if perks.has(perk_id):
+				coach.perks.append(perks[perk_id])
+			else:
+				push_warning("GameData: coach '%s' has unknown perk '%s'" % [coach.id, perk_id])
+		var team: TeamData = teams.get(coach.team_id)
+		if team == null:
+			push_warning("GameData: coach '%s' has unknown team '%s'" % [coach.id, coach.team_id])
+		else:
+			team.coach = coach
+		coaches[coach.id] = coach
 
 
 func _load_players() -> void:

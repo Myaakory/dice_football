@@ -1,0 +1,4 @@
+id,name_key,description_key,relation,side,roles,zones,lane,weight
+wing_support,PERK_WING_SUPPORT,PERK_WING_SUPPORT_DESC,support,attack,LM|RM|LW|RW,,wing,2
+poacher,PERK_POACHER,PERK_POACHER_DESC,action,attack,ST,5,,3
+box_fortress,PERK_BOX_FORTRESS,PERK_BOX_FORTRESS_DESC,support,defense,CB|DM,1,,2

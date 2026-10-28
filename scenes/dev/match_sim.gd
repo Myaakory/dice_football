@@ -2,13 +2,14 @@ extends Node
 ## Symulacja meczów AI vs AI bez interfejsu – raport do strojenia zasad (PROTOTYP silnika).
 ## Zasady: res://docs/design/match_rules.md. Karty: res://data/plays/plays.json (PlayLibrary). Uruchomienie:
 ##   Godot --headless --path . res://scenes/dev/match_sim.tscn -- matches=500 seed=1
-## Argumenty: matches, seed, home, away, home_tactic, away_tactic (np. t_352), home_risk, away_risk, random_dice=1, log=1, cards=1,
+## Argumenty: matches, seed, home, away, home_tactic, away_tactic (np. t_352), home_risk, away_risk (bez nich – profil
+## trenera), perks=0 (bez perków trenerów), random_dice=1, log=1, cards=1,
 ## attack_scale / defense_scale (mnożnik progów wszystkich kart),
 ## role_dice (aktywne kości według roli zamiast pozycji, np. role_dice=DM:physical+defensive;AM:physical+technical),
-## calibrate=1 (średnie punkty i szanse każdej karty z każdego pola, bez przesunięć i przerzutów)
+## calibrate=1 (średnie punkty i szanse każdej karty z każdej strefy piłki, bez przesunięć i przerzutów)
 ## oraz dowolny parametr MatchRules (np. support_weight=2).
 
-const RUNNER_ARGS: Array[String] = ["matches", "seed", "home", "away", "home_tactic", "away_tactic", "home_risk", "away_risk",
+const RUNNER_ARGS: Array[String] = ["matches", "seed", "home", "away", "home_tactic", "away_tactic", "home_risk", "away_risk", "perks",
 		"random_dice", "log", "cards", "calibrate", "attack_scale", "defense_scale", "role_dice"]
 
 
@@ -36,8 +37,10 @@ func _ready() -> void:
 	var away_lineup := Lineup.create_default(away_team, GameData.get_tactic(StringName(args.get("away_tactic", ""))))
 	_apply_role_dice(home_lineup, args.get("role_dice", ""))
 	_apply_role_dice(away_lineup, args.get("role_dice", ""))
-	var home_risk: float = args.get("home_risk", "1.0").to_float()
-	var away_risk: float = args.get("away_risk", "1.0").to_float()
+	# Profil ryzyka AI: z argumentu albo (bez argumentu) od trenera drużyny.
+	var home_risk: float = args.get("home_risk", "-1").to_float()
+	var away_risk: float = args.get("away_risk", "-1").to_float()
+	var use_perks: bool = args.get("perks", "1") != "0"
 	# Karty z res://data/plays/plays.json (Edytor zagrań); talia drużyny = karty jej taktyki.
 	var library := PlayLibrary.load_default()
 	if not library.load_error.is_empty():
@@ -68,8 +71,11 @@ func _ready() -> void:
 	var stats := MatchStats.new()
 	var start := Time.get_ticks_usec()
 	for i in match_count:
-		var home := MatchTeam.create(home_lineup, home_deck, rules, MatchAI.create(home_risk))
-		var away := MatchTeam.create(away_lineup, away_deck, rules, MatchAI.create(away_risk))
+		var home := MatchTeam.create(home_lineup, home_deck, rules, MatchAI.create(home_risk) if home_risk >= 0.0 else null)
+		var away := MatchTeam.create(away_lineup, away_deck, rules, MatchAI.create(away_risk) if away_risk >= 0.0 else null)
+		if not use_perks:
+			home.participation_modifiers.clear()
+			away.participation_modifiers.clear()
 		var engine := MatchEngine.create(home, away, rules, seed_value * 100003 + i)
 		engine.stats = stats
 		engine.verbose = args.get("log", "0") == "1" and i == 0

@@ -11,10 +11,12 @@ poziomy szczegółowości symulacji, agregacja historii) oraz checklisty na koń
 
 ## Zasady meczu (prototyp)
 
-Robocze zasady zagrań taktycznych, kości i energii: [docs/design/match_rules.md](docs/design/match_rules.md).
-**W toku (od 2026-10-28): uproszczenie systemu – [docs/design/match_v2_plan.md](docs/design/match_v2_plan.md)**
-(propozycje, kroki, tabela statusu; przed pracą nad meczem sprawdź status i aktualizuj go po kroku). Stary system v1
-jest zarchiwizowany: [docs/design/archive/match_v1_cards.md](docs/design/archive/match_v1_cards.md).
+Robocze zasady meczu v2 („Drabina”: piłka w strefach 1–5, udział ×2 / ×1, tura w dwóch etapach):
+[docs/design/match_rules.md](docs/design/match_rules.md). Plan, wymagania użytkownika (W1–W18) i tabela statusu
+kroków: [docs/design/match_v2_plan.md](docs/design/match_v2_plan.md) – kroki K1–K7, B1–B6, B5a (perki trenerów) i B8 zrobione, opcjonalne
+B7; przed pracą nad meczem sprawdź status i aktualizuj go po kroku. Stary system v1 jest
+zarchiwizowany: [docs/design/archive/match_v1_cards.md](docs/design/archive/match_v1_cards.md). Balans (progi kart)
+użytkownik stroi ręcznie – Edytor zagrań pokazuje szanse, seria symulacji: `python tools/sim_batch.py`.
 Silnik: `scripts/match_sim/` (czyste dane, bez Node'ów). Symulacja AI kontra AI: `scenes/dev/match_sim.tscn`
 (instrukcja uruchomienia w dokumencie). Ekran meczu gracz kontra komputer: `scenes/match/` (te same kroki
 tury silnika co symulacja – zmiana w `MatchEngine` musi zostawić wyniki symulacji bez zmian albo świadomie je zmienić).

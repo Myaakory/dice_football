@@ -65,6 +65,11 @@ func _ready() -> void:
 		_set_lineup(GameState.player_lineup)
 	else:
 		_set_lineup(Lineup.create_default(GameState.get_player_team()))
+	# Trener i jego perki (zwięźle, opisy w podpowiedziach) – pod wyborem taktyki.
+	var tactic_row := _tactic_option.get_parent()
+	var coach_panel := CoachPanel.create(_lineup.team.coach, true)
+	tactic_row.get_parent().add_child(coach_panel)
+	tactic_row.get_parent().move_child(coach_panel, tactic_row.get_index() + 1)
 
 
 func _process(delta: float) -> void:
