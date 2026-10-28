@@ -1,0 +1,531 @@
+<title>Dice Football mecz v2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Układ: makieta prawej części ekranu meczu (boisko + panel) w zakładkach A–D, nad nimi wymagania, pod nimi opinia. */
+:root {
+  --bg: #0f1d17; --panel: #182d23; --panel2: #13251c; --border: #2d4a39;
+  --text: #e9eedf; --muted: #a9b7a4; --gold: #f2cf4a;
+  --attack: #9fe07a; --defense: #ffb070; --loss: #ff8a6e;
+  --paper: #efe6cf; --ink: #2a2219; --ink-muted: #6b5a44;
+  --atk-ink: #2f6b2a; --def-ink: #a2531a; --atk-tint: #dfe9c8; --def-tint: #f3dcc0;
+  --home: #c8372d; --away: #2f6fd6;
+  --grass1: #3f6b36; --grass2: #46753c; --line: rgba(240,245,230,.75);
+  --phys: #c8553d; --tech: #3d7cc8; --defd: #c99a1e;
+  --display: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
+  --body: "Barlow", "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+html { background: var(--bg); }
+body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 15px; line-height: 1.45;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 48px; }
+.wrap { max-width: 1240px; margin: 0 auto; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; text-wrap: balance; margin: 0; letter-spacing: .01em; }
+h1 { font-size: 34px; } h2 { font-size: 24px; } h3 { font-size: 18px; }
+p { margin: 0; max-width: 72ch; }
+.lead { color: var(--muted); }
+.eyebrow { font-family: var(--display); text-transform: uppercase; letter-spacing: .12em; font-size: 12px; color: var(--gold); }
+section { display: grid; gap: 14px; }
+.req { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.req div { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-size: 14px; }
+.req b { font-family: var(--display); color: var(--gold); margin-right: 6px; }
+
+/* Zakładki propozycji */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tab { font: 600 16px var(--display); background: var(--panel); color: var(--text); border: 1px solid var(--border);
+  border-radius: 6px; padding: 8px 14px; cursor: pointer; display: grid; text-align: left; gap: 0; }
+.tab small { font: 500 12px var(--body); color: var(--muted); }
+.tab[aria-selected="true"] { border-color: var(--gold); box-shadow: inset 0 -3px 0 var(--gold); }
+.tab:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.rec { color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+
+/* Ekran */
+.screen { display: grid; grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); gap: 18px; background: #0b1611;
+  border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+@media (max-width: 860px) { .screen { grid-template-columns: minmax(0, 1fr); } .pitchbox { max-width: 320px; margin: 0 auto; } }
+.pitchbox svg { width: 100%; height: auto; display: block; border-radius: 4px; }
+.panel { display: grid; gap: 10px; min-width: 0; align-content: start; }
+.score { display: flex; align-items: center; gap: 12px; background: var(--panel); border: 1px solid var(--border);
+  border-radius: 6px; padding: 6px 12px; font-family: var(--display); }
+.score .team { flex: 1; display: flex; align-items: center; gap: 8px; font-size: 16px; min-width: 0; }
+.score .team.r { justify-content: flex-end; }
+.score .crest { width: 10px; height: 16px; border-radius: 2px; }
+.score .who { display: block; font: 500 11px var(--body); color: var(--muted); }
+.score .num { font-size: 28px; }
+.score .min { font-size: 24px; color: var(--gold); border-left: 1px solid var(--border); padding-left: 12px; min-width: 44px; text-align: right; }
+
+.timeline { display: grid; grid-template-columns: repeat(16, minmax(0, 1fr)) 2.4fr repeat(16, minmax(0, 1fr)); gap: 3px; align-items: center; }
+.tl { aspect-ratio: 1; border-radius: 3px; border: 1px dashed rgba(233,238,223,.18); position: relative; display: grid; place-items: center; font-size: 9px; color: var(--text); }
+.tl.h { background: #6d2620; border: 0; } .tl.a { background: #23406e; border: 0; }
+.tl.cur { outline: 2px solid var(--gold); outline-offset: -2px; background: #6d2620; border: 0; }
+.tl .g { width: 46%; height: 46%; border-radius: 50%; background: var(--gold); }
+.ht { align-self: stretch; border-radius: 4px; background: linear-gradient(180deg, rgba(242,207,74,.14), rgba(242,207,74,.06));
+  border: 1px solid rgba(242,207,74,.35); display: grid; place-items: center; font: 600 11px var(--display); color: var(--gold); letter-spacing: .06em; }
+.tlmins { display: flex; justify-content: space-between; font: 500 11px var(--body); color: var(--muted); margin-top: -4px; }
+
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; align-items: start; }
+@media (max-width: 640px) { .cards { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--paper); color: var(--ink); border-radius: 7px; border: 1px solid rgba(42,34,25,.3);
+  box-shadow: 0 4px 0 rgba(0,0,0,.3); padding: 10px; display: grid; gap: 8px; cursor: pointer; transition: opacity .2s, transform .2s, border-color .15s; min-width: 0; }
+.card:hover { border-color: #fff1b8; box-shadow: 0 0 0 2px #fff1b8, 0 4px 0 rgba(0,0,0,.3); }
+.card.sel { box-shadow: 0 0 0 3px var(--gold), 0 4px 0 rgba(0,0,0,.3); border-color: var(--gold); }
+.card.dim { opacity: .35; }
+.card.done { box-shadow: 0 0 0 3px var(--gold), 0 4px 0 rgba(0,0,0,.3); cursor: default; }
+.card .head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+.card .name { font: 700 18px var(--display); line-height: 1.1; }
+.card .kind { font: 600 11px var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-muted); white-space: nowrap; }
+.card .move { font-size: 12px; color: var(--ink-muted); margin-top: -6px; }
+.card svg.dia { width: 100%; height: auto; display: block; border-radius: 5px; }
+.side { border-radius: 5px; padding: 6px 8px; display: grid; gap: 4px; }
+.side.atk { background: var(--atk-tint); } .side.def { background: var(--def-tint); }
+.side .top { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.side .lbl { font: 700 13px var(--display); text-transform: uppercase; letter-spacing: .06em; }
+.side.atk .lbl { color: var(--atk-ink); } .side.def .lbl { color: var(--def-ink); }
+.side .lbl small { font: 500 11px var(--body); text-transform: none; letter-spacing: 0; color: var(--ink-muted); margin-left: 4px; }
+.side .need { font: 700 26px/1 var(--display); }
+.side.atk .need { color: var(--atk-ink); } .side.def .need { color: var(--def-ink); }
+.side .attrs { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; font-size: 12px; }
+.die { width: 22px; height: 22px; border-radius: 4px; display: inline-grid; place-items: center; color: #fff; font: 700 11px var(--display);
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,.25); flex: none; position: relative; }
+.die.lg { width: 34px; height: 34px; font-size: 14px; }
+.die sub { position: absolute; right: 2px; bottom: 0; font-size: 9px; }
+.die.ai { filter: saturate(.35); opacity: .55; width: 22px; height: 22px; font-size: 10px; box-shadow: none; }
+.slot { width: 34px; height: 34px; border-radius: 5px; border: 2px dashed rgba(42,34,25,.35); display: inline-grid; place-items: center; font: 600 10px var(--display); color: var(--ink-muted); }
+.win { display: inline-grid; justify-items: center; gap: 1px; font-size: 10px; color: var(--ink-muted); }
+.outs { display: grid; gap: 3px; font-size: 12.5px; border-top: 1px solid rgba(42,34,25,.15); padding-top: 6px; }
+.outs div { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 4px; }
+.outs .ic { font-weight: 700; text-align: center; }
+.o-ok { color: var(--atk-ink); } .o-duel { color: #7a5b12; } .o-bad { color: #a8321f; }
+.outs b { font-weight: 600; }
+.odds { display: grid; gap: 3px; font-size: 11.5px; color: var(--ink-muted); }
+.bar { height: 6px; border-radius: 3px; background: rgba(42,34,25,.12); overflow: hidden; }
+.bar i { display: block; height: 100%; }
+.confirm { display: flex; gap: 6px; }
+.confirm button { flex: 1; font: 700 14px var(--display); border-radius: 5px; padding: 7px 4px; cursor: pointer; border: 2px solid var(--ink); background: var(--gold); color: var(--ink); }
+.confirm button.alt { background: #fff7d6; }
+.confirm button:hover { filter: brightness(1.08); }
+.hint { font-size: 11px; color: var(--ink-muted); text-align: center; }
+
+.scale { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 2px; margin-top: 2px; }
+.scale span { height: 18px; border-radius: 2px; font: 600 10px/18px var(--display); text-align: center; color: rgba(0,0,0,.65); }
+.s-bad { background: #e7a28f; } .s-keep { background: #d9d0b8; } .s-ok { background: #b9d99a; } .s-big { background: #e9c95a; }
+.scale .mk { outline: 2px solid var(--ink); outline-offset: -1px; color: #000; }
+
+.resolve { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; display: grid; gap: 10px; }
+.resolve .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+@media (max-width: 640px) { .resolve .cols { grid-template-columns: minmax(0, 1fr); } }
+.rcol { border-radius: 6px; padding: 8px 10px; display: grid; gap: 6px; }
+.rcol.atk { background: rgba(159,224,122,.1); border: 1px solid rgba(159,224,122,.45); }
+.rcol.def { background: rgba(255,176,112,.06); border: 1px dashed rgba(255,176,112,.35); }
+.rcol .t { display: flex; justify-content: space-between; align-items: baseline; font: 700 14px var(--display); text-transform: uppercase; letter-spacing: .06em; }
+.rcol.atk .t { color: var(--attack); } .rcol.def .t { color: var(--defense); }
+.rcol .t small { font: 500 12px var(--body); text-transform: none; letter-spacing: 0; color: var(--muted); }
+.rcol .row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.rcol .sum { margin-left: auto; font: 700 24px var(--display); }
+.rcol .sum small { font-size: 14px; color: var(--muted); }
+.rcol.def .die, .rcol.def .sum { opacity: .7; }
+.rslot { width: 34px; height: 34px; border-radius: 5px; border: 2px dashed rgba(233,238,223,.25); }
+.verdict { font: 700 18px var(--display); color: var(--attack); display: flex; gap: 8px; align-items: center; }
+.tug { display: grid; gap: 4px; }
+.tug .scale span { height: 26px; line-height: 26px; font-size: 12px; }
+.bar2 { display: flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--gold); border-radius: 6px; padding: 8px 12px; font-size: 14px; }
+.bar2 p { flex: 1; }
+.bar2 button { font: 600 14px var(--display); background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 5px; padding: 5px 12px; cursor: pointer; }
+.cond { display: flex; gap: 14px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+
+.about { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; }
+@media (max-width: 860px) { .about { grid-template-columns: minmax(0, 1fr); } }
+.about ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.pm { display: grid; gap: 8px; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; align-content: start; }
+.pm h3 { font-size: 15px; text-transform: uppercase; letter-spacing: .08em; }
+.plus { color: var(--attack); } .minus { color: var(--loss); }
+.cost { font-size: 13px; color: var(--muted); }
+
+.legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--muted); align-items: center; }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+
+.opinion { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.opinion article { background: var(--panel2); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; }
+.opinion h3 { font-size: 17px; color: var(--gold); }
+.opinion p { font-size: 14px; color: var(--text); }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:8px">
+    <div class="eyebrow">Dice Football · ekran meczu 1920 × 1080 · 2026-10-28</div>
+    <h1>Mecz v2: cztery propozycje prostszego systemu zagrań</h1>
+    <p class="lead">Każda zakładka to działająca makieta: kliknij kafelek zagrania raz (podgląd na boisku), drugi raz (potwierdzenie). „Gra skrzydłem” potwierdza się przyciskiem strony – najedź na przycisk, żeby zobaczyć podgląd tej strony. Po potwierdzeniu widać przykładowe rozstrzygnięcie i kości na boisku (twoje wyraźne, komputera wyblakłe). Plan kroków: <code>docs/design/match_v2_plan.md</code>.</p>
+  </header>
+
+  <section aria-labelledby="req-h">
+    <h2 id="req-h">Co zmienia się we wszystkich wariantach</h2>
+    <div class="req">
+      <div><b>K1</b>Oś meczu 2 × 16 kwadratów, pierwsza akcja 0', przerwa szersza i podświetlona.</div>
+      <div><b>K2</b>Kości komputera na boisku: mniejsze, odbarwione, przezroczyste, bez poświaty.</div>
+      <div><b>K3</b>Zagranie wybierasz tylko na kafelku: klik = podgląd, drugi klik albo ◀ / ▶ = zagraj. Boisko służy do przesunięć i kości.</div>
+      <div><b>K4</b>Trzy pionowe kafelki obok siebie: rysunek, ATAK i OBRONA osobno, lista wyników, szanse.</div>
+      <div><b>K5</b>Rozstrzygnięcie: twoja strona w pełnym kolorze, strona komputera przygaszona.</div>
+      <div><b>∑</b>Liczby całkowite: udział to liczba kości (2 / 1 / 0), wyczerpanie = jedna kość mniej. Trzy wyniki zamiast sześciu.</div>
+    </div>
+    <div class="legend">
+      <span><span class="die" style="background:var(--tech)">P<sub>2</sub></span> twoja kość: pełny kolor</span>
+      <span><span class="die ai" style="background:var(--defd)">O</span> kość komputera: wyblakła</span>
+      <span>✔ sukces · ⚔ pojedynek · ✖ odbiór</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="var-h">
+    <h2 id="var-h">Propozycje</h2>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="screen" id="screen">
+      <div class="pitchbox" id="pitch"></div>
+      <div class="panel" id="panel"></div>
+    </div>
+    <div class="about" id="about"></div>
+  </section>
+
+  <section aria-labelledby="op-h">
+    <h2 id="op-h">Złożoność a czystość rozgrywki: moje odczucia</h2>
+    <div class="opinion">
+      <article><h3>Głębia między meczami, prostota w turze</h3>
+        <p>Slay the Spire ma w turze prosty wybór (energia, 5 kart), a cała głębia siedzi w budowaniu talii między walkami. U nas to samo miejsce zajmują taktyka, skład, trening ścianek i odblokowane zagrania. Tura może być prosta, bo mecz ma 32 tury, a sezon dziesiątki meczów.</p></article>
+      <article><h3>Losowość na wejściu jest przyjemna, na wyjściu boli</h3>
+        <p>Trzy losowe zagrania to losowość „przed decyzją”: planujesz wokół niej i każda tura wygląda inaczej. Rzut kośćmi to losowość „po decyzji” – frustruje, jeśli nie da się jej złagodzić. Dlatego przerzut za energię i układanie kości warto zostawić: oba łagodzą rzut. Te dwa rodzaje losowości dobrze się uzupełniają, o ile wynik rzutu da się odczytać od razu.</p></article>
+      <article><h3>Test dwóch sekund</h3>
+        <p>Dicey Dungeons i Into the Breach są czytelne, bo po rzucie (albo przed ruchem) od razu widać skutek. Ułamki z v1 (0,6 × 2 = 1,2 pkt) psują ten efekt: gracz liczy w głowie zamiast decydować. Całkowite liczby i dwa osobne progi (ATAK 3 / OBRONA 4) przechodzą test od ręki.</p></article>
+      <article><h3>Ile decyzji na mecz</h3>
+        <p>32 tury × 4 drobne decyzje to ponad 120 kliknięć na mecz. Blood Bowl pokazuje, że łańcuch drobnych ryzyk potrafi być świetny, ale męczy nowych graczy. Propozycja: jedna decyzja główna (zagranie), dźwignie opcjonalne, a w obronie przycisk „Ułóż najlepiej” jako domyślna ścieżka.</p></article>
+      <article><h3>Lewo–prawo: kiedy to dobra decyzja</h3>
+        <p>Zmiana strony to prawdziwa taktyka w piłce, ale w grze staje się darmowym ruchem, który opłaca się zawsze. Gdy skrzydło decyduje tylko o tym, kto rzuca (twój szybki skrzydłowy kontra ich wolny boczny), wybór strony ma sens, a piłka i tak idzie w górę drabiny.</p></article>
+      <article><h3>Moja rekomendacja</h3>
+        <p><b>B „Drabina”</b>: jasny cel (strefa 5 i strzał), dwa osobne progi i wybór skrzydła mają sens, a większość silnika zostaje. Jeśli po testach układanie kości okaże się puste, dołóżmy okienka z D jako rodzaj testu. C wybrałbym, gdyby najważniejsza była szybkość czytania, kosztem decyzji przy kościach.</p></article>
+    </div>
+  </section>
+</div>
+
+<script>
+const ATTR = {
+  spd: { t: 'phys', l: 'Sz', n: 'Szybkość' }, str: { t: 'phys', l: 'Si', n: 'Siła' },
+  pas: { t: 'tech', l: 'P', n: 'Podanie' }, ctl: { t: 'tech', l: 'K', n: 'Kontrola' }, sht: { t: 'tech', l: 'St', n: 'Strzał' },
+  tck: { t: 'defd', l: 'O', n: 'Odbiór' }, prs: { t: 'defd', l: 'Pr', n: 'Pressing' }, rdg: { t: 'defd', l: 'Cz', n: 'Czytanie gry' },
+};
+const TYPE_NAME = { phys: 'fizyczna', tech: 'techniczna', defd: 'defensywna' };
+const die = (a, pts, cls = '') => `<span class="die ${cls}" style="background:var(--${ATTR[a].t})" title="${ATTR[a].n}">${ATTR[a].l}${pts ? `<sub>${pts}</sub>` : ''}</span>`;
+const typeDie = (t, cls = '') => `<span class="die ${cls}" style="background:var(--${t})" title="dowolna ${TYPE_NAME[t]}">★</span>`;
+const attrList = (attrs) => attrs.map(a => die(a)).join('') + `<span>${attrs.map(a => ATTR[a].n).join(' lub ')}</span>`;
+
+// Wyniki wspólne dla kart (tekst zależy od modelu boiska).
+const OUTS = {
+  wing: (m) => [['ok', '✔', 'Sukces', m === 'grid' ? 'piłka w polu 4L / 4P, skrzydłowy biegnie z nią' : 'piłka w strefie 4, skrzydłowy biegnie z nią'],
+    ['duel', '⚔', 'Pojedynek wygrany', 'jak sukces'], ['duel', '⚔', 'Pojedynek przegrany', 'piłka zostaje w strefie 3'],
+    ['bad', '✖', 'Odbiór', 'strata – rywal kontruje ze swojej strefy 3']],
+  through: (m) => [['ok', '✔', 'Sukces', m === 'grid' ? 'piłka w polu 5Ś – sytuacja strzelecka' : 'piłka w strefie 5 (+2) – sytuacja strzelecka'],
+    ['duel', '⚔', 'Pojedynek wygrany', 'piłka w strefie 4 (+1)'], ['duel', '⚔', 'Pojedynek przegrany', 'przechwyt – strata w strefie 4'],
+    ['bad', '✖', 'Odbiór', 'przechwyt – strata w strefie 4']],
+  combo: (m) => [['ok', '✔', 'Sukces', m === 'grid' ? 'piłka w polu 4Ś' : 'piłka w strefie 4'],
+    ['duel', '⚔', 'Pojedynek wygrany', 'jak sukces'], ['duel', '⚔', 'Pojedynek przegrany', 'piłka zostaje w strefie 3'],
+    ['bad', '✖', 'Odbiór', 'piłka zostaje, ale rywal przesuwa zawodnika']],
+};
+
+const CARDS = [
+  { id: 'wing', name: 'Gra skrzydłem', kind: 'skrzydło', side: true, adv: 1, lane: 'wing', atk: { need: 3, attrs: ['spd', 'ctl'] }, def: { need: 4, attrs: ['tck', 'spd'] }, odds: [64, 15],
+    tug: { atk: ['spd', 'ctl'], def: ['tck', 'spd'], bad: -1, ok: 2, big: 5 },
+    win: { atk: [{ a: 'spd' }, { a: 'ctl', min: 2 }, { t: 'phys' }], atkNeed: 2, def: [{ a: 'tck' }, { a: 'spd' }], defNeed: 1 } },
+  { id: 'through', name: 'Prostopadłe podanie', kind: 'podanie', side: false, adv: 2, lane: 'center', atk: { need: 4, attrs: ['pas'] }, def: { need: 3, attrs: ['rdg', 'tck'] }, odds: [37, 35],
+    tug: { atk: ['pas', 'spd'], def: ['rdg', 'tck'], bad: 0, ok: 3, big: 5 },
+    win: { atk: [{ a: 'pas', min: 2 }, { a: 'spd' }, { a: 'pas' }], atkNeed: 3, def: [{ a: 'rdg' }, { t: 'defd' }], defNeed: 1 } },
+  { id: 'combo', name: 'Klepka', kind: 'kombinacja', side: false, adv: 1, lane: 'center', atk: { need: 2, attrs: ['pas', 'ctl'] }, def: { need: 4, attrs: ['prs', 'tck'] }, odds: [78, 12],
+    tug: { atk: ['pas', 'ctl'], def: ['prs', 'tck'], bad: -2, ok: 1, big: 6 },
+    win: { atk: [{ a: 'pas' }, { a: 'ctl' }], atkNeed: 2, def: [{ a: 'prs' }, { a: 'tck', min: 2 }, { t: 'defd' }], defNeed: 2 } },
+];
+
+const PROPOSALS = {
+  A: { title: 'A · Szlif', sub: 'siatka 3 × 5 zostaje', model: 'grid', res: 'thr',
+    rules: ['Siatka 5 stref × 3 korytarze, ręka 3 kart pasujących do pola piłki – jak dziś.', 'Karta ma jeden test ataku i jeden test obrony: próg całkowity, 1–2 cechy bez wag.', 'Udział: pole docelowe 2 kości, pole sąsiednie i podający 1 kość.', 'Trzy wyniki: sukces, pojedynek (oba albo żaden – wygrywa wyższa nadwyżka), odbiór.', 'Strona skrzydła wybierana przyciskami na kafelku.'],
+    plus: ['Najmniej pracy: geometria i AI prawie bez zmian.', 'Zostaje cała taktyczna mapa 15 pól.'],
+    minus: ['Nie rozwiązuje przerzucania piłki lewo–prawo.', 'Gracz dalej musi rozumieć 15 pól i sąsiedztwa.'],
+    cost: 'Kroki K1–K5 + A1–A5 (ok. 10 sesji).' },
+  B: { title: 'B · Drabina', sub: 'piłka ma tylko wysokość', rec: true, model: 'ladder', res: 'thr',
+    rules: ['Piłka leży w strefie 1–5; korytarz nie jest już pozycją piłki.', 'Co turę 3 losowe zagrania z talii taktyki dla bieżącej strefy.', 'Kanał wykonawców: środek, skrzydło (◀ L / P ▶) albo szeroko – decyduje, kto rzuca.', 'Dwa progi: „Atak potrzebuje X”, „Obrona potrzebuje Y”, trzy wyniki.', 'Sukces = +1 strefa (niektóre zagrania +2). W strefach 4–5 zagrania strzałowe. Strata = kontra z lustrzanej strefy.'],
+    plus: ['Jasny cel: pasek 1 → 5 i strzał.', 'Wybór skrzydła ma sens (kto rzuca), a nie ma ping-ponga.', 'Testy, układanie kości i szanse AI zostają.'],
+    minus: ['Nowa talia zagrań i uproszczony edytor.', 'Mniej „mapowej” taktyki niż w v1.'],
+    cost: 'Kroki K1–K5 + B1–B8 (ok. 12 sesji).' },
+  C: { title: 'C · Przeciąganie liny', sub: 'jedna skala różnicy', model: 'ladder', res: 'tug',
+    rules: ['Strefy i losowe zagrania jak w B.', 'Obie strony sumują punkty kości pasujących do cech zagrania (do 3 kości).', 'Wynik = atak − obrona na jednej skali; karta ma progi: strata, piłka zostaje, awans, duży sukces.', 'Przerzut za energię przesuwa znacznik na skali.'],
+    plus: ['Najczytelniejszy wynik: jeden suwak, widać go w sekundę.', 'Najprostsze AI (rozkład różnicy).'],
+    minus: ['Układanie kości prawie znika – liczą się 3 najlepsze.', 'Mniej osobnych „punktów obrony” – obrona to tylko odjemnik.'],
+    cost: 'Kroki K1–K5 + C1–C6 (ok. 11 sesji).' },
+  D: { title: 'D · Okienka', sub: 'kości w konkretnych miejscach', model: 'ladder', res: 'win',
+    rules: ['Strefy i losowe zagrania jak w B.', 'Zagranie ma 2–3 okienka ataku i 1–3 okienka obrony; okienko = cecha (albo dowolna kość typu) i minimum punktów.', 'Próg to liczba zapełnionych okienek: „Atak: 2 z 3”, „Obrona: 1 z 2”.', 'Pojedynek rozstrzyga suma punktów w okienkach.'],
+    plus: ['Najbardziej namacalne: wkładanie kości to serce tury.', 'Małe, całkowite liczby; świetne pod rozwój ścianek.'],
+    minus: ['Najwięcej decyzji w każdej z 32 tur.', 'AI musi rozwiązywać przydział (wystarczy pełne przeszukanie).'],
+    cost: 'Kroki K1–K5 + D1–D6 (ok. 12 sesji).' },
+};
+
+let current = 'B';
+let st = { sel: null, done: null, side: null, hover: null };
+
+// --- Boisko (strefa 5 u góry, gospodarze atakują w górę) ---
+const ZH = 96, TOP = 14, W = 300, H = TOP * 2 + ZH * 5;
+const zy = (z) => TOP + (5 - z) * ZH;
+const OWN = [[150, 494, 'GK'], [40, 452, 'LB'], [112, 458, 'CB'], [188, 458, 'CB'], [260, 452, 'RB'], [40, 250, 'LM'], [112, 262, 'CM'], [188, 262, 'CM'], [260, 250, 'RM'], [112, 156, 'ST'], [188, 156, 'ST']];
+const OPP = [[150, 30, 'GK'], [40, 70, 'RB'], [112, 64, 'CB'], [188, 64, 'CB'], [260, 70, 'LB'], [75, 214, 'CM'], [150, 226, 'CM'], [225, 214, 'CM'], [40, 352, 'LW'], [150, 364, 'ST'], [260, 352, 'RW']];
+const BALL = [150, 286];
+
+function targetOf(card, side, model) {
+  const z = 3 + card.adv;
+  const lane = card.lane === 'wing' ? (side === 'R' ? 2 : 0) : 1;
+  return { z, lane, x: lane * 100 + 50, y: zy(z) + ZH / 2 };
+}
+
+function pitchSVG() {
+  const p = PROPOSALS[current];
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Boisko z podglądem zagrania"><defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="0" stdDeviation="2.2" flood-color="#ff6a55" flood-opacity=".9"/></filter>
+    <marker id="ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f2cf4a"/></marker></defs>`;
+  for (let i = 0; i < 10; i++) s += `<rect x="0" y="${TOP + i * ZH / 2}" width="${W}" height="${ZH / 2}" fill="var(--${i % 2 ? 'grass1' : 'grass2'})"/>`;
+  s += `<rect x="0" y="0" width="${W}" height="${TOP}" fill="var(--grass1)"/><rect x="0" y="${H - TOP}" width="${W}" height="${TOP}" fill="var(--grass1)"/>`;
+  const ln = 'stroke="var(--line)" stroke-width="1.5" fill="none"';
+  s += `<rect x="4" y="${TOP}" width="${W - 8}" height="${ZH * 5}" ${ln}/><line x1="4" y1="${H / 2}" x2="${W - 4}" y2="${H / 2}" ${ln}/><circle cx="150" cy="${H / 2}" r="34" ${ln}/>`;
+  s += `<rect x="80" y="${TOP}" width="140" height="62" ${ln}/><rect x="80" y="${H - TOP - 62}" width="140" height="62" ${ln}/>`;
+  for (let z = 1; z <= 5; z++) s += `<text x="${W - 8}" y="${zy(z) + 14}" text-anchor="end" font-size="11" font-family="Barlow Semi Condensed" fill="rgba(240,245,230,.55)">${z}</text>`;
+  if (p.model === 'grid') for (let c = 1; c < 3; c++) s += `<line x1="${c * 100}" y1="${TOP}" x2="${c * 100}" y2="${H - TOP}" stroke="rgba(240,245,230,.2)" stroke-dasharray="4 4"/>`;
+  for (let z = 1; z < 5; z++) s += `<line x1="4" y1="${zy(z)}" x2="${W - 4}" y2="${zy(z)}" stroke="rgba(240,245,230,.18)" stroke-dasharray="4 4"/>`;
+
+  const card = CARDS.find(c => c.id === (st.done || st.sel));
+  const side = st.hover || st.side;
+  let tgt = null;
+  if (card && (!card.side || side)) {
+    tgt = targetOf(card, side, p.model);
+    if (p.model === 'grid') {
+      for (const [dz, dl] of [[0, -1], [0, 1], [-1, 0], [1, 0]]) {
+        const z = tgt.z + dz, l = tgt.lane + dl;
+        if (z < 1 || z > 5 || l < 0 || l > 2) continue;
+        s += `<rect x="${l * 100 + 1}" y="${zy(z) + 1}" width="98" height="${ZH - 2}" fill="rgba(242,207,74,.12)"/>`;
+      }
+      s += `<rect x="${tgt.lane * 100 + 2}" y="${zy(tgt.z) + 2}" width="96" height="${ZH - 4}" fill="rgba(242,207,74,.25)" stroke="#f2cf4a" stroke-width="2"/>`;
+    } else {
+      const x0 = card.lane === 'wing' ? tgt.lane * 100 : 70, w = card.lane === 'wing' ? 100 : 160;
+      s += `<rect x="${x0 + 1}" y="${zy(tgt.z) + 1}" width="${w - 2}" height="${(tgt.z - 3) * ZH + ZH - 2}" fill="rgba(242,207,74,.14)"/>`;
+      s += `<rect x="4" y="${zy(tgt.z) + 2}" width="${W - 8}" height="${ZH - 4}" fill="none" stroke="#f2cf4a" stroke-width="2" stroke-dasharray="6 4"/>`;
+    }
+    const mx = (BALL[0] + tgt.x) / 2 + (tgt.x === BALL[0] ? 0 : 0), my = (BALL[1] + tgt.y) / 2;
+    const cx = tgt.x === BALL[0] ? BALL[0] + 26 : mx + (tgt.x < BALL[0] ? -20 : 20);
+    s += `<path d="M${BALL[0]},${BALL[1]} Q${cx},${my - 10} ${tgt.x},${tgt.y}" stroke="#f2cf4a" stroke-width="3" fill="none" stroke-dasharray="7 5" marker-end="url(#ar)"/>`;
+  } else if (card && card.side) {
+    for (const l of [0, 2]) s += `<rect x="${l * 100 + 2}" y="${zy(4) + 2}" width="96" height="${ZH * 2 - 4}" fill="rgba(242,207,74,.08)" stroke="rgba(242,207,74,.6)" stroke-dasharray="5 4"/>`;
+    s += `<text x="150" y="${zy(4) + 52}" text-anchor="middle" font-size="12" font-family="Barlow" fill="#f2cf4a">◀ które skrzydło? ▶</text>`;
+  }
+
+  const player = (x, y, own, role) => {
+    const fill = own ? 'var(--home)' : 'var(--away)';
+    return `<g opacity="${own ? 1 : .9}"><circle cx="${x}" cy="${y}" r="9" fill="${fill}" stroke="rgba(0,0,0,.45)"/><text x="${x}" y="${y + 3.5}" text-anchor="middle" font-size="8" font-weight="700" font-family="Barlow Semi Condensed" fill="#fff">${role}</text></g>`;
+  };
+  OPP.forEach(([x, y, r]) => s += player(x, y, false, r));
+  OWN.forEach(([x, y, r]) => s += player(x, y, true, r));
+  s += `<circle cx="${BALL[0]}" cy="${BALL[1]}" r="4.5" fill="#fff" stroke="#000" stroke-width=".8"/>`;
+
+  // Kości po potwierdzeniu: twoje duże i wyraźne, komputera małe i wyblakłe.
+  if (st.done && tgt) {
+    const col = { phys: '#c8553d', tech: '#3d7cc8', defd: '#c99a1e' };
+    const ai = { phys: '#9a7c74', tech: '#74869a', defd: '#9a9070' };
+    const near = (x, y) => Math.hypot(x - tgt.x, y - tgt.y);
+    const ownTypes = ['tech', 'phys'], oppTypes = ['defd', 'phys'];
+    OWN.forEach(([x, y]) => {
+      const d = near(x, y); const n = d < 120 ? 2 : d < 175 ? 1 : 0;
+      for (let i = 0; i < n; i++) s += `<rect x="${x - 15 + i * 16}" y="${y + 11}" width="14" height="14" rx="2.5" fill="${col[ownTypes[i]]}" stroke="#fff" stroke-width="1" filter="url(#glow)"/><text x="${x - 8 + i * 16}" y="${y + 21.5}" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" font-family="Barlow Semi Condensed">${i ? '1' : '2'}</text>`;
+    });
+    OPP.forEach(([x, y]) => {
+      const d = near(x, y); const n = d < 120 ? 2 : d < 175 ? 1 : 0;
+      for (let i = 0; i < n; i++) s += `<rect x="${x - 9 + i * 9}" y="${y + 11}" width="8" height="8" rx="1.5" fill="${ai[oppTypes[i]]}" opacity=".55"/>`;
+    });
+  }
+  return s + '</svg>';
+}
+
+// --- Rysunek na kafelku: wycinek boiska (strefy 3–5) albo drabina ---
+function diagram(card, p) {
+  const w = 220, h = 112, zh = 34, top = 4;
+  const side = (st.sel === card.id || st.done === card.id) ? (st.hover || st.side) : null;
+  let s = `<svg class="dia" viewBox="0 0 ${w} ${h}" aria-hidden="true">`;
+  const ladder = p.model === 'ladder';
+  const px = ladder ? 30 : 0, pw = w - px;
+  for (let i = 0; i < 6; i++) s += `<rect x="${px}" y="${top + i * zh / 2}" width="${pw}" height="${zh / 2}" fill="${i % 2 ? '#3f6b36' : '#46753c'}"/>`;
+  s += `<rect x="${px}" y="0" width="${pw}" height="${top}" fill="#46753c"/><rect x="${px}" y="${top + zh * 3}" width="${pw}" height="${h - top - zh * 3}" fill="#3f6b36"/>`;
+  s += `<rect x="${px + 3}" y="${top}" width="${pw - 6}" height="${h}" fill="none" stroke="rgba(240,245,230,.7)" stroke-width="1.2"/>`;
+  s += `<rect x="${px + pw / 2 - 40}" y="${top}" width="80" height="22" fill="none" stroke="rgba(240,245,230,.7)" stroke-width="1.2"/>`;
+  s += `<rect x="${px + pw / 2 - 14}" y="0" width="28" height="${top}" fill="#f4f4f0"/>`;
+  const zY = (z) => top + (5 - z) * zh;
+  for (let z = 4; z >= 3; z--) s += `<line x1="${px + 3}" y1="${zY(z) - 0}" x2="${w - 3}" y2="${zY(z)}" stroke="rgba(240,245,230,.22)" stroke-dasharray="3 3"/>`;
+  if (!ladder) for (let c = 1; c < 3; c++) s += `<line x1="${px + c * pw / 3}" y1="${top}" x2="${px + c * pw / 3}" y2="${h}" stroke="rgba(240,245,230,.22)" stroke-dasharray="3 3"/>`;
+  if (ladder) {
+    for (let z = 1; z <= 5; z++) {
+      const y = h - 6 - (z - 1) * 20, on = z <= 3, tg = z === 3 + card.adv;
+      s += `<rect x="4" y="${y - 15}" width="20" height="16" rx="3" fill="${tg ? '#f2cf4a' : on ? '#6b8f5c' : '#d9d0b8'}" stroke="${z === 3 ? '#2a2219' : 'none'}" stroke-width="1.5"/>`;
+      s += `<text x="14" y="${y - 3}" text-anchor="middle" font-size="10" font-weight="700" font-family="Barlow Semi Condensed" fill="${on || tg ? '#1d1a14' : '#6b5a44'}">${z}</text>`;
+    }
+  }
+  const lane = card.lane === 'wing' ? (side === 'R' ? 2 : side === 'L' ? 0 : null) : 1;
+  const tz = 3 + card.adv;
+  const bx = px + pw / 2, by = zY(3) + zh / 2 + 4;
+  const laneX = (l) => px + (l + 0.5) * pw / 3;
+  // Rywale (wyblakli) i swoi zawodnicy biorący udział.
+  const opp = [[px + pw * .2, zY(5) + 22], [px + pw * .5, zY(5) + 18], [px + pw * .8, zY(5) + 22], [px + pw * .35, zY(3) + 10], [px + pw * .65, zY(3) + 10]];
+  opp.forEach(([x, y]) => s += `<circle cx="${x}" cy="${y}" r="5" fill="#2f6fd6" opacity=".45"/>`);
+  const own = [[px + pw * .2, zY(3) + 22], [px + pw * .8, zY(3) + 22], [px + pw * .38, zY(4) + 20], [px + pw * .62, zY(4) + 20]];
+  own.forEach(([x, y]) => s += `<circle cx="${x}" cy="${y}" r="5.5" fill="#c8372d" stroke="#fff" stroke-width="1"/>`);
+  const drawArrow = (l, op) => {
+    const tx = laneX(l), ty = zY(tz) + zh / 2;
+    const fill = ladder ? `<rect x="${card.lane === 'wing' ? px + l * pw / 3 : px + pw / 3}" y="${zY(tz)}" width="${pw / 3}" height="${zh}" fill="rgba(242,207,74,${.35 * op})"/>`
+      : `<rect x="${px + l * pw / 3}" y="${zY(tz)}" width="${pw / 3}" height="${zh}" fill="rgba(242,207,74,${.4 * op})" stroke="rgba(242,207,74,${op})" stroke-width="1.5"/>`;
+    return fill + `<path d="M${bx},${by} Q${(bx + tx) / 2 + (tx === bx ? 18 : 0)},${(by + ty) / 2 - 6} ${tx},${ty}" stroke="rgba(242,207,74,${op})" stroke-width="2.5" fill="none" stroke-dasharray="5 4"/><circle cx="${tx}" cy="${ty}" r="3.5" fill="rgba(242,207,74,${op})"/>`;
+  };
+  if (lane !== null) s += drawArrow(lane, 1);
+  else { s += drawArrow(0, .45) + drawArrow(2, .45); }
+  s += `<circle cx="${bx}" cy="${by}" r="4" fill="#fff" stroke="#000" stroke-width=".8"/>`;
+  return s + '</svg>';
+}
+
+function sideBlock(cls, label, who, need, attrs) {
+  return `<div class="side ${cls}"><div class="top"><span class="lbl">${label}<small>${who}</small></span><span class="need">${need}</span></div><div class="attrs">${attrs}</div></div>`;
+}
+
+function windowsHTML(list) {
+  return list.map(w => `<span class="win"><span class="slot">${w.a ? die(w.a) : typeDie(w.t)}</span>${w.min ? '≥ ' + w.min : 'dowolna'}</span>`).join('');
+}
+
+function cardHTML(card) {
+  const p = PROPOSALS[current];
+  const sel = st.sel === card.id, done = st.done === card.id;
+  const cls = done ? 'done' : sel ? 'sel' : (st.done || (st.sel && !sel) ? (st.done ? 'dim' : '') : '');
+  const move = card.side ? `Do strefy ${3 + card.adv}, skrzydło do wyboru` : `Do strefy ${3 + card.adv}, środkiem`;
+  let mid = '';
+  if (p.res === 'thr') {
+    mid = sideBlock('atk', 'Atak', '· ty', card.atk.need, attrList(card.atk.attrs)) + sideBlock('def', 'Obrona', '· komputer', card.def.need, attrList(card.def.attrs));
+  } else if (p.res === 'tug') {
+    const t = card.tug;
+    mid = sideBlock('atk', 'Atak liczy', '· ty', '+', attrList(t.atk)) + sideBlock('def', 'Obrona liczy', '· komputer', '−', attrList(t.def));
+    mid += `<div><div class="scale">${scaleCells(t, null)}</div><div class="hint" style="text-align:left;margin-top:2px">atak − obrona: ≤ ${t.bad} strata · ≥ ${t.ok} awans · ≥ ${t.big} ${card.adv > 1 ? 'gol-sytuacja' : '+2 strefy'}</div></div>`;
+  } else {
+    const w = card.win;
+    mid = sideBlock('atk', 'Atak', '· ty', `${w.atkNeed}<small style="font-size:14px"> z ${w.atk.length}</small>`, windowsHTML(w.atk))
+      + sideBlock('def', 'Obrona', '· komputer', `${w.defNeed}<small style="font-size:14px"> z ${w.def.length}</small>`, windowsHTML(w.def));
+  }
+  const outs = OUTS[card.id](p.model).map(([k, ic, t, d]) => `<div class="o-${k}"><span class="ic">${ic}</span><span><b>${t}:</b> <span style="color:var(--ink)">${d}</span></span></div>`).join('');
+  const odds = `<div class="odds"><span>Szansa zapełnienia: ty ${card.odds[0]}%, obrona ${card.odds[1]}%</span><div class="bar"><i style="width:${card.odds[0]}%;background:#5c9a45"></i></div></div>`;
+  let confirm = '';
+  if (sel && !done) {
+    confirm = card.side
+      ? `<div class="confirm"><button data-side="L" class="alt">◀ Lewym</button><button data-side="R" class="alt">Prawym ▶</button></div><div class="hint">Najedź, żeby zobaczyć stronę na boisku</div>`
+      : `<div class="confirm"><button data-play="1">Zagraj ✓</button></div><div class="hint">albo kliknij kafelek jeszcze raz</div>`;
+  }
+  return `<div class="card ${cls}" data-card="${card.id}" tabindex="0" role="button" aria-pressed="${sel || done}">
+    <div class="head"><span class="name">${card.name}</span><span class="kind">${card.kind}</span></div>
+    <div class="move">${move}${card.adv > 1 ? ' (+2)' : ''}</div>
+    ${diagram(card, p)}${mid}<div class="outs">${outs}</div>${odds}${confirm}</div>`;
+}
+
+function scaleCells(t, mark) {
+  let s = '';
+  for (let v = -6; v <= 6; v++) {
+    const c = v <= t.bad ? 's-bad' : v >= t.big ? 's-big' : v >= t.ok ? 's-ok' : 's-keep';
+    s += `<span class="${c} ${v === mark ? 'mk' : ''}">${v > 0 ? '+' + v : v}</span>`;
+  }
+  return s;
+}
+
+function resolveHTML() {
+  const p = PROPOSALS[current];
+  const card = CARDS.find(c => c.id === st.done);
+  if (!card) return '';
+  let body = '';
+  if (p.res === 'thr') {
+    const a = card.atk.attrs, d = card.def.attrs;
+    body = `<div class="cols">
+      <div class="rcol atk"><div class="t">Atak <small>ty · potrzebujesz ${card.atk.need}</small></div><div class="row">${die(a[0], 2, 'lg')}${die(a[a.length - 1], 1, 'lg')}${die(a[0], 1, 'lg')}<span class="sum">4<small> / ${card.atk.need} ✔</small></span></div></div>
+      <div class="rcol def"><div class="t">Obrona <small>komputer · potrzebuje ${card.def.need}</small></div><div class="row">${die(d[0], 2, 'lg')}${die(d[d.length - 1], 1, 'lg')}<span class="rslot"></span><span class="sum">3<small> / ${card.def.need} ✖</small></span></div></div></div>
+      <div class="verdict">✔ Sukces: ${OUTS[card.id](p.model)[0][3]}</div>`;
+  } else if (p.res === 'tug') {
+    const t = card.tug;
+    body = `<div class="cols">
+      <div class="rcol atk"><div class="t">Atak <small>ty</small></div><div class="row">${die(t.atk[0], 2, 'lg')}${die(t.atk[1], 2, 'lg')}${die(t.atk[0], 1, 'lg')}<span class="sum">5</span></div></div>
+      <div class="rcol def"><div class="t">Obrona <small>komputer</small></div><div class="row">${die(t.def[0], 1, 'lg')}${die(t.def[1], 1, 'lg')}<span class="sum">2</span></div></div></div>
+      <div class="tug"><div class="scale">${scaleCells(t, 3)}</div></div>
+      <div class="verdict">✔ +3: ${3 >= t.big ? 'duży sukces' : 'awans'} – ${OUTS[card.id](p.model)[0][3]}</div>`;
+  } else {
+    const w = card.win;
+    const fill = (list, n, cls) => list.map((x, i) => i < n ? (x.a ? die(x.a, x.min || 1, 'lg ' + cls) : `<span class="die lg ${cls}" style="background:var(--${x.t})">★<sub>1</sub></span>`) : '<span class="rslot"></span>').join('');
+    body = `<div class="cols">
+      <div class="rcol atk"><div class="t">Atak <small>ty · zapełnij ${w.atkNeed} z ${w.atk.length}</small></div><div class="row">${fill(w.atk, w.atkNeed, '')}<span class="sum">${w.atkNeed}<small> / ${w.atkNeed} ✔</small></span></div></div>
+      <div class="rcol def"><div class="t">Obrona <small>komputer · zapełnij ${w.defNeed} z ${w.def.length}</small></div><div class="row">${fill(w.def, w.defNeed - 1, '')}<span class="sum">${w.defNeed - 1}<small> / ${w.defNeed} ✖</small></span></div></div></div>
+      <div class="verdict">✔ Sukces: ${OUTS[card.id](p.model)[0][3]}</div>`;
+  }
+  return `<div class="resolve">${body}</div>`;
+}
+
+function timelineHTML() {
+  const done = [['h', ''], ['h', ''], ['a', ''], ['a', ''], ['h', 'g']];
+  let s = '';
+  for (let i = 0; i < 32; i++) {
+    if (i === 16) s += '<div class="ht" title="Przerwa">PRZERWA</div>';
+    if (i < done.length) s += `<div class="tl ${done[i][0]}">${done[i][1] ? '<i class="g"></i>' : ''}</div>`;
+    else if (i === done.length) s += '<div class="tl cur"></div>';
+    else s += '<div class="tl"></div>';
+  }
+  return `<div><div class="timeline">${s}</div></div><div class="tlmins"><span>0'</span><span>45'</span><span>87'</span></div>`;
+}
+
+function prompt() {
+  const card = CARDS.find(c => c.id === st.sel);
+  if (st.done) return ['Kości rzucone. Przeciągnij kość z boiska do miejsca w zagraniu albo przerzuć (1 energii).', 'Od nowa'];
+  if (card && card.side) return ['Wybierz skrzydło przyciskiem na kafelku.', 'Anuluj'];
+  if (card) return [`„${card.name}” – kliknij kafelek jeszcze raz albo „Zagraj”, żeby potwierdzić.`, 'Anuluj'];
+  return ['Twoja piłka w strefie 3. Kliknij zagranie, żeby zobaczyć je na boisku.', null];
+}
+
+function render() {
+  const p = PROPOSALS[current];
+  document.getElementById('tabs').innerHTML = Object.entries(PROPOSALS).map(([k, v]) =>
+    `<button class="tab" role="tab" aria-selected="${k === current}" data-tab="${k}">${v.rec ? '<span class="rec">rekomendacja</span>' : ''}${v.title}<small>${v.sub}</small></button>`).join('');
+  document.getElementById('pitch').innerHTML = pitchSVG();
+  const [txt, btn] = prompt();
+  document.getElementById('panel').innerHTML = `
+    <div class="score"><span class="team"><span class="crest" style="background:var(--home)"></span><span>Redwood Rovers<span class="who">Ty</span></span></span><span class="num">1 : 0</span>
+    <span class="team r"><span style="text-align:right">Bluecastle United<span class="who">Komputer</span></span><span class="crest" style="background:var(--away)"></span></span><span class="min">15'</span></div>
+    ${timelineHTML()}
+    <div class="cards">${CARDS.map(cardHTML).join('')}</div>
+    ${resolveHTML()}
+    <div class="bar2"><p>${txt}</p>${btn ? `<button data-reset="1">${btn}</button>` : ''}</div>
+    <div class="cond"><span>Murawa: dobra</span><span>Pogoda: pochmurno, 14°C</span><span>Kibice: 12 400 / 18 000</span></div>`;
+  document.getElementById('about').innerHTML = `
+    <div class="pm"><h3>Zasady ${p.title}</h3><ul>${p.rules.map(r => `<li>${r}</li>`).join('')}</ul></div>
+    <div class="pm"><h3 class="plus">Plusy</h3><ul>${p.plus.map(r => `<li>${r}</li>`).join('')}</ul>
+      <h3 class="minus">Minusy</h3><ul>${p.minus.map(r => `<li>${r}</li>`).join('')}</ul><p class="cost">${p.cost}</p></div>`;
+}
+
+document.addEventListener('click', (e) => {
+  const tab = e.target.closest('[data-tab]');
+  if (tab) { current = tab.dataset.tab; st = { sel: null, done: null, side: null, hover: null }; render(); return; }
+  if (e.target.closest('[data-reset]')) { st = { sel: null, done: null, side: null, hover: null }; render(); return; }
+  const sideBtn = e.target.closest('[data-side]');
+  if (sideBtn) { st.side = sideBtn.dataset.side; st.hover = null; st.done = st.sel; render(); return; }
+  if (e.target.closest('[data-play]')) { st.done = st.sel; render(); return; }
+  const cardEl = e.target.closest('[data-card]');
+  if (!cardEl || st.done) return;
+  const id = cardEl.dataset.card, card = CARDS.find(c => c.id === id);
+  if (st.sel === id) { if (!card.side) { st.done = id; render(); } return; }
+  st.sel = id; st.side = null; st.hover = null; render();
+});
+document.addEventListener('keydown', (e) => {
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('[data-card]')) { e.preventDefault(); e.target.click(); }
+});
+document.addEventListener('mouseover', (e) => {
+  const b = e.target.closest('[data-side]');
+  const v = b ? b.dataset.side : null;
+  if (v !== st.hover && st.sel && !st.done) { st.hover = v; document.getElementById('pitch').innerHTML = pitchSVG();
+    const el = document.querySelector(`[data-card="${st.sel}"] svg.dia`); if (el) el.outerHTML = diagram(CARDS.find(c => c.id === st.sel), PROPOSALS[current]); }
+});
+render();
+</script>

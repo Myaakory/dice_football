@@ -1,0 +1,15 @@
+{
+	"spreadsheet_id": "1ACS3tlTd86VN5o9k3_IYCcFrY8MbXvVB3SmZ97dtm-M",
+	"output_dir": "../data",
+	"tabs": {
+		"teams": 101,
+		"players": 102,
+		"player_dice": 103,
+		"tactics": 104,
+		"tactic_slots": 105,
+		"roles": 106,
+		"positions": 107,
+		"die_types": 108,
+		"attributes": 109
+	}
+}

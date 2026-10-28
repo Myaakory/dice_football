@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Redwood Rovers (1-4-4-2) vs Bluecastle United (1-4-3-3), overrides: {  }
+=== Symulacja: 200 meczów, RRV vs BCU ===
+Czas: 247.92 ms / mecz
+Gole / mecz: 2.12 (RRV 0.83, BCU 1.28)
+Strzały / mecz: RRV 3.38, BCU 4.10 | skuteczność 28%
+Wyniki: RRV 44, remisy 68, BCU 88
+Posiadanie (tury): RRV 52%, BCU 48%
+Rozkład goli w meczu: 0:16% 1:25% 2:24% 3:19% 4:9% 5:4% 6:3% 7:1% 8:1%
+Pole akcji (strefa celu z perspektywy atakującego): 1:0% 2:7% 3:19% 4:34% 5:40% | korytarz L 17% C 59% R 24%
+Efekty wyników / mecz: advance 16.5, goal 2.1, keep 5.7, turnover 5.9, goalkeeper_save 1.8
+Energia: wydana 6.1 / zawodnika / mecz, wyczerpani na koniec 52% | przerzuty 52.5 / mecz, przesunięcia 40.5 / mecz
+
+Karty (%% z zagrań; P = przewidziana szansa AI, 1. = po pierwszym rzucie, kon. = po przerzutach):
+karta           zagr/m | atak P/1./kon.  | obr. P/1./kon.  |  SUK  OBA  ODB  NIC |  post  gol trzy strata
+wing_play         5.26 |  64  75  83     |  28  48  58     |   34   49    9    8 |    62    0   26    12
+tiki_taka         3.90 |  69  82  92     |   9  30  40     |   55   37    3    5 |    84    0   12     4
+long_clearance    3.36 |  67  85  90     |  32  49  60     |   37   53    7    3 |    65    0    2    32
+shot              3.17 |  24  34  52     |   4  17  27     |   35   16   11   38 |     0   28   32    40
+long_ball         2.65 |  34  24  43     |  25  43  58     |   19   25   34   23 |    39    0   23    38
+cross             2.62 |  28  33  60     |  15  33  50     |   31   29   20   19 |     0   23   18    59
+fullback_outlet   2.40 |  63  70  84     |  25  35  52     |   40   44    8    8 |    66    0   23    11
+long_shot         1.70 |  26  44  66     |   1  10  20     |   53   13    7   27 |     0   37   19    44
+recycle_switch    1.63 |  89  93  97     |  20  35  49     |   49   48    1    2 |    84    0   15     1
+cutback           1.47 |  63  77  93     |  13  19  35     |   61   32    3    4 |    86    0   10     4
+long_switch       1.36 |  54  61  79     |  19  32  47     |   42   38   10   11 |    67    0    6    27
+dribble           1.22 |  55  61  77     |  32  46  64     |   29   49   15    8 |    64    0    4    32
+short_pass_out    1.07 |  79  85  93     |  29  47  60     |   38   55    5    2 |    70    0   24     6
+through_ball      0.20 |  33  43  58     |  38  45  63     |   25   33   30   13 |    48    0   13    40
+
+Wkład ról (liczone punkty z kości trafiające w wymagania, średnio na występ w meczu; odc. = rzucone, ale poza limitem kości):
+rola    atak obrona  razem  odc.at  odc.ob występy
+GK       1.3    9.3   10.6     0.0     0.4    400
+LB       0.5    4.8    5.3     0.0     1.6    400
+CB       1.0    8.7    9.8     0.1     1.3    800
+RB       0.5    4.7    5.1     0.0     1.9    400
+LM       3.7    2.1    5.8     0.2     0.7    200
+CM       4.1    3.4    7.4     0.2     0.6   1000
+RM       3.8    1.8    5.6     0.4     1.0    200
+ST       9.0    0.1    9.2     0.5     0.0    600
+LW       6.6    1.2    7.8     0.8     0.0    200
+RW       6.9    0.7    7.6     0.9     0.0    200

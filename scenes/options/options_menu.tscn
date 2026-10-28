@@ -1,0 +1,177 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/options/options_menu.gd" id="1_script"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Center/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS_TITLE"
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="Center/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 14
+columns = 2
+
+[node name="LanguageLabel" type="Label" parent="Center/Panel/Margin/VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPTIONS_LANGUAGE"
+
+[node name="LanguageOption" type="OptionButton" parent="Center/Panel/Margin/VBox/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="Center/Panel/Margin/VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPTIONS_FULLSCREEN"
+
+[node name="FullscreenCheck" type="CheckButton" parent="Center/Panel/Margin/VBox/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VolumeLabel" type="Label" parent="Center/Panel/Margin/VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPTIONS_MASTER_VOLUME"
+
+[node name="VolumeSlider" type="HSlider" parent="Center/Panel/Margin/VBox/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="TooltipStyleLabel" type="Label" parent="Center/Panel/Margin/VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPTIONS_TOOLTIP_STYLE"
+
+[node name="TooltipStyleOption" type="OptionButton" parent="Center/Panel/Margin/VBox/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+auto_translate_mode = 2
+
+[node name="ZoneStyleLabel" type="Label" parent="Center/Panel/Margin/VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPTIONS_ZONE_STYLE"
+
+[node name="ZoneStyleOption" type="OptionButton" parent="Center/Panel/Margin/VBox/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+auto_translate_mode = 2
+
+[node name="PitchDimLabel" type="Label" parent="Center/Panel/Margin/VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPTIONS_PITCH_DIM"
+
+[node name="PitchDimSlider" type="HSlider" parent="Center/Panel/Margin/VBox/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 0.8
+step = 0.05
+
+[node name="DiceGlowLabel" type="Label" parent="Center/Panel/Margin/VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPTIONS_DICE_GLOW"
+
+[node name="DiceGlowSlider" type="HSlider" parent="Center/Panel/Margin/VBox/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="DotStyleLabel" type="Label" parent="Center/Panel/Margin/VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "OPTIONS_POSITION_DOTS"
+
+[node name="DotStyleOption" type="OptionButton" parent="Center/Panel/Margin/VBox/Grid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+auto_translate_mode = 2
+
+[node name="PreviewRow" type="HBoxContainer" parent="Center/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TooltipPreview" type="PanelContainer" parent="Center/Panel/Margin/VBox/PreviewRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TooltipPreviewLabel" type="Label" parent="Center/Panel/Margin/VBox/PreviewRow/TooltipPreview"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "OPTIONS_TOOLTIP_PREVIEW"
+
+[node name="ZonePreview" type="Control" parent="Center/Panel/Margin/VBox/PreviewRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 82)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Center/Panel/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "COMMON_BACK"

@@ -1,0 +1,10 @@
+id,die_type,name_key,short_key
+strength,physical,ATTR_STRENGTH,ATTR_STRENGTH_SHORT
+speed,physical,ATTR_SPEED,ATTR_SPEED_SHORT
+jump,physical,ATTR_JUMP,ATTR_JUMP_SHORT
+pass,technical,ATTR_PASS,ATTR_PASS_SHORT
+shot,technical,ATTR_SHOT,ATTR_SHOT_SHORT
+control,technical,ATTR_CONTROL,ATTR_CONTROL_SHORT
+tackle,defensive,ATTR_TACKLE,ATTR_TACKLE_SHORT
+pressing,defensive,ATTR_PRESSING,ATTR_PRESSING_SHORT
+reading,defensive,ATTR_READING,ATTR_READING_SHORT

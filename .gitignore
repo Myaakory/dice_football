@@ -1,0 +1,20 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Eksporty buildów
+/build/
+/export/
+*.pck
+*.exe
+
+# Python
+__pycache__/
+*.pyc
+
+# System / edytory
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.tmp

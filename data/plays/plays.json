@@ -1,0 +1,268 @@
+{
+	"version": 4,
+	"plays": [
+		{
+			"id": "short_pass_out",
+			"name": "Krótkie wyprowadzenie",
+			"description": "Krótkie podanie środkiem o strefę wyżej. Bezpieczne: po przegranym pojedynku piłka zostaje.",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [1, 2],
+			"lane": "center",
+			"advance": 1,
+			"is_shot": false,
+			"attack": [
+				{"points": 3, "attributes": ["pass", "control"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 5, "attributes": ["pressing", "tackle"], "max_dice": 3}
+			],
+			"outcomes": {"success": "advance", "duel_won": "advance", "duel_lost": "keep", "defense": "turnover"}
+		},
+		{
+			"id": "fullback_outlet",
+			"name": "Podanie do bocznego",
+			"description": "Podanie na skrzydło strefę wyżej (atakujący wybiera stronę).",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [1, 2],
+			"lane": "wing",
+			"advance": 1,
+			"is_shot": false,
+			"attack": [
+				{"points": 1, "attributes": ["pass", "speed"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 2, "attributes": ["pressing", "speed"], "max_dice": 3}
+			],
+			"outcomes": {"success": "advance", "duel_won": "advance", "duel_lost": "keep", "defense": "turnover"}
+		},
+		{
+			"id": "long_clearance",
+			"name": "Wybicie",
+			"description": "Długie wybicie środkiem o dwie strefy. Ryzykowne: po przegranym pojedynku strata.",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [1, 2],
+			"lane": "center",
+			"advance": 2,
+			"is_shot": false,
+			"attack": [
+				{"points": 3, "attributes": ["strength", "jump"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 3}
+			],
+			"outcomes": {"success": "advance", "duel_won": "advance", "duel_lost": "turnover", "defense": "turnover"}
+		},
+		{
+			"id": "tiki_taka",
+			"name": "Tiki-taka",
+			"description": "Seria krótkich podań środkiem o strefę wyżej. Po przegranym pojedynku piłka zostaje.",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [2, 3, 4],
+			"lane": "center",
+			"advance": 1,
+			"is_shot": false,
+			"attack": [
+				{"points": 4, "attributes": ["pass", "control"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 6, "attributes": ["pressing", "tackle"], "max_dice": 3}
+			],
+			"outcomes": {"success": "advance", "duel_won": "advance", "duel_lost": "keep", "defense": "turnover"}
+		},
+		{
+			"id": "wing_play",
+			"name": "Gra skrzydłem",
+			"description": "Akcja skrzydłem o strefę wyżej (atakujący wybiera stronę).",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [2, 3, 4],
+			"lane": "wing",
+			"advance": 1,
+			"is_shot": false,
+			"attack": [
+				{"points": 1, "attributes": ["speed", "control"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 3, "attributes": ["tackle", "speed"], "max_dice": 3}
+			],
+			"outcomes": {"success": "advance", "duel_won": "advance", "duel_lost": "keep", "defense": "turnover"}
+		},
+		{
+			"id": "long_ball",
+			"name": "Laga",
+			"description": "Długa piłka środkiem o dwie strefy: podający dogrywa siłą albo podaniem (start), odbierający wygrywa pojedynek siłowy i przyjmuje piłkę (cel).",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [2, 3],
+			"lane": "center",
+			"advance": 2,
+			"is_shot": false,
+			"attack": [
+				{"points": 1, "attributes": ["strength", "pass"], "max_dice": 3, "location": "origin"},
+				{"points": 1, "attributes": ["strength"], "max_dice": 3},
+				{"points": 1, "attributes": ["control"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 5, "attributes": ["jump", "reading"], "max_dice": 3}
+			],
+			"outcomes": {"success": "advance", "duel_won": "advance", "duel_lost": "turnover", "defense": "turnover"}
+		},
+		{
+			"id": "overlap",
+			"name": "Podłączenie bocznego",
+			"description": "Boczny obrońca podłącza się do akcji skrzydłem o strefę wyżej (atakujący wybiera stronę).",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [3, 4],
+			"lane": "wing",
+			"advance": 1,
+			"is_shot": false,
+			"attack": [
+				{"points": 1, "attributes": ["speed", "pass"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 3, "attributes": ["speed", "tackle"], "max_dice": 3}
+			],
+			"outcomes": {"success": "advance", "duel_won": "advance", "duel_lost": "keep", "defense": "turnover"}
+		},
+		{
+			"id": "through_ball",
+			"name": "Prostopadłe podanie",
+			"description": "Podanie środkiem za linię obrony o dwie strefy: test podania i osobno szybkości. Po przegranym pojedynku strata.",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [3, 4],
+			"lane": "center",
+			"advance": 2,
+			"is_shot": false,
+			"attack": [
+				{"points": 2, "attributes": ["pass"], "max_dice": 3},
+				{"points": 1, "attributes": ["speed"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 4, "attributes": ["reading"], "max_dice": 3}
+			],
+			"outcomes": {"success": "advance", "duel_won": "advance", "duel_lost": "turnover", "defense": "turnover"}
+		},
+		{
+			"id": "dribble",
+			"name": "Drybling",
+			"description": "Indywidualny rajd środkiem o strefę wyżej. Po przegranym pojedynku strata.",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [3, 4],
+			"lane": "center",
+			"advance": 1,
+			"is_shot": false,
+			"attack": [
+				{"points": 2, "attributes": ["control", "speed"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 4, "attributes": ["tackle"], "max_dice": 3}
+			],
+			"outcomes": {"success": "advance", "duel_won": "advance", "duel_lost": "turnover", "defense": "turnover"}
+		},
+		{
+			"id": "cross",
+			"name": "Dośrodkowanie",
+			"description": "Dośrodkowanie w pole karne zakończone strzałem głową: podanie przy piłce (start) i gra w powietrzu w polu karnym (cel).",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [4, 5],
+			"lane": "center",
+			"advance": 1,
+			"is_shot": true,
+			"attack": [
+				{"points": 1, "attributes": ["pass"], "max_dice": 3, "location": "origin"},
+				{"points": 2, "attributes": ["jump", "strength"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 6, "attributes": ["jump", "reading"], "max_dice": 3},
+				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+			],
+			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
+		},
+		{
+			"id": "long_shot",
+			"name": "Strzał z dystansu",
+			"description": "Strzał środkiem ze strefy 4.",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [4],
+			"lane": "center",
+			"advance": 0,
+			"is_shot": true,
+			"attack": [
+				{"points": 1, "attributes": ["shot"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 6, "attributes": ["reading", "jump", "tackle"], "max_dice": 3},
+				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+			],
+			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
+		},
+		{
+			"id": "shot",
+			"name": "Strzał z pola karnego",
+			"description": "Strzał ze środka pola karnego (strefa 5).",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [5],
+			"lane": "center",
+			"advance": 0,
+			"is_shot": true,
+			"attack": [
+				{"points": 1, "attributes": ["shot"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 10, "attributes": ["reading", "jump", "tackle"], "max_dice": 3},
+				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+			],
+			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
+		},
+		{
+			"id": "cutback",
+			"name": "Wycofanie i strzał",
+			"description": "Wycofanie piłki na środek pola karnego (start) i strzał z pierwszej piłki (cel).",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [5],
+			"lane": "center",
+			"advance": 0,
+			"is_shot": true,
+			"attack": [
+				{"points": 1, "attributes": ["pass", "control"], "max_dice": 3, "location": "origin"},
+				{"points": 1, "attributes": ["shot"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 8, "attributes": ["pressing", "reading"], "max_dice": 3},
+				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+			],
+			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
+		},
+		{
+			"id": "box_dribble",
+			"name": "Rajd w polu karnym",
+			"description": "Minięcie obrońcy przy piłce (start) i strzał z bliska (cel).",
+			"tactics": ["t_442", "t_451", "t_433", "t_352", "t_451_am", "t_352_am", "t_433_dm", "t_433_am"],
+			"triggers": ["possession"],
+			"zones": [5],
+			"lane": "center",
+			"advance": 0,
+			"is_shot": true,
+			"attack": [
+				{"points": 1, "attributes": ["control", "speed"], "max_dice": 3, "location": "origin"},
+				{"points": 1, "attributes": ["shot"], "max_dice": 3}
+			],
+			"defense": [
+				{"points": 8, "attributes": ["tackle", "speed"], "max_dice": 3},
+				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+			],
+			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
+		}
+	]
+}

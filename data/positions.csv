@@ -1,0 +1,5 @@
+id,name_key,short_key,preferred_dice
+GK,POS_GK,POS_GK_SHORT,physical|defensive
+DF,POS_DF,POS_DF_SHORT,physical|defensive
+MF,POS_MF,POS_MF_SHORT,technical|defensive
+FW,POS_FW,POS_FW_SHORT,physical|technical

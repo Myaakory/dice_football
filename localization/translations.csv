@@ -1,0 +1,354 @@
+keys,en,pl
+GAME_TITLE,DICE FOOTBALL,DICE FOOTBALL
+GAME_SUBTITLE,Tactical football on the dice,Taktyczna piłka nożna na kościach
+MENU_PLAY_MATCH,Play Match,Rozegraj mecz
+MENU_PLAY_EDITOR,Play Editor,Edytor zagrań
+MENU_OPTIONS,Options,Opcje
+MENU_EXIT,Exit,Wyjście
+COMMON_BACK,Back,Wróć
+COMMON_OK,OK,OK
+COMMON_CANCEL,Cancel,Anuluj
+OPTIONS_TITLE,Options,Opcje
+OPTIONS_LANGUAGE,Language,Język
+OPTIONS_FULLSCREEN,Fullscreen (F11),Pełny ekran (F11)
+OPTIONS_MASTER_VOLUME,Master volume,Głośność główna
+SETUP_TITLE,Match preparation,Przygotowanie do meczu
+SETUP_OPPONENT,vs %s,vs %s
+SETUP_TACTIC,Tactic:,Taktyka:
+SETUP_SQUAD,Squad,Kadra
+SETUP_AUTO_PICK,Auto pick,Auto skład
+SETUP_START_MATCH,Start match,Rozpocznij mecz
+SETUP_STARTERS_COUNT,Starting XI: %d/%d,Pierwsza jedenastka: %d/%d
+SETUP_NO_PLAYER_SELECTED,Select a player to see details.,"Wybierz zawodnika, aby zobaczyć szczegóły."
+SETUP_ON_PITCH,On pitch: %s (lane %d),Na boisku: %s (pas %d)
+SETUP_ON_BENCH,On the bench (R%d),Na ławce (R%d)
+SETUP_ACTIVE_DICE,Active dice (choose %d of %d):,Aktywne kości (wybierz %d z %d):
+ERROR_INCOMPLETE_LINEUP,Every position must have a player.,Każda pozycja musi mieć zawodnika.
+ERROR_NEED_GOALKEEPER,A goalkeeper must play in goal.,W bramce musi stać bramkarz.
+MATCH_BACK_TO_MENU,Main menu,Menu główne
+MATCH_HALF_1,1st half,1. połowa
+MATCH_HALF_2,2nd half,2. połowa
+MATCH_HALF_TIME_SHORT,Half-time,Przerwa
+MATCH_YOU,You,Ty
+MATCH_COMPUTER,Computer,Komputer
+MATCH_PITCH,Pitch,Murawa
+MATCH_PITCH_GOOD,Good,Dobra
+MATCH_PITCH_WORN,Worn,Zniszczona
+MATCH_PITCH_POOR,Poor,Zła
+MATCH_WEATHER,Weather,Pogoda
+MATCH_WEATHER_SUNNY,"Sunny, %d°C","Słonecznie, %d°C"
+MATCH_WEATHER_CLOUDY,"Cloudy, %d°C","Pochmurno, %d°C"
+MATCH_WEATHER_RAIN,"Rain, %d°C","Deszcz, %d°C"
+MATCH_CROWD,Crowd,Kibice
+MATCH_CROWD_VALUE,%s of %s,%s z %s
+MATCH_ENERGY,Stamina: %d / %d,Wytrzymałość: %d / %d
+MATCH_EXHAUSTED,"Exhausted: dice count at %d%%","Wyczerpany: kości liczą się w %d%%"
+MATCH_ATTACK,Attack,Atak
+MATCH_DEFENSE,Defence,Obrona
+MATCH_OR," or "," lub "
+MATCH_POINTS_NEEDED,%s pt,%s pkt
+MATCH_ODDS,"Chance to pass: you %d%%, defence %d%%","Szansa na zaliczenie: ty %d%%, obrona %d%%"
+MATCH_MOVE_SHOT,Shot on goal,Strzał na bramkę
+MATCH_MOVE_TO,"To zone %d, %s","Do strefy %d, %s"
+MATCH_MOVE_STAY,"Same zone, %s","Ta sama strefa, %s"
+MATCH_CHANNEL_LEFT,left wing,lewe skrzydło
+MATCH_CHANNEL_CENTER,centre,środek
+MATCH_CHANNEL_RIGHT,right wing,prawe skrzydło
+MATCH_CHANNEL_CHOICE,side of your choice,strona do wyboru
+MATCH_SLOT_SUCCESS,Only attack passes,Zalicza tylko atak
+MATCH_SLOT_DUEL_WON,Duel won,Wygrany pojedynek
+MATCH_SLOT_DUEL_LOST,Duel lost,Przegrany pojedynek
+MATCH_SLOT_DEFENSE,Only defence passes,Zalicza tylko obrona
+"MATCH_CHOOSE_PLAY","Your ball. Click a play to see it on the pitch, click it again to play it.","Twoja piłka. Kliknij zagranie, żeby zobaczyć je na boisku; kliknij je jeszcze raz, żeby zagrać."
+"MATCH_CONFIRM_PLAY","%s – click the card again or Play to confirm.","%s – kliknij kartę jeszcze raz albo Zagraj, żeby potwierdzić."
+"MATCH_CHOOSE_SIDE","%s – choose the side with a button on the card (hover a button to preview it).","%s – wybierz stronę przyciskiem na karcie (najedź na przycisk, żeby zobaczyć podgląd)."
+MATCH_PLAY_BUTTON,Play,Zagraj
+MATCH_TEST_AT_ORIGIN,Start,Start
+MATCH_TEST_AT_TARGET,Target,Cel
+MATCH_KEEPER_TEST,Goalkeeper save,Interwencja bramkarza
+MATCH_KEEPER_SHORT,Goalkeeper,Bramkarz
+MATCH_KEEPER_SAVED,The %s goalkeeper saves the shot!,Bramkarz drużyny %s broni strzał!
+EDITOR_TEST_LOCATION,Place,Miejsce
+"EDITOR_TEST_LOCATION_TOOLTIP","Which field the test concerns: target (e.g. receiving the ball) or start (e.g. playing a long ball). Players take part by their distance from that field. Goalkeeper (defence of shot plays only): only the defending goalkeeper's dice count; if he passes, a goal becomes a save.","Którego pola dotyczy test: docelowego (np. przyjęcie piłki) albo startowego (np. zagranie długiej piłki). Zawodnicy biorą udział według odległości od tego pola. Bramkarz (tylko obrona kart strzału): liczą się tylko kości bramkarza broniących; gdy zaliczy test, gol zamienia się w obronę bramkarza."
+MATCH_PHASE_ATTACK,Attack – %s:,Atak – %s:
+MATCH_PHASE_DEFENSE,Defence – %s:,Obrona – %s:
+MATCH_SIDE_LEFT,◀ Left,◀ Lewym
+MATCH_SIDE_CENTER,Centre,Środkiem
+MATCH_SIDE_RIGHT,Right ▶,Prawym ▶
+MATCH_AI_PLAYS,%s plays: %s,%s zagrywa: %s
+MATCH_SHIFT_PROMPT,"You may move one player one field for this turn (2 energy): click a player, then a highlighted field.","Możesz przesunąć jednego zawodnika o pole na tę turę (2 energii): kliknij zawodnika, potem podświetlone pole."
+MATCH_NO_SHIFT_BUTTON,No move,Bez przesunięcia
+MATCH_AI_SHIFT,%s moves %s one field.,%s przesuwa o pole: %s.
+MATCH_ROLLING,Rolling the dice…,Rzut kośćmi…
+MATCH_REROLL_PROMPT,"Click your dice to reroll them (1 energy each, paid by the dice owner).","Kliknij swoje kości, żeby je przerzucić (1 energii za kość, płaci właściciel kości)."
+MATCH_REROLL_BUTTON,Reroll (%d),Przerzuć (%d)
+MATCH_NO_REROLL_BUTTON,Keep dice,Bez przerzutu
+MATCH_AI_REROLLS,%s rerolls %d dice.,%s przerzuca kości: %d.
+MATCH_PLACE_PROMPT,Drag your dice into the test slots (or click a die). Only dice in slots count.,Przeciągnij swoje kości do miejsc w testach (albo kliknij kość). Liczą się tylko kości w miejscach.
+MATCH_PLACE_AUTO,Place best,Ułóż najlepiej
+MATCH_CONFIRM,Confirm,Zatwierdź
+MATCH_AI_PLACES,%s places its dice.,%s układa swoje kości.
+MATCH_CONTINUE,Continue,Dalej
+MATCH_RESULT_SUCCESS,Only the attack passed its test.,Test zaliczył tylko atak.
+MATCH_RESULT_DEFENSE,Only the defence passed its test.,Test zaliczyła tylko obrona.
+MATCH_RESULT_DUEL_WON,"Both passed, the attack wins the duel (surplus %s vs %s).","Oba testy zaliczone, pojedynek wygrywa atak (nadwyżka %s do %s)."
+MATCH_RESULT_DUEL_LOST,"Both passed, the defence wins the duel (surplus %s vs %s).","Oba testy zaliczone, pojedynek wygrywa obrona (nadwyżka %s do %s)."
+MATCH_RESULT_NONE_WON,"Nobody passed – the duel goes to the attack, which was closer (%s vs %s).","Nikt nie zaliczył testu – pojedynek wygrywa atak, któremu brakowało mniej (%s do %s)."
+MATCH_RESULT_NONE_LOST,"Nobody passed – the duel goes to the defence, which was closer (%s vs %s).","Nikt nie zaliczył testu – pojedynek wygrywa obrona, której brakowało mniej (%s do %s)."
+MATCH_RESULT_EVENT,Result: %s.,Skutek: %s.
+MATCH_GOAL,Goal for %s!,Gol dla %s!
+MATCH_NO_CARD,%s has no play from here – the ball goes to the opponent.,%s nie ma zagrania z tego miejsca – piłka przechodzi do rywala.
+MATCH_HALF_TIME,Half-time. Every player recovers %d energy.,Przerwa. Każdy zawodnik odzyskuje %d energii.
+MATCH_FULL_TIME,Full time: %s %d : %d %s,Koniec meczu: %s %d : %d %s
+DIE_PHYSICAL,Physical die,Kość fizyczna
+DIE_TECHNICAL,Technical die,Kość techniczna
+DIE_DEFENSIVE,Defensive die,Kość defensywna
+ATTR_STRENGTH,Strength,Siła
+ATTR_STRENGTH_SHORT,STR,SIŁ
+ATTR_SPEED,Speed,Szybkość
+ATTR_SPEED_SHORT,SPD,SZY
+ATTR_JUMP,Jumping,Wyskok
+ATTR_JUMP_SHORT,JMP,WYS
+ATTR_PASS,Passing,Podanie
+ATTR_PASS_SHORT,PAS,POD
+ATTR_SHOT,Shooting,Strzał
+ATTR_SHOT_SHORT,SHT,STRZ
+ATTR_CONTROL,Ball control,Przyjęcie piłki
+ATTR_CONTROL_SHORT,CTL,PRZ
+ATTR_TACKLE,Tackling,Odbiór
+ATTR_TACKLE_SHORT,TCK,ODB
+ATTR_PRESSING,Pressing,Pressing
+ATTR_PRESSING_SHORT,PRS,PRS
+ATTR_READING,Reading the game,Czytanie gry
+ATTR_READING_SHORT,RDG,CZY
+POS_GK,Goalkeeper,Bramkarz
+POS_GK_SHORT,GK,BR
+POS_DF,Defender,Obrońca
+POS_DF_SHORT,DF,OBR
+POS_MF,Midfielder,Pomocnik
+POS_MF_SHORT,MF,POM
+POS_FW,Forward,Napastnik
+POS_FW_SHORT,FW,NAP
+TACTIC_442_DESC,Balanced: two banks of four and two strikers.,Zrównoważona: dwie linie po czterech i dwóch napastników.
+TACTIC_451_DESC,Compact midfield with a holding midfielder and a lone striker.,Zwarta pomoc z defensywnym pomocnikiem i jednym napastnikiem.
+TACTIC_433_DESC,"Attacking: three central midfielders, two wingers and a striker.","Ofensywna: trzech środkowych pomocników, dwóch skrzydłowych i napastnik."
+TACTIC_352_DESC,"Three centre backs, wing-backs and two strikers.","Trzech środkowych obrońców, wahadłowi i dwóch napastników."
+TACTIC_451_AM_DESC,Compact midfield with an attacking midfielder behind a lone striker.,Zwarta pomoc z ofensywnym pomocnikiem za jedynym napastnikiem.
+TACTIC_352_AM_DESC,"Three centre backs, wing-backs, an attacking midfielder and two strikers.","Trzech środkowych obrońców, wahadłowi, ofensywny pomocnik i dwóch napastników."
+TACTIC_433_DM_DESC,"A holding midfielder behind two central midfielders, two wingers and a striker.","Defensywny pomocnik za dwoma środkowymi, dwóch skrzydłowych i napastnik."
+TACTIC_433_AM_DESC,"An attacking midfielder ahead of two central midfielders, two wingers and a striker.","Ofensywny pomocnik przed dwoma środkowymi, dwóch skrzydłowych i napastnik."
+ROLE_GK,Goalkeeper,Bramkarz
+ROLE_GK_SHORT,GK,BR
+ROLE_LB,Left back,Lewy obrońca
+ROLE_LB_SHORT,LB,LO
+ROLE_CB,Centre back,Środkowy obrońca
+ROLE_CB_SHORT,CB,ŚO
+ROLE_RB,Right back,Prawy obrońca
+ROLE_RB_SHORT,RB,PO
+ROLE_LWB,Left wing-back,Lewy wahadłowy
+ROLE_LWB_SHORT,LWB,LWA
+ROLE_RWB,Right wing-back,Prawy wahadłowy
+ROLE_RWB_SHORT,RWB,PWA
+ROLE_DM,Defensive midfielder,Defensywny pomocnik
+ROLE_DM_SHORT,DM,DP
+ROLE_LM,Left midfielder,Lewy pomocnik
+ROLE_LM_SHORT,LM,LP
+ROLE_CM,Central midfielder,Środkowy pomocnik
+ROLE_CM_SHORT,CM,ŚP
+ROLE_RM,Right midfielder,Prawy pomocnik
+ROLE_RM_SHORT,RM,PP
+ROLE_AM,Attacking midfielder,Ofensywny pomocnik
+ROLE_AM_SHORT,AM,OP
+ROLE_LW,Left winger,Lewy skrzydłowy
+ROLE_LW_SHORT,LW,LS
+ROLE_RW,Right winger,Prawy skrzydłowy
+ROLE_RW_SHORT,RW,PS
+ROLE_ST,Striker,Napastnik
+ROLE_ST_SHORT,ST,N
+SETUP_RESERVE_SHORT,R%d,R%d
+SETUP_DICE_HEADER,Dice,Kości
+SORT_NUMBER,#,#
+SORT_POSITION,Pos.,Poz.
+SORT_NAME,Name,Nazwisko
+SORT_PITCH,Pitch,Boisko
+SETUP_CANNOT_START,The match can't start yet:,Nie można jeszcze rozpocząć meczu:
+ZONE_TITLE,Zone %d · %s,Strefa %d · %s
+ZONE_NAME_1,Own box,Własne pole karne
+ZONE_NAME_2,Defensive zone,Strefa obrony
+ZONE_NAME_3,Midfield,Środek pola
+ZONE_NAME_4,Attacking zone,Strefa ataku
+ZONE_NAME_5,Opponent's box,Pole karne rywala
+ZONE_BACK_TO_SQUAD,Squad,Kadra
+ZONE_PLAYS,Tactical plays,Zagrania taktyczne
+ZONE_PLAYS_HINT,Plays that can be drawn during the match while the ball is in this zone.,"Zagrania, które można wylosować w czasie meczu, gdy piłka jest w tej strefie."
+ZONE_PLAY_EMPTY,Empty slot %d,Puste miejsce %d
+ZONE_DICE,Players' dice in this zone,Kości zawodników w tej strefie
+ZONE_DICE_HINT,Symbols on each die. Hover a value to see the die's faces.,"Liczba symboli na każdej kości. Najedź na wartość, aby zobaczyć ścianki kości."
+ZONE_TOTALS,Zone total (active dice):,Suma strefy (aktywne kości):
+ZONE_NO_PLAYERS,No players in this zone.,Brak zawodników w tej strefie.
+PLAYER_INFO,Player,Zawodnik
+PLAYER_NUMBER,Shirt number,Numer
+PLAYER_POSITION,Position,Pozycja
+PLAYER_AGE,Age,Wiek
+PLAYER_TEAM,Team,Drużyna
+PLAYER_LINEUP,Line-up,Skład
+PLAYER_LINEUP_STARTER,%s (lane %d),%s (pas %d)
+PLAYER_LINEUP_BENCH,Bench (R%d),Ławka (R%d)
+PLAYER_DICE_POWER,Active dice power,Siła aktywnych kości
+PLAYER_ATTRIBUTES,Attributes (active dice),Cechy (aktywne kości)
+PLAYER_DICE_TITLE,Dice – click a die to make it active (%d of %d),"Kości – kliknij kość, aby ją aktywować (%d z %d)"
+PLAYER_DICE_TITLE_READ_ONLY,Dice (%d of %d active),Kości (aktywne: %d z %d)
+PLAYER_DIE_ACTIVE,Active,Aktywna
+PLAYER_DIE_INACTIVE,Inactive,Nieaktywna
+OPPONENT_TACTIC,Tactic: %s,Taktyka: %s
+OPPONENT_PREVIEW_NOTE,Opponent preview – this screen will be expanded later. The opponent is controlled by the computer.,Podgląd rywala – ten ekran zostanie rozbudowany. Rywalem steruje komputer.
+OPTIONS_TOOLTIP_STYLE,Tooltip style,Styl podpowiedzi
+OPTIONS_ZONE_STYLE,Pitch zone highlight,Zaznaczenie strefy boiska
+OPTIONS_TOOLTIP_PREVIEW,This is how tooltips look.,Tak wyglądają podpowiedzi.
+STYLE_FRAME_PITCH,Pitch green,Zielona (boisko)
+STYLE_FRAME_GOLD,Gold,Złota
+STYLE_FRAME_SLATE,Tactics board,Tablica taktyczna
+STYLE_FRAME_PAPER,Paper,Papier
+STYLE_ZONE_FRAME,Frame,Ramka
+STYLE_ZONE_BRACKETS,Corner brackets,Narożniki
+STYLE_ZONE_BAND,Glowing band,Świecący pas
+DIE_FACE_DESCRIPTION,%d × %s,%d × %s
+DIE_TOOLTIP_TITLE,%s · total %d,%s · suma %d
+OPTIONS_PITCH_DIM,Pitch dimming,Przyciemnienie boiska
+OPTIONS_DICE_GLOW,Team glow around dice,Poświata drużyny wokół kości
+OPTIONS_POSITION_DOTS,Position map style,Styl mapy pozycji
+STYLE_DOTS_GEM,Shaded dots,Cieniowane kropki
+STYLE_DOTS_BADGE,Role badges,Plakietki z rolą
+STYLE_DOTS_RING,Glowing rings,Świecące pierścienie
+PLAYER_POSITIONS,Positions,Pozycje
+POSITION_NATURAL,Natural position,Pozycja naturalna
+POSITION_SECONDARY,Can play here,Może tu zagrać
+POSITION_NONE,Doesn't play here,Nie gra na tej pozycji
+POSITION_TOOLTIP,%s – %s,%s – %s
+PLAY_EVENT_POSSESSION,Possession,Posiadanie piłki
+PLAY_EVENT_ADVANCE,Advance to target,Awans na pole docelowe
+PLAY_EVENT_GOAL,Goal,Gol
+PLAY_EVENT_KEEP,Keep the ball (origin),Utrzymanie piłki (pole wyjścia)
+PLAY_EVENT_TURNOVER,Turnover,Odbiór (strata piłki)
+PLAY_EVENT_CLEARANCE,Defensive clearance,Obronny wykop
+PLAY_EVENT_INTERCEPTION,Interception (flyover),Przechwyt podania (przelot)
+PLAY_EVENT_GOALKEEPER_SAVE,Goalkeeper save,Obrona bramkarza
+PLAY_EVENT_FOUL,Foul / free kick,Faul / rzut wolny
+PLAY_EVENT_CORNER,Corner kick,Rzut rożny
+PLAY_EVENT_PENALTY,Penalty kick,Rzut karny
+PLAY_EVENT_OFFSIDE,Offside,Spalony
+PLAY_SLOT_SUCCESS,Success (only attack filled),Sukces (zapełnił tylko atak)
+PLAY_SLOT_DUEL_WON,Duel won (both filled),Wygrany pojedynek (obie strony zapełniły)
+PLAY_SLOT_DUEL_LOST,Duel lost (both filled),Przegrany pojedynek (obie strony zapełniły)
+PLAY_SLOT_DEFENSE,Defence (only defence filled),Obrona (zapełniła tylko obrona)
+EDITOR_TITLE,Play Editor,Edytor zagrań
+EDITOR_FILTER_ALL_TACTICS,All tactics,Wszystkie taktyki
+EDITOR_PLAY_COUNT,Plays: %d of %d,Zagrania: %d z %d
+EDITOR_NEW,New,Nowe
+EDITOR_DUPLICATE,Duplicate,Duplikuj
+EDITOR_DELETE,Delete,Usuń
+EDITOR_SAVE,Save,Zapisz
+EDITOR_SAVE_TOOLTIP,Validate and save all plays to data/plays/plays.json (Ctrl+S).,Sprawdź i zapisz wszystkie zagrania do data/plays/plays.json (Ctrl+S).
+EDITOR_BACK_TO_MENU,Main menu,Menu główne
+EDITOR_UNSAVED,* Unsaved changes,* Niezapisane zmiany
+EDITOR_ALL_SAVED,All changes saved.,Wszystko zapisane.
+EDITOR_SAVED,Saved %d plays.,Zapisano zagrania: %d.
+EDITOR_SAVE_FAILED_TITLE,Not saved,Nie zapisano
+EDITOR_SAVE_FAILED,Could not save the file (%s).,Nie udało się zapisać pliku (%s).
+EDITOR_LOAD_FAILED_TITLE,Loading error,Błąd wczytania
+EDITOR_LOAD_FAILED,Could not load plays: %s. Saving is disabled so the file is not overwritten.,"Nie udało się wczytać zagrań: %s. Zapis jest zablokowany, żeby nie nadpisać pliku."
+EDITOR_VALIDATION_TITLE,Not saved: fix these errors,Nie zapisano: popraw błędy
+EDITOR_MORE_ERRORS,…and %d more.,…i jeszcze %d.
+EDITOR_NO_PLAY,No play selected.,Nie wybrano zagrania.
+EDITOR_NEW_PLAY_NAME,New play,Nowe zagranie
+EDITOR_COPY_SUFFIX, (copy), (kopia)
+EDITOR_CONFIRM_DELETE_TITLE,Delete play,Usuwanie zagrania
+EDITOR_CONFIRM_DELETE,"Delete the play ""%s""? The file changes only after saving.",Usunąć zagranie „%s”? Plik zmieni się dopiero po zapisie.
+EDITOR_CONFIRM_EXIT_TITLE,Unsaved changes,Niezapisane zmiany
+EDITOR_CONFIRM_EXIT,Some plays have unsaved changes. Save them before leaving?,Niektóre zagrania mają niezapisane zmiany. Zapisać je przed wyjściem?
+EDITOR_SAVE_AND_EXIT,Save and exit,Zapisz i wyjdź
+EDITOR_EXIT_WITHOUT_SAVING,Exit without saving,Wyjdź bez zapisu
+EDITOR_SECTION_GENERAL,General,Ogólne
+EDITOR_SECTION_TACTICS,Tactics with this card in the deck,Taktyki z tą kartą w talii
+EDITOR_SECTION_TACTICS_HINT,A team's deck = cards whose list contains its tactic.,"Talia drużyny = karty, które mają na liście jej taktykę."
+EDITOR_SECTION_TRIGGERS,Draw conditions (or),Warunki dobierania (lub)
+EDITOR_SECTION_TRIGGERS_HINT,The card enters the draw pool when any of these events happened before.,"Karta trafia do puli losowania, gdy wcześniej wydarzyło się którekolwiek z tych zdarzeń."
+EDITOR_SECTION_MOVEMENT,Play,Zagranie
+EDITOR_SECTION_ATTACK,Attack tests (and),Testy ataku (i)
+EDITOR_SECTION_DEFENSE,Defence tests (and),Testy obrony (i)
+EDITOR_SECTION_TESTS_HINT,"Every test must be filled. Test points = sum of dice hitting its attributes (or), multiplied by the player's participation (×2 / ×1).",Każdy test musi zostać zapełniony. Punkty testu = suma punktów kości trafiających w jego cechy (lub) pomnożona przez udział zawodnika (×2 / ×1).
+EDITOR_SECTION_OUTCOMES,Outcomes,Wyniki
+EDITOR_ENGINE_NOTE,"Location of the effect: the action cell. After a set piece (free kick, corner, penalty, offside) only cards with that event in their draw conditions are drawn.","Miejsce efektu: pole akcji. Po stałym fragmencie (rzut wolny, rożny, karny, spalony) losują się tylko karty z tym zdarzeniem w warunkach dobierania."
+EDITOR_FIELD_ID,Id,Id
+EDITOR_FIELD_ID_TOOLTIP,"Unique snake_case identifier (a-z, 0-9, _).","Unikalny identyfikator w formacie snake_case (a-z, 0-9, _)."
+EDITOR_FIELD_NAME,Name,Nazwa
+EDITOR_FIELD_DESCRIPTION,Description,Opis
+EDITOR_FIELD_SHOT,Shot (success = goal),Strzał (sukces = gol)
+EDITOR_FIELD_SHOT_TOOLTIP,"Shot card: success is a goal. The defenders' goalkeeper plays in the goalkeeper test (place ""Goalkeeper""), without it in the defence tests (×2).","Karta strzałowa: sukces to gol. Bramkarz broniących gra w teście bramkarza (miejsce „Bramkarz”), a bez niego w testach obrony (×2)."
+EDITOR_FIELD_ADVANCE,Zones forward,Stref do przodu
+EDITOR_FIELD_ADVANCE_TOOLTIP,"0 to 2; the action zone is clamped to 1–5 (0 = action in the ball zone, e.g. a shot).","Od 0 do 2; strefa pola akcji jest przycinana do 1–5 (0 = akcja w strefie piłki, np. strzał)."
+EDITOR_TEST,Test %d,Test %d
+EDITOR_THRESHOLD,Threshold,Próg
+EDITOR_MAX_DICE,max dice,maks. kości
+EDITOR_MAX_DICE_TOOLTIP,"How many best dice count in this test (0 = all). A balancing tool.","Ile najlepszych kości liczy się w tym teście (0 = wszystkie). Narzędzie balansu."
+EDITOR_THRESHOLD_TOOLTIP,"Points needed to fill the test (whole number, ×2 / ×1 scale).","Punkty potrzebne do zapełnienia testu (liczba całkowita, skala ×2 / ×1)."
+EDITOR_REMOVE_TEST,Remove test,Usuń test
+EDITOR_REMOVE,Remove,Usuń
+EDITOR_ADD_OR,+ or,+ lub
+EDITOR_ADD_OR_TERM_TOOLTIP,Add another attribute to this test.,Dodaj kolejną cechę do tego testu.
+EDITOR_ADD_AND,+ and (new test),+ i (nowy test)
+EDITOR_OR,or,lub
+EDITOR_AND,and,i
+EDITOR_CLEAR,Clear,Wyczyść
+EDITOR_CLEAR_TOOLTIP,Clear the ball zones.,Wyczyść strefy piłki.
+EDITOR_ZONE_TOGGLE_TOOLTIP,Toggle zone %d,Zaznacz / odznacz strefę %d
+EDITOR_CHANNEL_LEFT,Left,Lewy
+EDITOR_CHANNEL_CENTER,Centre,Środek
+EDITOR_CHANNEL_RIGHT,Right,Prawy
+EDITOR_CHANNEL_LETTER_LEFT,L,L
+EDITOR_CHANNEL_LETTER_CENTER,C,Ś
+EDITOR_CHANNEL_LETTER_RIGHT,R,P
+EDITOR_WEIGHT_ATTACK_SHORT,A,A
+EDITOR_WEIGHT_DEFENSE_SHORT,D,O
+EDITOR_GOALKEEPER_WEIGHT,Goalkeeper %s,Bramkarz %s
+EDITOR_PITCH_HINT,"Attack goes up. LMB or zone number: toggle a ball zone, RMB: preview zone. Arrows = action cells, hatching = flyover, A / O = multipliers.","Atak w górę. LPM albo numer strefy: strefa piłki, PPM: strefa podglądu. Strzałki = pola akcji, kreskowanie = przelot, A / O = mnożniki."
+EDITOR_SIDE_ATTACK,Attack,Atak
+EDITOR_SIDE_DEFENSE,Defence,Obrona
+EDITOR_ERROR_ID_EMPTY,Id is empty.,Puste id.
+EDITOR_ERROR_ID_FORMAT,"Id ""%s"" must be snake_case (a-z, 0-9, _).","Id „%s” musi być w formacie snake_case (a-z, 0-9, _)."
+EDITOR_ERROR_ID_DUPLICATE,"Id ""%s"" is used by more than one play.",Id „%s” ma więcej niż jedno zagranie.
+EDITOR_ERROR_NAME_EMPTY,Name is empty.,Pusta nazwa.
+EDITOR_ERROR_TACTIC_UNKNOWN,"Unknown tactic ""%s"".",Nieznana taktyka „%s”.
+EDITOR_ERROR_NO_TRIGGER,At least one draw condition is required.,Potrzebny co najmniej jeden warunek dobierania.
+EDITOR_ERROR_EVENT_UNKNOWN,"Unknown event ""%s"".",Nieznane zdarzenie „%s”.
+EDITOR_ERROR_ADVANCE,Zones forward must be between 0 and 2 (is %s).,Liczba stref do przodu musi być od 0 do 2 (jest %s).
+EDITOR_ERROR_NO_TESTS,%s: at least one test is required.,%s: potrzebny co najmniej jeden test.
+EDITOR_ERROR_POINTS,"%s, test %s: the threshold must be a whole number of at least 1.","%s, test %s: próg musi być liczbą całkowitą, co najmniej 1."
+"EDITOR_ERROR_KEEPER_TEST","%s, test %s: the goalkeeper test is only for the defence of shot plays.","%s, test %s: test bramkarza może mieć tylko obrona karty strzału."
+EDITOR_ERROR_MAX_DICE,"%s, test %s: max dice must be between 0 and 11.","%s, test %s: limit kości musi być od 0 do 11."
+EDITOR_ERROR_NO_TERMS,"%s, test %s: no attributes.","%s, test %s: brak cech."
+EDITOR_ERROR_ATTRIBUTE_UNKNOWN,"%s, test %s: unknown attribute ""%s"".","%s, test %s: nieznana cecha „%s”."
+EDITOR_ERROR_ATTRIBUTE_DUPLICATE,"%s, test %s: attribute ""%s"" appears twice.","%s, test %s: cecha „%s” występuje dwa razy."
+EDITOR_SECTION_OUTCOMES_HINT,Success: only the attack filled its tests. Duel: both sides or neither – the bigger surplus (or smaller shortfall) wins. Defence: only the defence filled.,Sukces: testy zapełnił tylko atak. Pojedynek: obie strony albo żadna – wygrywa większa nadwyżka (albo mniejszy brak). Obrona: zapełniła tylko obrona.
+EDITOR_SECTION_MOVEMENT_HINT,"Action cell = ball zone + zones forward, in the play's lane. Players in the action cell count ×2, in the neighbouring cells (front, back, sides – no diagonals) ×1.","Pole akcji = strefa piłki + stref do przodu, w kanale zagrania. Zawodnicy w polu akcji liczą się ×2, w polach sąsiednich (przód, tył, boki – bez skosów) ×1."
+EDITOR_FIELD_ZONES,Ball zones,Strefy piłki
+EDITOR_FIELD_LANE,Lane,Kanał
+EDITOR_FIELD_LANE_TOOLTIP,Centre: the action is in the centre. Wing: the attacker chooses the left or right wing.,Środek: akcja w środku. Skrzydło: atakujący wybiera lewe albo prawe skrzydło.
+PLAY_LANE_CENTER,Centre,Środek
+PLAY_LANE_WING,Wing (left / right),Skrzydło (lewe / prawe)
+EDITOR_ERROR_NO_ZONES,The play has no ball zone it can be played from.,"Zagranie nie ma żadnej strefy piłki, z której można je zagrać."
+EDITOR_ERROR_BAD_ZONE,Invalid or repeated zone: %s.,Nieprawidłowa albo powtórzona strefa: %s.
+EDITOR_ALL_ZONES,All zones,Wszystkie strefy
+EDITOR_ALL_ZONES_TOOLTIP,The play can be played from every zone.,Zagranie można zagrać z każdej strefy.
+EDITOR_PREVIEW_ZONE,Preview: ball in zone %s → action cell %s,Podgląd: piłka w strefie %s → pole akcji %s
+EDITOR_NO_PREVIEW_ZONE,No preview: select a ball zone (RMB on the pitch).,Brak podglądu: wybierz strefę piłki (PPM na boisku).
+MATCH_PARTICIPATION_TOOLTIP,"Takes part in the action: dice count %s (action cell ×2, neighbouring cell ×1).","Udział w akcji: kości liczą się %s (pole akcji ×2, pole sąsiednie ×1)."
+EDITOR_PREVIEW_TITLE,Card preview,Podgląd karty
+EDITOR_PREVIEW_ATTACKER,Attacking: %s,Atakuje: %s
+EDITOR_PREVIEW_ATTACKER_TOOLTIP,Switch the attacking team (default line-ups of both teams).,Zmień atakującą drużynę (domyślne składy obu drużyn).
+EDITOR_ODDS_TITLE,Odds: ball in zone %s → %s,Szanse: piłka w strefie %s → %s
+EDITOR_ODDS_TEST,%s %s: average %s / threshold %s → %s%%,%s %s: średnio %s / próg %s → %s%%
+EDITOR_ODDS_DUEL,Duel won by the attack: %s%%,Pojedynek wygrywa atak: %s%%
+EDITOR_ODDS_NOTE,"One roll, no shifts or rerolls (the same odds the computer uses).","Jeden rzut, bez przesunięć i przerzutów (te same szanse, z których korzysta komputer)."
+EDITOR_ADD_KEEPER_TEST,+ goalkeeper test,+ test bramkarza
+EDITOR_ADD_KEEPER_TEST_TOOLTIP,"Goalkeeper save: only the defending goalkeeper's dice count; if he passes, a goal becomes a save.",Interwencja bramkarza: liczą się tylko kości bramkarza broniących; zaliczony test zamienia gola w obronę.

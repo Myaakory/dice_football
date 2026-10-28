@@ -1,0 +1,39 @@
+=== Symulacja: 200 meczów, RRV vs BCU ===
+Gole / mecz: 3.18 (RRV 1.52, BCU 1.66)
+Strzały / mecz: RRV 3.42, BCU 3.68 | skuteczność 45%
+Wyniki: RRV 58, remisy 64, BCU 78
+Posiadanie (tury): RRV 52%, BCU 48%
+Rozkład goli w meczu: 0:4% 1:11% 2:21% 3:26% 4:17% 5:15% 6:7% 7:1% 8:1%
+Pole akcji (strefa celu z perspektywy atakującego): 1:0% 2:5% 3:20% 4:28% 5:47% | korytarz L 14% C 67% R 19%
+Efekty wyników / mecz: advance 15.3, goal 3.2, keep 3.7, turnover 7.8
+Energia: wydana 5.9 / zawodnika / mecz, wyczerpani na koniec 49% | przerzuty 51.6 / mecz, przesunięcia 38.7 / mecz
+
+Karty (%% z zagrań; P = przewidziana szansa AI, 1. = po pierwszym rzucie, kon. = po przerzutach):
+karta           zagr/m | atak P/1./kon.  | obr. P/1./kon.  |  SUK  OBA  ODB  NIC |  post  gol trzy strata
+long_ball         4.93 |  56  64  86     |  30  47  64     |   30   56    8    6 |    56    0    4    40
+shot              3.90 |  25  33  54     |  15  34  58     |   20   34   24   22 |     0   45   15    40
+wing_play         3.85 |  64  74  85     |  29  51  63     |   31   54    9    6 |    60    0   29    11
+long_clearance    3.56 |  68  88  94     |  34  54  67     |   30   64    3    2 |    65    0    2    33
+tiki_taka         3.16 |  68  84  92     |  10  29  43     |   52   40    3    5 |    83    0   13     4
+cross             2.00 |  28  31  56     |  31  50  67     |   19   37   30   15 |     0   42   15    44
+fullback_outlet   1.77 |  61  70  84     |  22  34  52     |   38   45    7    9 |    67    0   22    10
+recycle_switch    1.27 |  89  90  97     |  22  40  55     |   44   52    3    0 |    85    0   12     3
+long_shot         1.20 |  25  40  66     |  16  42  62     |   23   43   19   15 |     0   51   10    39
+dribble           1.18 |  56  65  77     |  33  47  65     |   28   49   15    8 |    56    0    3    41
+cutback           1.13 |  63  82  95     |  14  16  28     |   67   28    0    5 |    88    0   10     2
+long_switch       1.05 |  54  58  75     |  21  37  60     |   30   45   15    9 |    58    0    4    38
+short_pass_out    0.88 |  79  83  96     |  34  43  64     |   33   63    1    3 |    77    0   21     2
+through_ball      0.13 |  33  40  52     |  37  60  72     |   16   36   36   12 |    44    0   12    44
+
+Wkład ról (liczone punkty z kości trafiające w wymagania, średnio na występ w meczu; odc. = rzucone, ale poza limitem kości):
+rola    atak obrona  razem  odc.at  odc.ob występy
+GK       1.3   10.7   11.9     0.0     1.2    400
+LB       0.8    4.3    5.1     0.0     2.2    400
+CB       1.1    8.7    9.8     0.1     2.1    800
+RB       0.4    4.3    4.7     0.0     2.6    400
+LM       2.1    1.8    3.9     0.2     0.6    200
+CM       2.9    3.1    6.0     0.1     0.5   1000
+RM       2.6    1.4    4.0     0.3     0.8    200
+ST       9.2    0.1    9.3     0.3     0.0    600
+LW       6.0    0.8    6.7     0.8     0.1    200
+RW       6.0    0.6    6.6     0.8     0.1    200

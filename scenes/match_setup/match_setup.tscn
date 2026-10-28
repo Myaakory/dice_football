@@ -1,0 +1,205 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/match_setup/match_setup.gd" id="1_script"]
+[ext_resource type="Script" path="res://scenes/components/pitch_view.gd" id="2_pitch_view"]
+[ext_resource type="Script" path="res://scenes/components/squad_header.gd" id="3_squad_header"]
+[ext_resource type="Script" path="res://scenes/components/zone_panel.gd" id="4_zone_panel"]
+
+[node name="MatchSetup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.078, 0.129, 0.102, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="HBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PitchView" type="Control" parent="Margin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("2_pitch_view")
+zones_interactive = true
+
+[node name="OpponentButton" type="LinkButton" parent="Margin/Layout/PitchView"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_top = 5.0
+offset_right = -8.0
+offset_bottom = 27.0
+grow_horizontal = 0
+focus_mode = 0
+auto_translate_mode = 2
+theme_override_colors/font_color = Color(0.941, 0.902, 0.659, 1)
+theme_override_colors/font_hover_color = Color(1, 0.98, 0.82, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.08, 0.05, 0.85)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "vs ..."
+underline = 1
+
+[node name="Side" type="VBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="TitleRow" type="HBoxContainer" parent="Margin/Layout/Side"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="Margin/Layout/Side/TitleRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "SETUP_TITLE"
+
+[node name="TeamNameLabel" type="Label" parent="Margin/Layout/Side/TitleRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+auto_translate_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Team"
+
+[node name="TacticRow" type="HBoxContainer" parent="Margin/Layout/Side"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TacticLabel" type="Label" parent="Margin/Layout/Side/TacticRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "SETUP_TACTIC"
+
+[node name="TacticOption" type="OptionButton" parent="Margin/Layout/Side/TacticRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="TacticDescription" type="Label" parent="Margin/Layout/Side/TacticRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.91, 0.937, 0.878, 0.65)
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 3
+
+[node name="Content" type="HBoxContainer" parent="Margin/Layout/Side"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+
+[node name="SquadBox" type="VBoxContainer" parent="Margin/Layout/Side/Content"]
+custom_minimum_size = Vector2(368, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SquadTitle" type="Label" parent="Margin/Layout/Side/Content/SquadBox"]
+layout_mode = 2
+text = "SETUP_SQUAD"
+
+[node name="SquadHeader" type="Control" parent="Margin/Layout/Side/Content/SquadBox"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("3_squad_header")
+
+[node name="SquadScroll" type="ScrollContainer" parent="Margin/Layout/Side/Content/SquadBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="SquadList" type="VBoxContainer" parent="Margin/Layout/Side/Content/SquadBox/SquadScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="DetailsPanel" type="PanelContainer" parent="Margin/Layout/Side/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DetailsMargin" type="MarginContainer" parent="Margin/Layout/Side/Content/DetailsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="PlayerDetails" type="VBoxContainer" parent="Margin/Layout/Side/Content/DetailsPanel/DetailsMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ZoneScroll" type="ScrollContainer" parent="Margin/Layout/Side"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ZonePanel" type="VBoxContainer" parent="Margin/Layout/Side/ZoneScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_zone_panel")
+
+[node name="ButtonRow" type="HBoxContainer" parent="Margin/Layout/Side"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BackButton" type="Button" parent="Margin/Layout/Side/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 42)
+layout_mode = 2
+text = "COMMON_BACK"
+
+[node name="AutoPickButton" type="Button" parent="Margin/Layout/Side/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 42)
+layout_mode = 2
+text = "SETUP_AUTO_PICK"
+
+[node name="Spacer" type="Control" parent="Margin/Layout/Side/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="StartButton" type="Button" parent="Margin/Layout/Side/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "SETUP_START_MATCH"
