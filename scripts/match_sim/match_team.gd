@@ -1,20 +1,25 @@
 class_name MatchTeam
 extends RefCounted
-## Drużyna w trakcie meczu: jedenastka jako MatchPlayer, talia kart, profil AI i modyfikatory udziału.
+## Drużyna w trakcie meczu: jedenastka jako MatchPlayer, talia kart, profil AI i modyfikatory udziału (perki trenera).
 
 var lineup: Lineup
 var players: Array[MatchPlayer] = []
 var deck: Array[PlayCard] = []
 var ai: MatchAI
-## Modyfikatory udziału drużyny ponad zasady podstawowe (perki trenera – B5a; na razie puste).
+## Modyfikatory udziału drużyny ponad zasady podstawowe – perki trenera (CoachData.perks).
 var participation_modifiers: Array[ParticipationModifier] = []
 
 
-static func create(team_lineup: Lineup, team_deck: Array[PlayCard], rules: MatchRules, team_ai: MatchAI) -> MatchTeam:
+## team_ai: null = AI z profilem ryzyka trenera drużyny (bez trenera – neutralne).
+static func create(team_lineup: Lineup, team_deck: Array[PlayCard], rules: MatchRules, team_ai: MatchAI = null) -> MatchTeam:
 	var team := MatchTeam.new()
 	team.lineup = team_lineup
 	team.deck = team_deck
-	team.ai = team_ai
+	var coach := team_lineup.team.coach
+	team.ai = team_ai if team_ai != null else MatchAI.create(coach.risk_aversion if coach != null else 1.0)
+	if coach != null:
+		for perk in coach.perks:
+			team.participation_modifiers.append(perk.modifier)
 	for slot in team_lineup.tactic.slots:
 		var player := team_lineup.get_player_at(slot.index)
 		if player != null:

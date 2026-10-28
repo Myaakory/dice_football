@@ -81,8 +81,8 @@ func _ready() -> void:
 		push_error("Match: cannot load plays: %s" % library.load_error)
 	var home_lineup := GameState.player_lineup
 	var away_lineup := GameState.opponent_lineup
-	var home := MatchTeam.create(home_lineup, library.get_deck(home_lineup.tactic.id), rules, MatchAI.create())
-	var away := MatchTeam.create(away_lineup, library.get_deck(away_lineup.tactic.id), rules, MatchAI.create())
+	var home := MatchTeam.create(home_lineup, library.get_deck(home_lineup.tactic.id), rules)
+	var away := MatchTeam.create(away_lineup, library.get_deck(away_lineup.tactic.id), rules)
 	engine = MatchEngine.create(home, away, rules, randi())
 	engine.keep_history = true
 	engine.start_match()
@@ -766,6 +766,9 @@ func _build_scoreboard() -> Control:
 		var block := HBoxContainer.new()
 		block.add_theme_constant_override(&"separation", 8)
 		block.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		# Podpowiedź: trener i jego perki.
+		block.tooltip_text = CoachPanel.describe(team.coach)
+		block.mouse_filter = Control.MOUSE_FILTER_PASS
 		if team_index == 1:
 			block.alignment = BoxContainer.ALIGNMENT_END
 		var crest := ColorRect.new()

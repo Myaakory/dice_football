@@ -60,6 +60,7 @@ func _ready() -> void:
 	side.add_child(top_bar)
 
 	side.add_child(_make_label(tr("OPPONENT_TACTIC") % _lineup.tactic.name, 16))
+	side.add_child(CoachPanel.create(_lineup.team.coach))
 	var note := _make_label(tr("OPPONENT_PREVIEW_NOTE"), 13, DIM_TEXT)
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	side.add_child(note)

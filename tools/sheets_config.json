@@ -10,6 +10,8 @@
 		"roles": 106,
 		"positions": 107,
 		"die_types": 108,
-		"attributes": 109
+		"attributes": 109,
+		"coaches": 110,
+		"perks": 111
 	}
 }

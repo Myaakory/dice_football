@@ -1,0 +1,3 @@
+id,team_id,first_name,last_name,risk_percent,perks
+coach_red,red,Stanisław,Grabowski,100,wing_support|poacher
+coach_blue,blue,Henrik,Dahl,100,box_fortress

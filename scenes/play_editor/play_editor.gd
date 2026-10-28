@@ -71,7 +71,7 @@ func _ready() -> void:
 	var away := Lineup.create_default(GameState.get_opponent_team(home.team))
 	var no_deck: Array[PlayCard] = []
 	for lineup in [home, away]:
-		_preview_teams.append(MatchTeam.create(lineup, no_deck, _preview_rules, MatchAI.create()))
+		_preview_teams.append(MatchTeam.create(lineup, no_deck, _preview_rules))
 	_build_layout()
 	_load_library()
 

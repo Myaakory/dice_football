@@ -352,3 +352,13 @@ EDITOR_ODDS_DUEL,Duel won by the attack: %s%%,Pojedynek wygrywa atak: %s%%
 EDITOR_ODDS_NOTE,"One roll, no shifts or rerolls (the same odds the computer uses).","Jeden rzut, bez przesunięć i przerzutów (te same szanse, z których korzysta komputer)."
 EDITOR_ADD_KEEPER_TEST,+ goalkeeper test,+ test bramkarza
 EDITOR_ADD_KEEPER_TEST_TOOLTIP,"Goalkeeper save: only the defending goalkeeper's dice count; if he passes, a goal becomes a save.",Interwencja bramkarza: liczą się tylko kości bramkarza broniących; zaliczony test zamienia gola w obronę.
+COACH_LABEL,Coach: %s,Trener: %s
+COACH_PERKS,Perks:,Perki:
+COACH_NO_PERKS,No perks,Bez perków
+COACH_NONE,No coach,Brak trenera
+PERK_WING_SUPPORT,Wingers forward,Skrzydłowi do ataku
+PERK_WING_SUPPORT_DESC,"In wing attacks, wide midfielders and wingers (LM, RM, LW, RW) in a neighbouring cell count ×2 instead of ×1.","Przy akcjach skrzydłem boczni pomocnicy i skrzydłowi (LM, RM, LW, RW) z pola sąsiedniego liczą się ×2 zamiast ×1."
+PERK_POACHER,Fox in the box,Lis pola karnego
+PERK_POACHER_DESC,A striker (ST) in the action cell in the opponent's box (zone 5) counts ×3 instead of ×2.,Napastnik (ST) w polu akcji w polu karnym rywala (strefa 5) liczy się ×3 zamiast ×2.
+PERK_BOX_FORTRESS,Fortress,Twierdza
+PERK_BOX_FORTRESS_DESC,"Defending their own box (zone 1), centre-backs and defensive midfielders (CB, DM) in a neighbouring cell count ×2 instead of ×1.","W obronie własnego pola karnego (strefa 1) środkowi obrońcy i defensywni pomocnicy (CB, DM) z pola sąsiedniego liczą się ×2 zamiast ×1."
