@@ -103,6 +103,7 @@ MATCH_FULL_TIME,Full time: %s %d : %d %s,Koniec meczu: %s %d : %d %s
 DIE_PHYSICAL,Physical die,Kość fizyczna
 DIE_TECHNICAL,Technical die,Kość techniczna
 DIE_DEFENSIVE,Defensive die,Kość defensywna
+DIE_GOALKEEPER,Goalkeeper die,Kość bramkarska
 ATTR_STRENGTH,Strength,Siła
 ATTR_STRENGTH_SHORT,STR,SIŁ
 ATTR_SPEED,Speed,Szybkość
@@ -121,6 +122,12 @@ ATTR_PRESSING,Pressing,Pressing
 ATTR_PRESSING_SHORT,PRS,PRS
 ATTR_READING,Reading the game,Czytanie gry
 ATTR_READING_SHORT,RDG,CZY
+ATTR_CATCHING,Catching,Chwytanie
+ATTR_CATCHING_SHORT,CAT,CHW
+ATTR_PUNCHING,Punching,Piąstkowanie
+ATTR_PUNCHING_SHORT,PUN,PIĄ
+ATTR_POSITIONING,Positioning on the line,Ustawianie na linii
+ATTR_POSITIONING_SHORT,POS,UST
 POS_GK,Goalkeeper,Bramkarz
 POS_GK_SHORT,GK,BR
 POS_DF,Defender,Obrońca

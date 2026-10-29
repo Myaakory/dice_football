@@ -1,13 +1,15 @@
 """Generuje grafiki kości (1080p) do assets/graphics/dice (uruchom: python tools/gen_dice_graphics.py [katalog_podglądu]).
 
-- die_icons.png / die_icon_masks.png : 9 ikonek cech 20x20 w komórkach 22x22 (kolejność DieGraphics.ATTRIBUTE_ORDER).
+- die_icons.png / die_icon_masks.png : 12 ikonek cech 20x20 w komórkach 22x22 (kolejność DieGraphics.ATTRIBUTE_ORDER:
+      9 cech z pola, potem 3 umiejętności bramkarza).
       Maska = sylwetka ikonki rozlana o 0..2 px w prawo/w dół (cień i "wycięcie" na ściance).
       Kolory wg systemu jasności (grafiki_brudnopis/propozycje_ikon/system_jasnosci): w każdej kości jedna ikonka
       jasna, jedna ciemna i jedna w kolorze sygnaturowym kości.
-- die_bodies.png      : korpusy 52x52 (physical, technical, defensive).
+- die_bodies.png      : korpusy 52x52 (physical, technical, defensive, goalkeeper – grafit).
 - die_max_rim.png     : złota obwódka ścianki "6" (nakładana na korpus).
 - die_roll_<typ>.png  : animacja rzutu, 9 klatek 84x84 (6 koziołkowania w pętli + 3 lądowania).
 - die_shadow.png      : cień kości pod animacją (84x84).
+Propozycje ikonek bramkarza (3 warianty każdej): grafiki_brudnopis/propozycje_ikon_bramkarza.
 Wersje 720p (ikonki 14 px, kości 40x40) są w _backup_720p/assets/graphics/dice, kości 60x60 (klatki 96x96)
 w _backup_720p/kosci_60x60.
 """
@@ -28,8 +30,9 @@ ROLL_FRAME = 84
 ICON = 20
 ICON_CELL = 22
 
-TYPES = ["physical", "technical", "defensive"]
-ORDER = ["strength", "speed", "jump", "pass", "shot", "control", "tackle", "pressing", "reading"]
+TYPES = ["physical", "technical", "defensive", "goalkeeper"]
+ORDER = ["strength", "speed", "jump", "pass", "shot", "control", "tackle", "pressing", "reading",
+         "catching", "punching", "positioning"]
 
 
 def hex_rgba(h, a=255):
@@ -42,7 +45,7 @@ def hex_rgba(h, a=255):
 #   .  puste (kontur dodawany automatycznie wokół wypełnienia, 4-sąsiedztwo)
 #   o  kontur wewnątrz ikonki      #  baza (piksel bez wypełnienia pod spodem -> cień d)
 #   B  baza      h  jasny      d  cień      w  biały (dolna krawędź -> W)      W  cień bieli
-#   k, m, n, x, y  dodatkowe kolory z palety ikonki
+#   T  jasny wierzch (jak h)      k, m, n, x, y  dodatkowe kolory z palety ikonki
 
 OUTLINE = "#241a26"
 LIGHT = dict(b="#f3ece0", h="#ffffff", d="#b9ab98", w="#ffffff", W="#d9cfbf")
@@ -51,15 +54,21 @@ SIG = {
     "physical": dict(b="#7ee08c", h="#c6f7cb", d="#3a9e55"),
     "technical": dict(b="#ffa64a", h="#ffd7a6", d="#c96a22"),
     "defensive": dict(b="#a97cff", h="#d9c6ff", d="#6f47c4"),
+    "goalkeeper": dict(b="#4fd2c6", h="#b9f6ee", d="#24958f"),
 }
+GK_ACCENT = dict(k=SIG["goalkeeper"]["b"], K=SIG["goalkeeper"]["d"])  # mankiety, linia bramkowa, sylwetka
 ROLE = {
     "strength": "light", "speed": "sig", "jump": "dark",
     "pass": "light", "shot": "sig", "control": "dark",
     "tackle": "dark", "pressing": "sig", "reading": "light",
+    "catching": "light", "punching": "sig", "positioning": "dark",
 }
 EXTRA = {
     "control": dict(k="#6c5873"),
     "tackle": dict(n="#d6cbd8", N="#9d8ea2", m="#6c5873"),
+    "catching": GK_ACCENT,
+    "punching": dict(n=LIGHT["b"], N=LIGHT["d"]),
+    "positioning": dict(GK_ACCENT, n=LIGHT["b"]),
 }
 
 
@@ -74,6 +83,7 @@ def icon_palette(skill):
         pal = dict(sig, w=sig["h"], W=sig["b"])
     pal.setdefault("x", pal["d"])
     pal.setdefault("y", pal["h"])
+    pal["T"] = pal["h"]
     pal["o"] = OUTLINE
     pal.update(EXTRA.get(skill, {}))
     return pal
@@ -326,10 +336,122 @@ def icon_reading():  # oko
     ])
 
 
+# ── umiejętności bramkarza (wybrane z grafiki_brudnopis/propozycje_ikon_bramkarza) ──
+
+def compose(*layers):
+    """Nakłada kształty (wiersze, x, y) na pustą siatkę; wokół kształtu na już wypełnionych pikselach dodaje kontur."""
+    grid = Grid()
+    for rows, ox, oy in layers:
+        cells = {(ox + x, oy + y): c for y, row in enumerate(rows) for x, c in enumerate(row) if c != "."}
+        for (x, y) in cells:
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                n = (x + dx, y + dy)
+                if n not in cells and 0 <= n[0] < ICON and 0 <= n[1] < ICON and grid.p[n[1]][n[0]] != ".":
+                    grid.p[n[1]][n[0]] = "o"
+        for (x, y), c in cells.items():
+            grid.p[y][x] = c
+    return grid
+
+
+BALL = [  # jak w ikonce strzału
+    "...hdddB...",
+    "..hhhdBBB..",
+    ".hhhBdBBBB.",
+    "hhBBoooBBBB",
+    "ddBoooooBdd",
+    "dhBoooooBBd",
+    "hBBBoooBBBd",
+    "BBBdBBBdBBd",
+    ".BdBBBBBdd.",
+    "..ddBBBdd..",
+    "...ddddd...",
+]
+BALL_WHITE_8 = [
+    "..nnnn..",
+    ".nnnnnN.",
+    "nnnooNNN",
+    "nnooooNN",
+    "nnnooNNN",
+    "onnnnNNo",
+    ".NNNNNN.",
+    "..NNNN..",
+]
+GLOVE = [  # rękawica: palce do góry, kciuk z lewej, mankiet k/K
+    ".......hh.hh...",
+    "....hh.hB.hB...",
+    "....hB.hB.hB.hh",
+    "....hB.hB.hB.hB",
+    "....hB.hB.hB.hB",
+    "....hB.hB.hB.hB",
+    "hh..hB.hB.hB.hB",
+    "hBd.hBBBBBBBBBd",
+    "hBBdhBBBBBBBBBd",
+    ".hBBBBBBBBBBBBd",
+    "..hBBBBBBBBBBBd",
+    "...hBBBBBBBBBBd",
+    "....BBBBBBBBBBd",
+    "....dddddddddd.",
+    "....kkkkkkkkkk.",
+    "....kkkkkkkkkk.",
+    "....KKKKKKKKKK.",
+]
+FIST = [  # pięść w rękawicy jak ikonka siły, biały mankiet
+    "..TT.TT.TT...",
+    "..hB.hB.hB.TT",
+    "..hB.hB.hB.hB",
+    "..BB.BB.hB.hB",
+    "..xx.xx.BB.Bd",
+    "TTTTTTTTBd.Bd",
+    "hBBBBBBBBd.Bd",
+    "xxxxxxxBBd.Bd",
+    "..hBBBBBBBBBd",
+    "...hBBBBBBBd.",
+    "....xxxxxxx..",
+    "....nnnnnnn..",
+]
+
+
+def icon_catching():  # piłka złapana w rękawicę
+    ball = ["".join({"B": "w", "h": "w", "d": "W"}.get(c, c) for c in row) for row in BALL]
+    return compose((GLOVE, 0, 1), (ball, 8, 7))
+
+
+def icon_punching():  # pięść wybija piłkę nad poprzeczkę
+    bar = ["n" * 18, "N" * 18]
+    up = [(["y"], 4, 2), (["y"], 4, 3), (["y"], 15, 2), (["y"], 15, 3)]
+    return compose((bar, 1, 6), (FIST, 3, 7), *up, (BALL_WHITE_8, 6, 1))
+
+
+def icon_positioning():  # bramkarz w bramce, stoi na linii bramkowej
+    return Grid([
+        "....................",
+        "....................",
+        ".hhhhhhhhhhhhhhhhhh.",
+        ".hBBBBBBBBBBBBBBBBd.",
+        ".hd..............hd.",
+        ".hd..............hd.",
+        ".hd......kk......hd.",
+        ".hd......kk......hd.",
+        ".hd....kkkkkk....hd.",
+        ".hd...k..kk..k...hd.",
+        ".hd..n...kk...n..hd.",
+        ".hd......kk......hd.",
+        ".hd.....k..k.....hd.",
+        ".hd....k....k....hd.",
+        ".hd....K....K....hd.",
+        ".xxxxxxxxxxxxxxxxxx.",
+        "....................",
+        "....................",
+        "....................",
+        "....................",
+    ])
+
+
 ICON_BUILDERS = {
     "strength": icon_strength, "speed": icon_speed, "jump": icon_jump,
     "pass": icon_pass, "shot": icon_shot, "control": icon_control,
     "tackle": icon_tackle, "pressing": icon_pressing, "reading": icon_reading,
+    "catching": icon_catching, "punching": icon_punching, "positioning": icon_positioning,
 }
 
 
@@ -375,6 +497,8 @@ BODY_PAL = {
     "physical": dict(A="#2e1520", F="#6e2622", G="#943a2c", C="#b04a35", E="#c8553d", B="#dc7552", D="#f2a97c"),
     "technical": dict(A="#141c38", F="#223d74", G="#2d5596", C="#3569b0", E="#3d7cc8", B="#5c9ae0", D="#a2cdf4"),
     "defensive": dict(A="#2e2010", F="#70500f", G="#946c14", C="#ae8418", E="#c99a1e", B="#deb73c", D="#f6e08a"),
+    # grafit (ciemny ołówek) z lekkim chłodnym połyskiem
+    "goalkeeper": dict(A="#191a1f", F="#34373d", G="#43464e", C="#50545c", E="#5e626b", B="#757a84", D="#a8adb6"),
 }
 # Zaokrąglenie rogów: wcięcie kolejnych wierszy od krawędzi (symetryczne względem przekątnej).
 CORNER = [7, 4, 3, 2, 1, 1, 1]

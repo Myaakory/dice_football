@@ -194,7 +194,9 @@ warunki, zagranie, testy ataku i obrony z przyciskiem „+ test bramkarza” prz
 | Wycofanie i strzał | 5 | środek | 0 | A: podanie/kontrola 1 @start, strzał 1; O: pressing/czytanie 8, @GK 3 | strata |
 | Rajd w polu karnym | 5 | środek | 0 | A: kontrola/szybkość 1 @start, strzał 1; O: odbiór/szybkość 8, @GK 3 | strata |
 
-Test bramkarza we wszystkich strzałach: „skok lub czytanie gry” 3, maks. 2 kości. Wszystkie wyniki „sukces”
+Test bramkarza we wszystkich strzałach: próg 3, maks. 2 kości, „skok lub umiejętność bramkarza” – chwytanie
+(Strzał z pola karnego, Strzał z dystansu), piąstkowanie (Dośrodkowanie), ustawianie na linii (Wycofanie i strzał,
+Rajd w polu karnym). Wszystkie wyniki „sukces”
 i „wygrany pojedynek” to awans (gol przy strzale), „obrona” to strata.
 
 ## Wynik akcji
@@ -231,11 +233,12 @@ Zdarzenie staje się „sytuacją” drużyny, która ma piłkę po efekcie (war
 ## Strzał i bramkarz
 
 Karty strzału przy sukcesie dają gola. **Interwencja bramkarza**: karta strzału ma w obronie osobny test bramkarza
-(`"location": "keeper"`). Liczą się w nim tylko kości bramkarza broniących (na razie jego zwykłe aktywne kości:
-fizyczna i defensywna, mnożnik ×2), a bramkarz nie gra wtedy w testach zawodników z pola. Testy ataku i obrony
+(`"location": "keeper"`). Liczą się w nim tylko kości bramkarza broniących (mnożnik ×2), a bramkarz nie gra
+wtedy w testach zawodników z pola. **Kości bramkarza** (2026-10-29): fizyczna + bramkarska (grafitowa; ścianki
+chwytanie, piąstkowanie, ustawianie na linii – po 1 i 2 punkty), obie aktywne (`positions.csv`: GK →
+`physical|goalkeeper`). Testy ataku i obrony
 rozstrzygają się jak zwykle; gdy wynik dałby gola, a bramkarz zapełnił swój test, gol zamienia się w **obronę
 bramkarza** (`goalkeeper_save`). Karta strzału bez testu bramkarza: bramkarz bierze udział w testach obrony (×2).
-Kości bramkarzy mają być przemodelowane.
 
 ## Energia i kondycja
 
@@ -366,7 +369,7 @@ kości, Edytor zagrań z podglądem karty i szans.
 
 Nie ma (jeszcze): wyboru i zmiany trenera, „mocniejszego ataku / obrony” poza przesunięciem i przerzutem
 (decyzja odłożona), zmian taktyki i zawodników w meczu, formy, kondycji między meczami, znajomości taktyki
-i odblokowywania kart, stałych fragmentów jako osobnych kart, kości bramkarzy po przemodelowaniu, wpływu pogody
+i odblokowywania kart, stałych fragmentów jako osobnych kart, wpływu pogody
 i kibiców.
 
 ## Otwarte pytania
@@ -381,7 +384,9 @@ i kibiców.
   nawzajem.
 - **Taktyki z jednym napastnikiem** (4-5-1, 3-5-2 w wersji DM) zdobywają mało goli – karty dla wbiegających
   pomocników?
-- **Kości bramkarzy** – do przemodelowania (teraz zwykłe: fizyczna + defensywna).
+- **Kości bramkarzy** – fizyczna + bramkarska od 2026-10-29; bramkarz stracił kość defensywną, więc rzadziej
+  pomaga w testach obrony z pola (wkład w obronie 16,7 → 12,8 pkt / mecz). Do strojenia: które umiejętności liczą
+  się w których testach bramkarza.
 - Czy obrona ma dość decyzji? Kandydat: postawy obronne (pressing / średni / niski blok) albo krótka talia kart
   obronnych.
 - Zmiana taktyki w meczu: 3 przygotowane taktyki, koszt 1 energii każdemu na boisku?

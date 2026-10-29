@@ -2,3 +2,4 @@ id,name_key,color,face_1,face_2,face_3,face_4,face_5,face_6
 physical,DIE_PHYSICAL,#c8553d,strength,strength,speed,speed,jump,jump
 technical,DIE_TECHNICAL,#3d7cc8,pass,pass,shot,shot,control,control
 defensive,DIE_DEFENSIVE,#c99a1e,tackle,tackle,pressing,pressing,reading,reading
+goalkeeper,DIE_GOALKEEPER,#5e626b,catching,catching,punching,punching,positioning,positioning

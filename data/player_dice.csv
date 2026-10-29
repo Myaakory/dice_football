@@ -1,10 +1,8 @@
 player_id,slot,die_type,face_1,face_2,face_3,face_4,face_5,face_6
 red_01,1,physical,1,2,1,2,1,2
-red_01,2,defensive,1,2,1,2,1,2
-red_01,3,defensive,1,2,1,2,1,2
+red_01,2,goalkeeper,1,2,1,2,1,2
 red_02,1,physical,1,2,1,2,1,2
-red_02,2,defensive,1,2,1,2,1,2
-red_02,3,defensive,1,2,1,2,1,2
+red_02,2,goalkeeper,1,2,1,2,1,2
 red_03,1,physical,1,2,1,2,1,2
 red_03,2,technical,1,2,1,2,1,2
 red_03,3,defensive,1,2,1,2,1,2
@@ -54,11 +52,9 @@ red_18,1,physical,1,2,1,2,1,2
 red_18,2,technical,1,2,1,2,1,2
 red_18,3,defensive,1,2,1,2,1,2
 blue_01,1,physical,1,2,1,2,1,2
-blue_01,2,defensive,1,2,1,2,1,2
-blue_01,3,defensive,1,2,1,2,1,2
+blue_01,2,goalkeeper,1,2,1,2,1,2
 blue_02,1,physical,1,2,1,2,1,2
-blue_02,2,defensive,1,2,1,2,1,2
-blue_02,3,defensive,1,2,1,2,1,2
+blue_02,2,goalkeeper,1,2,1,2,1,2
 blue_03,1,physical,1,2,1,2,1,2
 blue_03,2,technical,1,2,1,2,1,2
 blue_03,3,defensive,1,2,1,2,1,2

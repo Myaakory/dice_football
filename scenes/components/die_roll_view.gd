@@ -17,6 +17,7 @@ const ROLL_SHEETS := {
 	&"physical": preload("res://assets/graphics/dice/die_roll_physical.png"),
 	&"technical": preload("res://assets/graphics/dice/die_roll_technical.png"),
 	&"defensive": preload("res://assets/graphics/dice/die_roll_defensive.png"),
+	&"goalkeeper": preload("res://assets/graphics/dice/die_roll_goalkeeper.png"),
 }
 const SHADOW: Texture2D = preload("res://assets/graphics/dice/die_shadow.png")
 
