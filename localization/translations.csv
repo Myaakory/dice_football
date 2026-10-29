@@ -42,7 +42,7 @@ MATCH_WEATHER_RAIN,"Rain, %d°C","Deszcz, %d°C"
 MATCH_CROWD,Crowd,Kibice
 MATCH_CROWD_VALUE,%s of %s,%s z %s
 MATCH_ENERGY,Stamina: %d / %d,Wytrzymałość: %d / %d
-MATCH_EXHAUSTED,"Exhausted: dice count at %d%%","Wyczerpany: kości liczą się w %d%%"
+MATCH_EXHAUSTED,Exhausted: dice count at %d%%,Wyczerpany: kości liczą się w %d%%
 MATCH_ATTACK,Attack,Atak
 MATCH_DEFENSE,Defence,Obrona
 MATCH_OR," or "," lub "
@@ -59,9 +59,9 @@ MATCH_SLOT_SUCCESS,Only attack passes,Zalicza tylko atak
 MATCH_SLOT_DUEL_WON,Duel won,Wygrany pojedynek
 MATCH_SLOT_DUEL_LOST,Duel lost,Przegrany pojedynek
 MATCH_SLOT_DEFENSE,Only defence passes,Zalicza tylko obrona
-"MATCH_CHOOSE_PLAY","Your ball. Click a play to see it on the pitch, click it again to play it.","Twoja piłka. Kliknij zagranie, żeby zobaczyć je na boisku; kliknij je jeszcze raz, żeby zagrać."
-"MATCH_CONFIRM_PLAY","%s – click the card again or Play to confirm.","%s – kliknij kartę jeszcze raz albo Zagraj, żeby potwierdzić."
-"MATCH_CHOOSE_SIDE","%s – choose the side with a button on the card (hover a button to preview it).","%s – wybierz stronę przyciskiem na karcie (najedź na przycisk, żeby zobaczyć podgląd)."
+MATCH_CHOOSE_PLAY,"Your ball. Click a play to see it on the pitch, click it again to play it.","Twoja piłka. Kliknij zagranie, żeby zobaczyć je na boisku; kliknij je jeszcze raz, żeby zagrać."
+MATCH_CONFIRM_PLAY,%s – click the card again or Play to confirm.,"%s – kliknij kartę jeszcze raz albo Zagraj, żeby potwierdzić."
+MATCH_CHOOSE_SIDE,%s – choose the side with a button on the card (hover a button to preview it).,"%s – wybierz stronę przyciskiem na karcie (najedź na przycisk, żeby zobaczyć podgląd)."
 MATCH_PLAY_BUTTON,Play,Zagraj
 MATCH_TEST_AT_ORIGIN,Start,Start
 MATCH_TEST_AT_TARGET,Target,Cel
@@ -69,7 +69,7 @@ MATCH_KEEPER_TEST,Goalkeeper save,Interwencja bramkarza
 MATCH_KEEPER_SHORT,Goalkeeper,Bramkarz
 MATCH_KEEPER_SAVED,The %s goalkeeper saves the shot!,Bramkarz drużyny %s broni strzał!
 EDITOR_TEST_LOCATION,Place,Miejsce
-"EDITOR_TEST_LOCATION_TOOLTIP","Which field the test concerns: target (e.g. receiving the ball) or start (e.g. playing a long ball). Players take part by their distance from that field. Goalkeeper (defence of shot plays only): only the defending goalkeeper's dice count; if he passes, a goal becomes a save.","Którego pola dotyczy test: docelowego (np. przyjęcie piłki) albo startowego (np. zagranie długiej piłki). Zawodnicy biorą udział według odległości od tego pola. Bramkarz (tylko obrona kart strzału): liczą się tylko kości bramkarza broniących; gdy zaliczy test, gol zamienia się w obronę bramkarza."
+EDITOR_TEST_LOCATION_TOOLTIP,"Which field the test concerns: target (e.g. receiving the ball) or start (e.g. playing a long ball). Players take part by their distance from that field. Goalkeeper (defence of shot plays only): only the defending goalkeeper's dice count; if he passes, a goal becomes a save.","Którego pola dotyczy test: docelowego (np. przyjęcie piłki) albo startowego (np. zagranie długiej piłki). Zawodnicy biorą udział według odległości od tego pola. Bramkarz (tylko obrona kart strzału): liczą się tylko kości bramkarza broniących; gdy zaliczy test, gol zamienia się w obronę bramkarza."
 MATCH_PHASE_ATTACK,Attack – %s:,Atak – %s:
 MATCH_PHASE_DEFENSE,Defence – %s:,Obrona – %s:
 MATCH_SIDE_LEFT,◀ Left,◀ Lewym
@@ -268,7 +268,7 @@ EDITOR_VALIDATION_TITLE,Not saved: fix these errors,Nie zapisano: popraw błędy
 EDITOR_MORE_ERRORS,…and %d more.,…i jeszcze %d.
 EDITOR_NO_PLAY,No play selected.,Nie wybrano zagrania.
 EDITOR_NEW_PLAY_NAME,New play,Nowe zagranie
-EDITOR_COPY_SUFFIX, (copy), (kopia)
+EDITOR_COPY_SUFFIX," (copy)"," (kopia)"
 EDITOR_CONFIRM_DELETE_TITLE,Delete play,Usuwanie zagrania
 EDITOR_CONFIRM_DELETE,"Delete the play ""%s""? The file changes only after saving.",Usunąć zagranie „%s”? Plik zmieni się dopiero po zapisie.
 EDITOR_CONFIRM_EXIT_TITLE,Unsaved changes,Niezapisane zmiany
@@ -297,7 +297,7 @@ EDITOR_FIELD_ADVANCE_TOOLTIP,"0 to 2; the action zone is clamped to 1–5 (0 = a
 EDITOR_TEST,Test %d,Test %d
 EDITOR_THRESHOLD,Threshold,Próg
 EDITOR_MAX_DICE,max dice,maks. kości
-EDITOR_MAX_DICE_TOOLTIP,"How many best dice count in this test (0 = all). A balancing tool.","Ile najlepszych kości liczy się w tym teście (0 = wszystkie). Narzędzie balansu."
+EDITOR_MAX_DICE_TOOLTIP,How many best dice count in this test (0 = all). A balancing tool.,Ile najlepszych kości liczy się w tym teście (0 = wszystkie). Narzędzie balansu.
 EDITOR_THRESHOLD_TOOLTIP,"Points needed to fill the test (whole number, ×2 / ×1 scale).","Punkty potrzebne do zapełnienia testu (liczba całkowita, skala ×2 / ×1)."
 EDITOR_REMOVE_TEST,Remove test,Usuń test
 EDITOR_REMOVE,Remove,Usuń
@@ -331,7 +331,7 @@ EDITOR_ERROR_EVENT_UNKNOWN,"Unknown event ""%s"".",Nieznane zdarzenie „%s”.
 EDITOR_ERROR_ADVANCE,Zones forward must be between 0 and 2 (is %s).,Liczba stref do przodu musi być od 0 do 2 (jest %s).
 EDITOR_ERROR_NO_TESTS,%s: at least one test is required.,%s: potrzebny co najmniej jeden test.
 EDITOR_ERROR_POINTS,"%s, test %s: the threshold must be a whole number of at least 1.","%s, test %s: próg musi być liczbą całkowitą, co najmniej 1."
-"EDITOR_ERROR_KEEPER_TEST","%s, test %s: the goalkeeper test is only for the defence of shot plays.","%s, test %s: test bramkarza może mieć tylko obrona karty strzału."
+EDITOR_ERROR_KEEPER_TEST,"%s, test %s: the goalkeeper test is only for the defence of shot plays.","%s, test %s: test bramkarza może mieć tylko obrona karty strzału."
 EDITOR_ERROR_MAX_DICE,"%s, test %s: max dice must be between 0 and 11.","%s, test %s: limit kości musi być od 0 do 11."
 EDITOR_ERROR_NO_TERMS,"%s, test %s: no attributes.","%s, test %s: brak cech."
 EDITOR_ERROR_ATTRIBUTE_UNKNOWN,"%s, test %s: unknown attribute ""%s"".","%s, test %s: nieznana cecha „%s”."
@@ -369,3 +369,31 @@ PERK_POACHER,Fox in the box,Lis pola karnego
 PERK_POACHER_DESC,A striker (ST) in the action cell in the opponent's box (zone 5) counts ×3 instead of ×2.,Napastnik (ST) w polu akcji w polu karnym rywala (strefa 5) liczy się ×3 zamiast ×2.
 PERK_BOX_FORTRESS,Fortress,Twierdza
 PERK_BOX_FORTRESS_DESC,"Defending their own box (zone 1), centre-backs and defensive midfielders (CB, DM) in a neighbouring cell count ×2 instead of ×1.","W obronie własnego pola karnego (strefa 1) środkowi obrońcy i defensywni pomocnicy (CB, DM) z pola sąsiedniego liczą się ×2 zamiast ×1."
+PLAY_CARD_SHORT_PASS_OUT_NAME,Short build-up,Krótkie wyprowadzenie
+PLAY_CARD_SHORT_PASS_OUT_DESC,"A short pass through the centre, one zone forward. Safe: the ball stays after a lost duel.",Krótkie podanie środkiem o strefę wyżej. Bezpieczne: po przegranym pojedynku piłka zostaje.
+PLAY_CARD_FULLBACK_OUTLET_NAME,Pass to the full-back,Podanie do bocznego
+PLAY_CARD_FULLBACK_OUTLET_DESC,"A pass out to the wing, one zone forward (the attacker picks the side).",Podanie na skrzydło strefę wyżej (atakujący wybiera stronę).
+PLAY_CARD_LONG_CLEARANCE_NAME,Clearance,Wybicie
+PLAY_CARD_LONG_CLEARANCE_DESC,"A long clearance through the centre, two zones forward. Risky: a lost duel means a turnover.",Długie wybicie środkiem o dwie strefy. Ryzykowne: po przegranym pojedynku strata.
+PLAY_CARD_TIKI_TAKA_NAME,Tiki-taka,Tiki-taka
+PLAY_CARD_TIKI_TAKA_DESC,"A series of short passes through the centre, one zone forward. The ball stays after a lost duel.",Seria krótkich podań środkiem o strefę wyżej. Po przegranym pojedynku piłka zostaje.
+PLAY_CARD_WING_PLAY_NAME,Wing play,Gra skrzydłem
+PLAY_CARD_WING_PLAY_DESC,"An attack down the wing, one zone forward (the attacker picks the side).",Akcja skrzydłem o strefę wyżej (atakujący wybiera stronę).
+PLAY_CARD_LONG_BALL_NAME,Long ball,Laga
+PLAY_CARD_LONG_BALL_DESC,"A long ball through the centre, two zones forward: the passer plays it with strength or passing (start), the receiver wins a physical duel and controls the ball (target).","Długa piłka środkiem o dwie strefy: podający dogrywa siłą albo podaniem (start), odbierający wygrywa pojedynek siłowy i przyjmuje piłkę (cel)."
+PLAY_CARD_OVERLAP_NAME,Overlap,Podłączenie bocznego
+PLAY_CARD_OVERLAP_DESC,"The full-back joins an attack down the wing, one zone forward (the attacker picks the side).",Boczny obrońca podłącza się do akcji skrzydłem o strefę wyżej (atakujący wybiera stronę).
+PLAY_CARD_THROUGH_BALL_NAME,Through ball,Prostopadłe podanie
+PLAY_CARD_THROUGH_BALL_DESC,"A pass through the centre behind the defensive line, two zones forward: a passing test and a separate speed test. A lost duel means a turnover.",Podanie środkiem za linię obrony o dwie strefy: test podania i osobno szybkości. Po przegranym pojedynku strata.
+PLAY_CARD_DRIBBLE_NAME,Dribble,Drybling
+PLAY_CARD_DRIBBLE_DESC,"A solo run through the centre, one zone forward. A lost duel means a turnover.",Indywidualny rajd środkiem o strefę wyżej. Po przegranym pojedynku strata.
+PLAY_CARD_CROSS_NAME,Cross,Dośrodkowanie
+PLAY_CARD_CROSS_DESC,A cross into the box finished with a header: passing at the ball (start) and aerial play in the box (target).,Dośrodkowanie w pole karne zakończone strzałem głową: podanie przy piłce (start) i gra w powietrzu w polu karnym (cel).
+PLAY_CARD_LONG_SHOT_NAME,Long shot,Strzał z dystansu
+PLAY_CARD_LONG_SHOT_DESC,A shot through the centre from zone 4.,Strzał środkiem ze strefy 4.
+PLAY_CARD_SHOT_NAME,Shot from the box,Strzał z pola karnego
+PLAY_CARD_SHOT_DESC,A shot from the centre of the box (zone 5).,Strzał ze środka pola karnego (strefa 5).
+PLAY_CARD_CUTBACK_NAME,Cutback and shot,Wycofanie i strzał
+PLAY_CARD_CUTBACK_DESC,The ball is cut back to the centre of the box (start) and shot first time (target).,Wycofanie piłki na środek pola karnego (start) i strzał z pierwszej piłki (cel).
+PLAY_CARD_BOX_DRIBBLE_NAME,Dribble in the box,Rajd w polu karnym
+PLAY_CARD_BOX_DRIBBLE_DESC,Beating a defender at the ball (start) and a close-range shot (target).,Minięcie obrońcy przy piłce (start) i strzał z bliska (cel).

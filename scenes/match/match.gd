@@ -125,7 +125,7 @@ func _play_turn() -> void:
 		engine.choose_ai_play()
 	_show_play(t)
 	if attackers_index != human_index:
-		_set_prompt(tr("MATCH_AI_PLAYS") % [t.attackers.get_short_name(), t.card.name])
+		_set_prompt(tr("MATCH_AI_PLAYS") % [t.attackers.get_short_name(), t.card.get_display_name()])
 		await _pause()
 
 	# Etap ataku, potem etap obrony (W12): na boisku leżą naraz kości tylko strony, która gra etap.
@@ -261,7 +261,8 @@ func _human_choose_play(t: MatchEngine.Turn) -> void:
 		view.selected = true
 		view.show_choice(true)
 		_preview_play(card, targets, attackers_index)
-		_set_prompt((tr("MATCH_CONFIRM_PLAY") if targets.size() == 1 else tr("MATCH_CHOOSE_SIDE")) % card.name)
+		var prompt_key := "MATCH_CONFIRM_PLAY" if targets.size() == 1 else "MATCH_CHOOSE_SIDE"
+		_set_prompt(tr(prompt_key) % card.get_display_name())
 	_pitch.set_choice_cells([])
 
 

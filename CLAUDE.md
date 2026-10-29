@@ -38,6 +38,8 @@ nie mają własnych stałych rozmiaru; nakładki stref liczy `PitchOverlays`.
 ## Konwencje
 
 - Identyfikatory i stringi w kodzie po angielsku; tekst dla gracza przez klucze tłumaczeń
-  (`localization/translations.csv`, en + pl). Komentarze mogą być po polsku.
+  (`localization/translations.csv`, en + pl). Komentarze mogą być po polsku. Tłumaczenia też mają arkusz Google
+  jako źródło prawdy (osobny arkusz tekstów, `python tools/sync_sheets.py --translations`) – nie edytuj
+  `translations.csv` ręcznie, nowe klucze dopisuj w arkuszu: [localization/README.md](localization/README.md).
 - Dane definicji gry: Google Sheet jest źródłem prawdy, a `data/*.csv` się z niego synchronizuje
   (`python tools/sync_sheets.py`, konfiguracja w `tools/sheets_config.json`). Nie edytuj `data/*.csv` ręcznie.
