@@ -20,14 +20,16 @@ const ICON_MASKS: Texture2D = preload("res://assets/graphics/dice/die_icon_masks
 const MAX_RIM: Texture2D = preload("res://assets/graphics/dice/die_max_rim.png")
 
 ## Kolejność typów w die_bodies.png / die_roll_*.png i cech w die_icons.png.
-const TYPE_ORDER: Array[StringName] = [&"physical", &"technical", &"defensive"]
+const TYPE_ORDER: Array[StringName] = [&"physical", &"technical", &"defensive", &"goalkeeper"]
 const ATTRIBUTE_ORDER: Array[StringName] = [
-	&"strength", &"speed", &"jump", &"pass", &"shot", &"control", &"tackle", &"pressing", &"reading"]
+	&"strength", &"speed", &"jump", &"pass", &"shot", &"control", &"tackle", &"pressing", &"reading",
+	&"catching", &"punching", &"positioning"]
 ## Kolor ściany każdego typu – "wycięcie" wokół ikonek nachodzących na inne.
 const FACE_COLORS := {
 	&"physical": Color("#c8553d"),
 	&"technical": Color("#3d7cc8"),
 	&"defensive": Color("#c99a1e"),
+	&"goalkeeper": Color("#5e626b"),
 }
 const ICON_SHADOW := Color(0.08, 0.04, 0.08, 0.47)
 

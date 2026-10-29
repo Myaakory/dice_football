@@ -20,7 +20,7 @@ const ATTACK_TEXT := Color("#b8f08a")
 const DEFENSE_TEXT := Color("#ffb070")
 const KEEPER_TEXT := Color("#c8b6ff")
 ## Test bramkarza dodawany przyciskiem (jak w talii v4 po kalibracji B4).
-const DEFAULT_KEEPER_ATTRIBUTES: Array[StringName] = [&"jump", &"reading"]
+const DEFAULT_KEEPER_ATTRIBUTES: Array[StringName] = [&"jump", &"catching"]
 const DEFAULT_KEEPER_POINTS := 3.0
 const DEFAULT_KEEPER_DICE := 2
 const MAX_LISTED_ERRORS := 12

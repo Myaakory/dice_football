@@ -182,7 +182,7 @@
 			],
 			"defense": [
 				{"points": 6, "attributes": ["jump", "reading"], "max_dice": 3},
-				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+				{"points": 3, "attributes": ["jump", "punching"], "max_dice": 2, "location": "keeper"}
 			],
 			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
 		},
@@ -201,7 +201,7 @@
 			],
 			"defense": [
 				{"points": 6, "attributes": ["reading", "jump", "tackle"], "max_dice": 3},
-				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+				{"points": 3, "attributes": ["jump", "catching"], "max_dice": 2, "location": "keeper"}
 			],
 			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
 		},
@@ -220,7 +220,7 @@
 			],
 			"defense": [
 				{"points": 10, "attributes": ["reading", "jump", "tackle"], "max_dice": 3},
-				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+				{"points": 3, "attributes": ["jump", "catching"], "max_dice": 2, "location": "keeper"}
 			],
 			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
 		},
@@ -240,7 +240,7 @@
 			],
 			"defense": [
 				{"points": 8, "attributes": ["pressing", "reading"], "max_dice": 3},
-				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+				{"points": 3, "attributes": ["jump", "positioning"], "max_dice": 2, "location": "keeper"}
 			],
 			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
 		},
@@ -260,7 +260,7 @@
 			],
 			"defense": [
 				{"points": 8, "attributes": ["tackle", "speed"], "max_dice": 3},
-				{"points": 3, "attributes": ["jump", "reading"], "max_dice": 2, "location": "keeper"}
+				{"points": 3, "attributes": ["jump", "positioning"], "max_dice": 2, "location": "keeper"}
 			],
 			"outcomes": {"success": "goal", "duel_won": "goal", "duel_lost": "turnover", "defense": "turnover"}
 		}
