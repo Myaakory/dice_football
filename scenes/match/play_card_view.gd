@@ -105,7 +105,7 @@ func _build_portrait(box: VBoxContainer) -> void:
 	var titles := VBoxContainer.new()
 	titles.add_theme_constant_override(&"separation", -1)
 	box.add_child(titles)
-	titles.add_child(_label(card.name, 19, INK))
+	titles.add_child(_label(card.get_display_name(), 19, INK))
 	titles.add_child(_label(_describe_move(), 12, MUTED))
 	_diagram = PlayDiagram.new()
 	_diagram.setup(card, ball_zone, targets, context.get("attackers"), context.get("defenders"), context.get("rules"),
@@ -136,14 +136,15 @@ func _build_full(box: VBoxContainer) -> void:
 	var titles := VBoxContainer.new()
 	titles.add_theme_constant_override(&"separation", -1)
 	box.add_child(titles)
-	titles.add_child(_label(card.name, 19, INK))
+	titles.add_child(_label(card.get_display_name(), 19, INK))
 	titles.add_child(_label(_describe_move(), 12, MUTED))
 	_diagram = PlayDiagram.new()
 	_diagram.setup(card, ball_zone, targets, context.get("attackers"), context.get("defenders"), context.get("rules"),
 			context.get("flipped", false))
 	box.add_child(_diagram)
-	if not card.description.is_empty():
-		var description := _label(card.description, 12, KEEP_INK)
+	var card_description := card.get_display_description()
+	if not card_description.is_empty():
+		var description := _label(card_description, 12, KEEP_INK)
 		description.clip_text = false
 		description.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 		description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

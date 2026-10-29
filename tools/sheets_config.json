@@ -13,5 +13,10 @@
 		"attributes": 109,
 		"coaches": 110,
 		"perks": 111
+	},
+	"translations": {
+		"spreadsheet_id": "1dcv8GwLfNoDR98XOF2REWDo8Bu15-PXu0PwCRk1FhFY",
+		"gid": 0,
+		"output": "../localization/translations.csv"
 	}
 }
