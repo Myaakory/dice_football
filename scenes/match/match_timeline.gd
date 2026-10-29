@@ -92,7 +92,7 @@ func _get_tooltip(at_position: Vector2) -> String:
 			var team := turn.attackers.get_short_name()
 			if turn.skipped:
 				return "%d' %s" % [engine.get_minute(index), team]
-			return "%d' %s: %s\n%s – %s" % [engine.get_minute(index), team, turn.card.name,
+			return "%d' %s: %s\n%s – %s" % [engine.get_minute(index), team, turn.card.get_display_name(),
 					tr(PlayCardView.SLOT_KEYS.get(turn.slot, "PLAY_SLOT_" + String(turn.slot).to_upper())),
 					PlayEvents.get_display_name(turn.event)]
 	return ""

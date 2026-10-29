@@ -22,7 +22,8 @@ const MAX_ADVANCE := 2
 const OUTCOME_SLOTS: Array[StringName] = [&"success", &"duel_won", &"duel_lost", &"defense"]
 
 var id: StringName
-## Nazwa wyświetlana (na razie zwykły tekst – narzędzie deweloperskie).
+## Nazwa i opis z pliku kart (tekst roboczy Edytora zagrań). W grze wyświetla się tłumaczenie spod klucza
+## PLAY_CARD_<ID>_NAME / _DESC (get_display_name / get_display_description), a bez klucza – ten tekst.
 var name: String = ""
 var description: String = ""
 ## Taktyki, które mają kartę w talii (id z GameData.tactics).
@@ -134,6 +135,20 @@ func uses_die_type(die_type: DieTypeData, attacking: bool) -> bool:
 
 func is_in_tactic(tactic_id: StringName) -> bool:
 	return tactic_id in tactics
+
+
+func get_display_name() -> String:
+	return _translated("PLAY_CARD_%s_NAME" % String(id).to_upper(), name)
+
+
+func get_display_description() -> String:
+	return _translated("PLAY_CARD_%s_DESC" % String(id).to_upper(), description)
+
+
+## Tłumaczenie klucza albo tekst zapasowy, gdy klucza nie ma w tłumaczeniach (tr zwraca wtedy sam klucz).
+func _translated(key: String, fallback: String) -> String:
+	var text := tr(key)
+	return fallback if text == key else text
 
 
 func describe() -> String:

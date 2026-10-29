@@ -29,3 +29,4 @@ Listy w jednej komórce oddzielamy znakiem `|`, np. `physical|defensive`.
 | `perks.csv` | `id, name_key, description_key, relation, side, roles, zones, lane, weight` | Perki trenerów – modyfikatory udziału w meczu (`docs/design/match_rules.md`). `relation`: `action` (pole testu) / `support` (pole sąsiednie) / `passer` / `flyover`; `side`: `attack` / `defense` / puste = obie; `roles` i `zones` (strefy pola testu w perspektywie drużyny trenera, 1 = własne pole karne) – listy `\|`, puste = wszystkie; `lane`: `center` / `wing` / puste = każdy; `weight` – mnożnik (liczba całkowita). |
 
 Teksty widoczne dla gracza są kluczami tłumaczeń (`*_key`) z `res://localization/translations.csv` (kolumny `keys, en, pl`).
+Tłumaczenia pochodzą z osobnego arkusza tekstów – patrz `localization/README.md`.
