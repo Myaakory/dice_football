@@ -8,6 +8,7 @@ enum DotStyle {
 	GEM,    ## cieniowane kropki z odblaskiem
 	BADGE,  ## plakietki ze skrótem roli
 	RING,   ## świecące pierścienie wokół ciemnej kropki
+	ROLE_BADGE,  ## duże plakietki tylko na rolach zawodnika, reszta to małe kropki (poza wyborem w opcjach)
 }
 
 const DOT_STYLE_NAME_KEYS: Dictionary[DotStyle, String] = {
@@ -31,9 +32,15 @@ const EMPTY_DOT := Color(0.06, 0.09, 0.07, 0.8)
 const GREEN: Array[Color] = [Color("#143a18"), Color("#3fa34d"), Color("#86dd78"), Color("#ecffe0")]
 const YELLOW: Array[Color] = [Color("#4f3a06"), Color("#d9a826"), Color("#ffe07a"), Color("#fffbe6")]
 const BADGE_SIZE := Vector2(28, 14)
+const ROLE_BADGE_SIZE := Vector2(38, 20)
+const ROLE_BADGE_FONT_SIZE := 14
 const HOVER_RADIUS := 9.0
 
 var player: PlayerData
+var field_size := FIELD_SIZE
+## Styl zamiast tego z ustawień gry (-1 = z ustawień).
+var style_override: int = -1
+var show_legend := true
 
 static var _role_points: Dictionary[StringName, Vector2] = {}
 
@@ -52,7 +59,7 @@ func setup(p_player: PlayerData) -> void:
 
 
 func _get_minimum_size() -> Vector2:
-	return Vector2(FIELD_SIZE.x + SIDE_MARGIN * 2.0, FIELD_SIZE.y + GOAL_MARGIN * 2.0 + LEGEND_HEIGHT)
+	return Vector2(field_size.x + SIDE_MARGIN * 2.0, field_size.y + GOAL_MARGIN * 2.0 + (LEGEND_HEIGHT if show_legend else 0.0))
 
 
 func _notification(what: int) -> void:
@@ -81,7 +88,7 @@ static func get_role_points() -> Dictionary[StringName, Vector2]:
 
 
 func _get_field_rect() -> Rect2:
-	return Rect2(Vector2(SIDE_MARGIN, GOAL_MARGIN), FIELD_SIZE)
+	return Rect2(Vector2(SIDE_MARGIN, GOAL_MARGIN), field_size)
 
 
 func _get_role_position(role_id: StringName) -> Vector2:
@@ -104,13 +111,14 @@ func _get_tooltip(at_position: Vector2) -> String:
 
 func _draw() -> void:
 	_draw_field()
-	var style := Settings.position_dot_style as DotStyle
+	var style := (Settings.position_dot_style if style_override < 0 else style_override) as DotStyle
 	var font := get_theme_default_font()
 	for role_id in get_role_points():
 		var fit := player.get_role_fit(role_id) if player != null else PlayerData.RoleFit.NONE
 		var role := GameData.get_role(role_id)
 		_draw_dot(style, _get_role_position(role_id), fit, tr(role.short_key) if role != null else "", font)
-	_draw_legend(style, font)
+	if show_legend:
+		_draw_legend(style, font)
 
 
 func _draw_field() -> void:
@@ -182,6 +190,17 @@ func _draw_dot(style: DotStyle, pos: Vector2, fit: PlayerData.RoleFit, label: St
 						rect.size.x, font_size, Color(0, 0, 0, 0.6))
 			draw_string(font, Vector2(rect.position.x, baseline), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x,
 					font_size, text_color)
+		DotStyle.ROLE_BADGE:
+			if fit == PlayerData.RoleFit.NONE:
+				draw_circle(pos, 4.0, EMPTY_DOT)
+				draw_circle(pos, 4.0, Color(1, 1, 1, 0.22), false, 1.0)
+				return
+			var rect := Rect2(pos - ROLE_BADGE_SIZE / 2.0, ROLE_BADGE_SIZE)
+			draw_rect(Rect2(rect.position + Vector2(1, 2), rect.size), Color(0, 0, 0, 0.4))
+			draw_rect(rect, palette[1])
+			var baseline := roundf(pos.y + (font.get_ascent(ROLE_BADGE_FONT_SIZE) - font.get_descent(ROLE_BADGE_FONT_SIZE)) / 2.0)
+			draw_string(font, Vector2(rect.position.x, baseline), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x,
+					ROLE_BADGE_FONT_SIZE, Color.WHITE if fit == PlayerData.RoleFit.NATURAL else Color("#3a2a05"))
 		DotStyle.RING:
 			if fit != PlayerData.RoleFit.NONE:
 				draw_circle(pos, 11.0, Color(palette[1], 0.16))
@@ -194,7 +213,7 @@ func _draw_dot(style: DotStyle, pos: Vector2, fit: PlayerData.RoleFit, label: St
 
 func _draw_legend(style: DotStyle, font: Font) -> void:
 	var font_size := 12
-	var y := GOAL_MARGIN * 2.0 + FIELD_SIZE.y + 6.0
+	var y := GOAL_MARGIN * 2.0 + field_size.y + 6.0
 	var items := [[PlayerData.RoleFit.NATURAL, "POSITION_NATURAL"], [PlayerData.RoleFit.SECONDARY, "POSITION_SECONDARY"]]
 	for item: Array in items:
 		var dot_pos := Vector2(SIDE_MARGIN + 12.0, y + 8.0)
