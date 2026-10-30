@@ -1,0 +1,302 @@
+<title>Przegląd portretów</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: wąski pasek filtrów u góry, potem wiersze elementów pogrupowane wg puli – obrazek po lewej, ocena po prawej. */
+:root {
+  --bg: #eef0f2; --panel: #ffffff; --tile: #dfe3e7; --line: #c9cfd6;
+  --fg: #1d2228; --muted: #5d6772; --accent: #c4791f;
+  --ok: #2f8a4c; --warn: #b7791a; --bad: #b8322a; --stale: #3e70b2;
+  --ok-bg: #e3f2e7; --warn-bg: #f8eedc; --bad-bg: #f7e1df; --stale-bg: #e1eaf6;
+  --display: "Pixelify Sans", "Courier New", monospace;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1b1e23; --panel: #242930; --tile: #2d333b; --line: #3a414b;
+  --fg: #e9e5dc; --muted: #9aa3ae; --accent: #e3a03e;
+  --ok: #6cc489; --warn: #e3b04b; --bad: #ec7066; --stale: #7fa9e6;
+  --ok-bg: #1f3427; --warn-bg: #3a3020; --bad-bg: #3d2423; --stale-bg: #1f2c3f;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1b1e23; --panel: #242930; --tile: #2d333b; --line: #3a414b;
+  --fg: #e9e5dc; --muted: #9aa3ae; --accent: #e3a03e;
+  --ok: #6cc489; --warn: #e3b04b; --bad: #ec7066; --stale: #7fa9e6;
+  --ok-bg: #1f3427; --warn-bg: #3a3020; --bad-bg: #3d2423; --stale-bg: #1f2c3f;
+  color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font: 15px/1.5 var(--body); }
+.wrap { max-width: 1320px; margin: 0 auto; padding-block: 24px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2 { font-family: var(--display); font-weight: 700; text-wrap: balance; margin: 0; letter-spacing: .02em; }
+h1 { font-size: 30px; }
+h2 { font-size: 20px; }
+.sub { color: var(--muted); margin: 4px 0 0; max-width: 70ch; }
+
+.summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 12px; }
+.count { display: flex; align-items: baseline; gap: 8px; padding: 8px 14px; border-radius: 6px; background: var(--panel);
+  border: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.count b { font-family: var(--display); font-size: 22px; }
+.count span { color: var(--muted); font-size: 13px; }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 10px;
+  display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.group { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.group > .lab { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-right: 4px; }
+.chip { font: inherit; font-size: 13px; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--line);
+  background: var(--panel); color: var(--fg); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.chip:focus-visible, button:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.general { margin: 18px 0 6px; display: grid; gap: 6px; }
+.general label { font-weight: 700; }
+
+section.pool { margin-top: 30px; display: grid; gap: 12px; }
+section.pool header { display: flex; align-items: baseline; gap: 10px; }
+section.pool header span { color: var(--muted); font-size: 13px; }
+
+.el { display: grid; grid-template-columns: minmax(0, auto) minmax(260px, 1fr); gap: 16px; background: var(--panel);
+  border: 1px solid var(--line); border-radius: 8px; padding: 12px; border-left: 4px solid var(--line); }
+.el[data-state="approved"] { border-left-color: var(--ok); }
+.el[data-state="changes"] { border-left-color: var(--warn); }
+.el[data-state="rejected"] { border-left-color: var(--bad); }
+.el[data-state="stale"] { border-left-color: var(--stale); }
+@media (max-width: 900px) { .el { grid-template-columns: minmax(0, 1fr); } }
+.shot { overflow-x: auto; min-width: 0; background: var(--tile); border-radius: 4px; padding: 6px; }
+.shot img { display: block; max-width: none; image-rendering: pixelated; }
+.cap { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.side { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.title { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.title code { font-family: var(--mono); font-weight: 600; font-size: 15px; }
+.tag { font-family: var(--mono); font-size: 11px; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); }
+.pill { font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 99px; }
+.pill.pending { background: var(--tile); color: var(--muted); }
+.pill.approved { background: var(--ok-bg); color: var(--ok); }
+.pill.changes { background: var(--warn-bg); color: var(--warn); }
+.pill.rejected { background: var(--bad-bg); color: var(--bad); }
+.pill.stale { background: var(--stale-bg); color: var(--stale); }
+.notice { font-size: 13px; background: var(--stale-bg); color: var(--fg); border-radius: 6px; padding: 6px 10px; }
+.notice b { color: var(--stale); }
+
+.actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.actions button { font: inherit; font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--panel); color: var(--fg); }
+.actions button.approve:hover, .actions button.approve.on { background: var(--ok-bg); color: var(--ok); border-color: var(--ok); }
+.actions button.changes:hover, .actions button.changes.on { background: var(--warn-bg); color: var(--warn); border-color: var(--warn); }
+.actions button.reject:hover, .actions button.reject.on { background: var(--bad-bg); color: var(--bad); border-color: var(--bad); }
+.actions button:disabled { opacity: .5; cursor: default; }
+textarea { font: inherit; font-size: 14px; width: 100%; box-sizing: border-box; min-height: 64px; resize: vertical;
+  border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; background: var(--bg); color: var(--fg); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.save { font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 6px; border: 1px solid var(--fg);
+  background: var(--fg); color: var(--bg); cursor: pointer; }
+.saved { font-size: 12px; color: var(--muted); }
+details { font-size: 13px; color: var(--muted); }
+details ul { margin: 4px 0 0; padding-left: 18px; }
+.empty, .offline { padding: 24px; border: 1px dashed var(--line); border-radius: 8px; color: var(--muted); margin-top: 24px; }
+.offline { margin-top: 12px; padding: 10px 14px; }
+@media (prefers-reduced-motion: no-preference) { .el { transition: border-color .2s; } }
+</style>
+
+<div class="wrap">
+  <h1>Przegląd portretów</h1>
+  <p class="sub">Każdy element na 6 różnych twarzach (głowa, karnacja, włosy i koszulka klubu się zmieniają), u góry 64×64,
+    pod spodem 32×32. Pierwsza kolumna to sam element. Ocena i uwaga zapisują się od razu – Claude je odczyta i poprawi elementy.</p>
+
+  <div class="summary" id="summary"></div>
+  <p class="offline" id="offline" hidden>Zapis ocen jest niedostępny w tym widoku (otwórz stronę zalogowany w claude.ai). Podgląd działa normalnie.</p>
+
+  <div class="bar" id="bar">
+    <div class="group" id="f-status"><span class="lab">Stan</span></div>
+    <div class="group" id="f-batch"><span class="lab">Partia</span></div>
+    <div class="group" id="f-pool"><span class="lab">Pula</span></div>
+    <div class="group" id="f-zoom"><span class="lab">Powiększenie</span></div>
+  </div>
+
+  <div class="general">
+    <label for="general-comment">Uwagi ogólne do całej partii</label>
+    <textarea id="general-comment" placeholder="Np. „szyja za wąska we wszystkich koszulkach 64 px”"></textarea>
+    <div class="row"><span class="saved" id="general-saved"></span><button class="save" id="general-save" type="button">Zapisz uwagi ogólne</button></div>
+  </div>
+
+  <div id="list"><p class="empty">Wczytuję katalog elementów…</p></div>
+</div>
+
+<script>
+const STATES = {
+  pending: "Do oceny", stale: "Nowa wersja", approved: "Zatwierdzony", changes: "Do poprawki", rejected: "Odrzucony",
+};
+const view = { status: "all", pool: "all", batch: "all", zoom: 2 };
+try { Object.assign(view, JSON.parse(localStorage.getItem("portrait-review-view") || "{}")); } catch (e) {}
+let catalog = null;
+let reviews = {};          // id -> dane z bazy
+let db = null;
+const drafts = {};         // id -> niezapisany tekst uwagi
+
+function remember() { try { localStorage.setItem("portrait-review-view", JSON.stringify(view)); } catch (e) {} }
+
+function stateOf(el) {
+  const r = reviews[el.id];
+  if (!r || !r.status) return r && r.version && r.version < el.version ? "stale" : "pending";
+  if (r.version < el.version) return "stale";
+  return r.status;
+}
+
+function h(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") n.className = v;
+    else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+    else if (v !== undefined && v !== null && v !== false) n.setAttribute(k, v === true ? "" : v);
+  }
+  for (const kid of kids.flat()) if (kid !== null && kid !== undefined) n.append(kid);
+  return n;
+}
+
+function chips(id, options, key) {
+  const g = document.getElementById(id);
+  g.querySelectorAll(".chip").forEach(c => c.remove());
+  for (const [value, label] of options) {
+    g.append(h("button", { class: "chip", type: "button", "aria-pressed": String(view[key] === value),
+      onclick: () => { view[key] = value; remember(); renderAll(); } }, label));
+  }
+}
+
+function renderSummary() {
+  const counts = { pending: 0, stale: 0, approved: 0, changes: 0, rejected: 0 };
+  for (const el of catalog.elements) counts[stateOf(el)]++;
+  const s = document.getElementById("summary");
+  s.replaceChildren(
+    h("div", { class: "count" }, h("b", {}, String(catalog.elements.length)), h("span", {}, "elementów")),
+    ...Object.entries(counts).map(([k, n]) => h("div", { class: "count" }, h("b", {}, String(n)), h("span", {}, STATES[k]))));
+}
+
+function renderBar() {
+  chips("f-status", [["all", "Wszystkie"], ["todo", "Do oceny + nowe wersje"], ["approved", "Zatwierdzone"],
+    ["changes", "Do poprawki"], ["rejected", "Odrzucone"]], "status");
+  const pools = [];
+  for (const el of catalog.elements) if (!pools.some(p => p[0] === el.pool)) pools.push([el.pool, el.pool_label]);
+  chips("f-pool", [["all", "Wszystkie"], ...pools], "pool");
+  const batches = [...new Set(catalog.elements.map(el => el.batch))].sort((a, b) => a - b);
+  chips("f-batch", [["all", "Wszystkie"], ...batches.map(b => [b, String(b)])], "batch");
+  chips("f-zoom", [[1, "1:1"], [2, "×2"], [3, "×3"]], "zoom");
+}
+
+async function save(el, status) {
+  if (!db) return;
+  const r = reviews[el.id] || {};
+  const comment = drafts[el.id] !== undefined ? drafts[el.id] : (r.comment || "");
+  const body = { status: status !== undefined ? status : (r.version === el.version ? (r.status || "") : ""),
+    comment, version: el.version, updated_at: new Date().toISOString() };
+  try {
+    await db.collection("reviews").doc(el.id).set(body);
+    delete drafts[el.id];
+  } catch (e) {
+    const box = document.querySelector(`[data-id="${CSS.escape(el.id)}"] .saved`);
+    if (box) box.textContent = "Nie zapisano: " + (e && e.message ? e.message : "błąd zapisu");
+  }
+}
+
+function elementRow(el) {
+  const st = stateOf(el);
+  const r = reviews[el.id];
+  const img = h("img", { src: el.image, alt: `${el.pool_label}: ${el.variant}`, loading: "lazy" });
+  img.addEventListener("load", () => { img.style.width = img.naturalWidth * view.zoom + "px"; });
+  if (img.complete && img.naturalWidth) img.style.width = img.naturalWidth * view.zoom + "px";
+
+  const ta = h("textarea", { id: "c-" + el.id, "aria-label": "Uwaga do " + el.id,
+    placeholder: "Co wygląda dziwnie? Np. „w 32 px oczy za blisko”", disabled: !db });
+  ta.value = drafts[el.id] !== undefined ? drafts[el.id] : (r && r.comment) || "";
+  ta.addEventListener("input", () => { drafts[el.id] = ta.value; });
+
+  const btn = (cls, status, label) => h("button", { class: cls + (st === status ? " on" : ""), type: "button",
+    disabled: !db, onclick: () => save(el, status) }, label);
+
+  const last = el.history[el.history.length - 1];
+  return h("article", { class: "el", "data-state": st, "data-id": el.id },
+    h("div", {},
+      h("div", { class: "shot" }, img),
+      h("div", { class: "cap" }, h("span", {}, "sam element · 6 twarzy"), h("span", {}, "64 px u góry, 32 px pod spodem"))),
+    h("div", { class: "side" },
+      h("div", { class: "title" }, h("code", {}, el.id), h("span", { class: "tag" }, "v" + el.version),
+        h("span", { class: "tag" }, "partia " + el.batch), el.fitted ? h("span", { class: "tag" }, "×4 głowy") : null,
+        h("span", { class: "pill " + st }, STATES[st])),
+      st === "stale" ? h("p", { class: "notice" }, h("b", {}, `v${el.version}: `), last.note,
+        r && r.version ? ` (poprzednia ocena dotyczyła v${r.version}: ${STATES[r.status] || "bez oceny"})` : "") : null,
+      h("div", { class: "actions" }, btn("approve", "approved", "Zatwierdź"), btn("changes", "changes", "Do poprawki"),
+        btn("reject", "rejected", "Odrzuć")),
+      ta,
+      h("div", { class: "row" },
+        h("span", { class: "saved" }, r && r.updated_at ? "Zapisano " + new Date(r.updated_at).toLocaleString("pl-PL") : ""),
+        h("button", { class: "save", type: "button", disabled: !db, onclick: () => save(el) }, "Zapisz uwagę")),
+      el.history.length > 1 ? h("details", {}, h("summary", {}, "Historia wersji"),
+        h("ul", {}, el.history.map(x => h("li", {}, `v${x.version} (${x.date}): ${x.note}`)))) : null));
+}
+
+function renderList() {
+  const list = document.getElementById("list");
+  const shown = catalog.elements.filter(el => {
+    const st = stateOf(el);
+    if (view.pool !== "all" && el.pool !== view.pool) return false;
+    if (view.batch !== "all" && el.batch !== view.batch) return false;
+    if (view.status === "todo") return st === "pending" || st === "stale";
+    return view.status === "all" || st === view.status;
+  });
+  if (!shown.length) { list.replaceChildren(h("p", { class: "empty" }, "Nic tu nie ma przy tych filtrach.")); return; }
+  const sections = [];
+  let cur = null;
+  for (const el of shown) {
+    if (!cur || cur.pool !== el.pool) {
+      cur = { pool: el.pool, label: el.pool_label, items: [] };
+      sections.push(cur);
+    }
+    cur.items.push(el);
+  }
+  list.replaceChildren(...sections.map(s => h("section", { class: "pool" },
+    h("header", {}, h("h2", {}, s.label), h("span", {}, s.items.length + " el.")),
+    s.items.map(elementRow))));
+}
+
+function renderAll() {
+  if (!catalog) return;
+  renderSummary(); renderBar(); renderList();
+}
+
+async function start() {
+  try {
+    const res = await fetch("catalog.json");
+    catalog = await res.json();
+  } catch (e) {
+    document.getElementById("list").replaceChildren(h("p", { class: "empty" }, "Nie udało się wczytać katalogu (catalog.json)."));
+    return;
+  }
+  renderAll();
+  db = window.claude ? await window.claude.use("db") : null;
+  if (!db) { document.getElementById("offline").hidden = false; renderAll(); return; }
+  db.collection("reviews").onSnapshot(snap => {
+    reviews = {};
+    for (const d of snap.docs) reviews[d.id] = d.data();
+    const g = reviews["_general"];
+    const gta = document.getElementById("general-comment");
+    if (g && document.activeElement !== gta) gta.value = g.comment || "";
+    document.getElementById("general-saved").textContent = g && g.updated_at ? "Zapisano " + new Date(g.updated_at).toLocaleString("pl-PL") : "";
+    if (!document.activeElement || document.activeElement.tagName !== "TEXTAREA") renderAll();
+    else renderSummary();
+  }, () => { document.getElementById("offline").hidden = false; });
+  renderAll();
+}
+
+document.getElementById("general-save").addEventListener("click", async () => {
+  if (!db) return;
+  const comment = document.getElementById("general-comment").value;
+  try {
+    await db.collection("reviews").doc("_general").set({ comment, updated_at: new Date().toISOString() });
+  } catch (e) { document.getElementById("general-saved").textContent = "Nie zapisano."; }
+});
+
+start();
+</script>

@@ -15,6 +15,9 @@ var age: int = 0
 var natural_roles: Array[StringName] = []
 var secondary_roles: Array[StringName] = []
 var dice: Array[DieData] = []
+## Wygląd portretu {pula: wariant} (PortraitLooks). Pusty = wyliczany z id przy pierwszym wyświetleniu
+## (deterministycznie); generator świata może go ustawić sam (np. z narodowością).
+var portrait_look: Dictionary = {}
 
 
 func get_full_name() -> String:
@@ -38,3 +41,9 @@ func get_role_fit(role_id: StringName) -> RoleFit:
 
 func is_goalkeeper() -> bool:
 	return position_id == PositionData.GOALKEEPER
+
+
+func get_portrait_look() -> Dictionary:
+	if portrait_look.is_empty():
+		portrait_look = PortraitLooks.generate(String(id))
+	return portrait_look

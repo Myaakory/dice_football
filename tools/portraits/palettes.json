@@ -1,0 +1,49 @@
+{
+  "_comment": "Pule kolorów elementów portretu. Każdy wpis to kolor bazowy; jaśniejsze i ciemniejsze odcienie (rampa) liczy styl. Zamiast koloru można podać obiekt z nadpisanymi odcieniami, np. {\"base\": \"#c99566\", \"shade\": \"#a5714a\"}. 'default' = kolory, w których eksportowane są szablony części (muszą się różnić między grupami).",
+  "skin": {
+    "porcelain": "#f3d2b9",
+    "fair": "#efc7a5",
+    "light": "#e0ab82",
+    "olive": "#c6935f",
+    "tan": "#a87148",
+    "brown": "#87532f",
+    "dark": "#633b22",
+    "deep": "#462818"
+  },
+  "hair": {
+    "black": "#211c1f",
+    "dark_brown": "#3d2819",
+    "brown": "#65412a",
+    "light_brown": "#8d6741",
+    "dark_blond": "#b08b55",
+    "blond": "#dab86c",
+    "platinum": "#ede1bb",
+    "ginger": "#b65b2b",
+    "auburn": "#7b3725",
+    "grey": "#8f8b87",
+    "white": "#dad8d3"
+  },
+  "eyes": {
+    "dark_brown": "#3b2519",
+    "brown": "#6c4227",
+    "hazel": "#806b34",
+    "green": "#4d7b45",
+    "blue": "#3e70b2",
+    "grey": "#6e7f8d"
+  },
+  "accessory": {
+    "gold": "#e3b43d",
+    "silver": "#c8ccd2",
+    "white": "#f1eee5",
+    "red": "#c33a31",
+    "black": "#2b2729"
+  },
+  "default": {
+    "skin": "light",
+    "hair": "brown",
+    "eyes": "blue",
+    "accessory": "gold",
+    "shirt": "#2f8a57",
+    "trim": "#f2d34c"
+  }
+}

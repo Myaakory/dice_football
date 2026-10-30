@@ -8,7 +8,8 @@ extends Control
 signal back_requested
 
 const SCENE_PATH := "res://scenes/player_details/player_details_screen.tscn"
-const PORTRAIT_SCALE := 4
+## Portret karty 64 px pokazany w skali ×2 (128 px, jak ramka w scenie).
+const PORTRAIT_SCALE := 2
 const DIE_NET_SCALE := 1
 const INFO_KEY_COLOR := Color(0.91, 0.937, 0.878, 0.6)
 const DIE_CARD_PADDING := 10.0
@@ -71,9 +72,7 @@ func _refresh() -> void:
 	_name_label.text = _player.get_full_name()
 	_team_label.text = team.name
 	_team_label.add_theme_color_override(&"font_color", team.primary_color.lightened(0.35))
-	var image := PortraitGenerator.make_image(String(_player.id), team.primary_color, team.secondary_color)
-	image.resize(image.get_width() * PORTRAIT_SCALE, image.get_height() * PORTRAIT_SCALE, Image.INTERPOLATE_NEAREST)
-	_portrait.texture = ImageTexture.create_from_image(image)
+	_portrait.texture = PortraitComposer.get_player_texture(_player, team, PortraitComposer.CARD_SIZE, PORTRAIT_SCALE)
 	_number_label.text = "#%d" % _player.number
 	_position_map.setup(_player)
 	_refresh_info()

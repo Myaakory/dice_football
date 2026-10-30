@@ -12,7 +12,14 @@
 		"die_types": 108,
 		"attributes": 109,
 		"coaches": 110,
-		"perks": 111
+		"perks": 111,
+		"nationalities": 112
+	},
+	"portraits": {
+		"spreadsheet_id": "1BA-N4hvFykcSrFQ6UxsE4nt86h44EVI4FZ5weJcId3k",
+		"tabs": {
+			"portrait_weights": 0
+		}
 	},
 	"translations": {
 		"spreadsheet_id": "1dcv8GwLfNoDR98XOF2REWDo8Bu15-PXu0PwCRk1FhFY",

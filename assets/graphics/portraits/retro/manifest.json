@@ -1,0 +1,1830 @@
+{
+ "style": "retro",
+ "sizes": [
+  32,
+  64
+ ],
+ "layer_order": [
+  "hair_back",
+  "head",
+  "shirt",
+  "eyes",
+  "brows",
+  "nose",
+  "facial_hair",
+  "mouth",
+  "hair",
+  "marks",
+  "extras"
+ ],
+ "fitted_to_head": [
+  "extras",
+  "facial_hair",
+  "hair",
+  "hair_back",
+  "marks"
+ ],
+ "file_pattern": "<layer>/<variant>[@<head>]_<size>.png (brak pliku = pusta część)",
+ "files": [
+  "brows/arched_32.png",
+  "brows/arched_64.png",
+  "brows/straight_32.png",
+  "brows/straight_64.png",
+  "brows/thick_32.png",
+  "brows/thick_64.png",
+  "extras/earring@long_32.png",
+  "extras/earring@long_64.png",
+  "extras/earring@oval_32.png",
+  "extras/earring@oval_64.png",
+  "extras/earring@round_32.png",
+  "extras/earring@round_64.png",
+  "extras/earring@square_32.png",
+  "extras/earring@square_64.png",
+  "extras/earring@standard_32.png",
+  "extras/earring@standard_64.png",
+  "extras/headband@long_32.png",
+  "extras/headband@long_64.png",
+  "extras/headband@oval_32.png",
+  "extras/headband@oval_64.png",
+  "extras/headband@round_32.png",
+  "extras/headband@round_64.png",
+  "extras/headband@square_32.png",
+  "extras/headband@square_64.png",
+  "extras/headband@standard_32.png",
+  "extras/headband@standard_64.png",
+  "eyes/almond_32.png",
+  "eyes/almond_64.png",
+  "eyes/big_32.png",
+  "eyes/big_64.png",
+  "eyes/deep_set_32.png",
+  "eyes/deep_set_64.png",
+  "eyes/heavy_lid_32.png",
+  "eyes/heavy_lid_64.png",
+  "eyes/narrow_32.png",
+  "eyes/narrow_64.png",
+  "eyes/normal_32.png",
+  "eyes/normal_64.png",
+  "facial_hair/full_beard@long_32.png",
+  "facial_hair/full_beard@long_64.png",
+  "facial_hair/full_beard@oval_32.png",
+  "facial_hair/full_beard@oval_64.png",
+  "facial_hair/full_beard@round_32.png",
+  "facial_hair/full_beard@round_64.png",
+  "facial_hair/full_beard@square_32.png",
+  "facial_hair/full_beard@square_64.png",
+  "facial_hair/full_beard@standard_32.png",
+  "facial_hair/full_beard@standard_64.png",
+  "facial_hair/goatee@long_32.png",
+  "facial_hair/goatee@long_64.png",
+  "facial_hair/goatee@oval_32.png",
+  "facial_hair/goatee@oval_64.png",
+  "facial_hair/goatee@round_32.png",
+  "facial_hair/goatee@round_64.png",
+  "facial_hair/goatee@square_32.png",
+  "facial_hair/goatee@square_64.png",
+  "facial_hair/goatee@standard_32.png",
+  "facial_hair/goatee@standard_64.png",
+  "facial_hair/moustache@long_32.png",
+  "facial_hair/moustache@long_64.png",
+  "facial_hair/moustache@oval_32.png",
+  "facial_hair/moustache@oval_64.png",
+  "facial_hair/moustache@round_32.png",
+  "facial_hair/moustache@round_64.png",
+  "facial_hair/moustache@square_32.png",
+  "facial_hair/moustache@square_64.png",
+  "facial_hair/moustache@standard_32.png",
+  "facial_hair/moustache@standard_64.png",
+  "facial_hair/short_beard@long_32.png",
+  "facial_hair/short_beard@long_64.png",
+  "facial_hair/short_beard@oval_32.png",
+  "facial_hair/short_beard@oval_64.png",
+  "facial_hair/short_beard@round_32.png",
+  "facial_hair/short_beard@round_64.png",
+  "facial_hair/short_beard@square_32.png",
+  "facial_hair/short_beard@square_64.png",
+  "facial_hair/short_beard@standard_32.png",
+  "facial_hair/short_beard@standard_64.png",
+  "facial_hair/stubble@long_32.png",
+  "facial_hair/stubble@long_64.png",
+  "facial_hair/stubble@oval_32.png",
+  "facial_hair/stubble@oval_64.png",
+  "facial_hair/stubble@round_32.png",
+  "facial_hair/stubble@round_64.png",
+  "facial_hair/stubble@square_32.png",
+  "facial_hair/stubble@square_64.png",
+  "facial_hair/stubble@standard_32.png",
+  "facial_hair/stubble@standard_64.png",
+  "facial_hair/stubble_3day@long_32.png",
+  "facial_hair/stubble_3day@long_64.png",
+  "facial_hair/stubble_3day@oval_32.png",
+  "facial_hair/stubble_3day@oval_64.png",
+  "facial_hair/stubble_3day@round_32.png",
+  "facial_hair/stubble_3day@round_64.png",
+  "facial_hair/stubble_3day@square_32.png",
+  "facial_hair/stubble_3day@square_64.png",
+  "facial_hair/stubble_3day@standard_32.png",
+  "facial_hair/stubble_3day@standard_64.png",
+  "hair/afro@long_32.png",
+  "hair/afro@long_64.png",
+  "hair/afro@oval_32.png",
+  "hair/afro@oval_64.png",
+  "hair/afro@round_32.png",
+  "hair/afro@round_64.png",
+  "hair/afro@square_32.png",
+  "hair/afro@square_64.png",
+  "hair/afro@standard_32.png",
+  "hair/afro@standard_64.png",
+  "hair/bald@long_32.png",
+  "hair/bald@long_64.png",
+  "hair/bald@oval_32.png",
+  "hair/bald@oval_64.png",
+  "hair/bald@round_32.png",
+  "hair/bald@round_64.png",
+  "hair/bald@square_32.png",
+  "hair/bald@square_64.png",
+  "hair/bald@standard_32.png",
+  "hair/bald@standard_64.png",
+  "hair/buzz@long_32.png",
+  "hair/buzz@long_64.png",
+  "hair/buzz@oval_32.png",
+  "hair/buzz@oval_64.png",
+  "hair/buzz@round_32.png",
+  "hair/buzz@round_64.png",
+  "hair/buzz@square_32.png",
+  "hair/buzz@square_64.png",
+  "hair/buzz@standard_32.png",
+  "hair/buzz@standard_64.png",
+  "hair/cornrows@long_32.png",
+  "hair/cornrows@long_64.png",
+  "hair/cornrows@oval_32.png",
+  "hair/cornrows@oval_64.png",
+  "hair/cornrows@round_32.png",
+  "hair/cornrows@round_64.png",
+  "hair/cornrows@square_32.png",
+  "hair/cornrows@square_64.png",
+  "hair/cornrows@standard_32.png",
+  "hair/cornrows@standard_64.png",
+  "hair/crew_cut@long_32.png",
+  "hair/crew_cut@long_64.png",
+  "hair/crew_cut@oval_32.png",
+  "hair/crew_cut@oval_64.png",
+  "hair/crew_cut@round_32.png",
+  "hair/crew_cut@round_64.png",
+  "hair/crew_cut@square_32.png",
+  "hair/crew_cut@square_64.png",
+  "hair/crew_cut@standard_32.png",
+  "hair/crew_cut@standard_64.png",
+  "hair/curly@long_32.png",
+  "hair/curly@long_64.png",
+  "hair/curly@oval_32.png",
+  "hair/curly@oval_64.png",
+  "hair/curly@round_32.png",
+  "hair/curly@round_64.png",
+  "hair/curly@square_32.png",
+  "hair/curly@square_64.png",
+  "hair/curly@standard_32.png",
+  "hair/curly@standard_64.png",
+  "hair/fringe@long_32.png",
+  "hair/fringe@long_64.png",
+  "hair/fringe@oval_32.png",
+  "hair/fringe@oval_64.png",
+  "hair/fringe@round_32.png",
+  "hair/fringe@round_64.png",
+  "hair/fringe@square_32.png",
+  "hair/fringe@square_64.png",
+  "hair/fringe@standard_32.png",
+  "hair/fringe@standard_64.png",
+  "hair/long@long_32.png",
+  "hair/long@long_64.png",
+  "hair/long@oval_32.png",
+  "hair/long@oval_64.png",
+  "hair/long@round_32.png",
+  "hair/long@round_64.png",
+  "hair/long@square_32.png",
+  "hair/long@square_64.png",
+  "hair/long@standard_32.png",
+  "hair/long@standard_64.png",
+  "hair/man_bun@long_32.png",
+  "hair/man_bun@long_64.png",
+  "hair/man_bun@oval_32.png",
+  "hair/man_bun@oval_64.png",
+  "hair/man_bun@round_32.png",
+  "hair/man_bun@round_64.png",
+  "hair/man_bun@square_32.png",
+  "hair/man_bun@square_64.png",
+  "hair/man_bun@standard_32.png",
+  "hair/man_bun@standard_64.png",
+  "hair/mohawk@long_32.png",
+  "hair/mohawk@long_64.png",
+  "hair/mohawk@oval_32.png",
+  "hair/mohawk@oval_64.png",
+  "hair/mohawk@round_32.png",
+  "hair/mohawk@round_64.png",
+  "hair/mohawk@square_32.png",
+  "hair/mohawk@square_64.png",
+  "hair/mohawk@standard_32.png",
+  "hair/mohawk@standard_64.png",
+  "hair/quiff@long_32.png",
+  "hair/quiff@long_64.png",
+  "hair/quiff@oval_32.png",
+  "hair/quiff@oval_64.png",
+  "hair/quiff@round_32.png",
+  "hair/quiff@round_64.png",
+  "hair/quiff@square_32.png",
+  "hair/quiff@square_64.png",
+  "hair/quiff@standard_32.png",
+  "hair/quiff@standard_64.png",
+  "hair/receding@long_32.png",
+  "hair/receding@long_64.png",
+  "hair/receding@oval_32.png",
+  "hair/receding@oval_64.png",
+  "hair/receding@round_32.png",
+  "hair/receding@round_64.png",
+  "hair/receding@square_32.png",
+  "hair/receding@square_64.png",
+  "hair/receding@standard_32.png",
+  "hair/receding@standard_64.png",
+  "hair/short@long_32.png",
+  "hair/short@long_64.png",
+  "hair/short@oval_32.png",
+  "hair/short@oval_64.png",
+  "hair/short@round_32.png",
+  "hair/short@round_64.png",
+  "hair/short@square_32.png",
+  "hair/short@square_64.png",
+  "hair/short@standard_32.png",
+  "hair/short@standard_64.png",
+  "hair/side_part@long_32.png",
+  "hair/side_part@long_64.png",
+  "hair/side_part@oval_32.png",
+  "hair/side_part@oval_64.png",
+  "hair/side_part@round_32.png",
+  "hair/side_part@round_64.png",
+  "hair/side_part@square_32.png",
+  "hair/side_part@square_64.png",
+  "hair/side_part@standard_32.png",
+  "hair/side_part@standard_64.png",
+  "hair/slicked_back@long_32.png",
+  "hair/slicked_back@long_64.png",
+  "hair/slicked_back@oval_32.png",
+  "hair/slicked_back@oval_64.png",
+  "hair/slicked_back@round_32.png",
+  "hair/slicked_back@round_64.png",
+  "hair/slicked_back@square_32.png",
+  "hair/slicked_back@square_64.png",
+  "hair/slicked_back@standard_32.png",
+  "hair/slicked_back@standard_64.png",
+  "hair/spiky@long_32.png",
+  "hair/spiky@long_64.png",
+  "hair/spiky@oval_32.png",
+  "hair/spiky@oval_64.png",
+  "hair/spiky@round_32.png",
+  "hair/spiky@round_64.png",
+  "hair/spiky@square_32.png",
+  "hair/spiky@square_64.png",
+  "hair/spiky@standard_32.png",
+  "hair/spiky@standard_64.png",
+  "hair/undercut@long_32.png",
+  "hair/undercut@long_64.png",
+  "hair/undercut@oval_32.png",
+  "hair/undercut@oval_64.png",
+  "hair/undercut@round_32.png",
+  "hair/undercut@round_64.png",
+  "hair/undercut@square_32.png",
+  "hair/undercut@square_64.png",
+  "hair/undercut@standard_32.png",
+  "hair/undercut@standard_64.png",
+  "hair_back/long@long_32.png",
+  "hair_back/long@long_64.png",
+  "hair_back/long@oval_32.png",
+  "hair_back/long@oval_64.png",
+  "hair_back/long@round_32.png",
+  "hair_back/long@round_64.png",
+  "hair_back/long@square_32.png",
+  "hair_back/long@square_64.png",
+  "hair_back/long@standard_32.png",
+  "hair_back/long@standard_64.png",
+  "head/long_32.png",
+  "head/long_64.png",
+  "head/oval_32.png",
+  "head/oval_64.png",
+  "head/round_32.png",
+  "head/round_64.png",
+  "head/square_32.png",
+  "head/square_64.png",
+  "head/standard_32.png",
+  "head/standard_64.png",
+  "marks/freckles@long_32.png",
+  "marks/freckles@long_64.png",
+  "marks/freckles@oval_32.png",
+  "marks/freckles@oval_64.png",
+  "marks/freckles@round_32.png",
+  "marks/freckles@round_64.png",
+  "marks/freckles@square_32.png",
+  "marks/freckles@square_64.png",
+  "marks/freckles@standard_32.png",
+  "marks/freckles@standard_64.png",
+  "marks/mole@long_32.png",
+  "marks/mole@long_64.png",
+  "marks/mole@oval_32.png",
+  "marks/mole@oval_64.png",
+  "marks/mole@round_32.png",
+  "marks/mole@round_64.png",
+  "marks/mole@square_32.png",
+  "marks/mole@square_64.png",
+  "marks/mole@standard_32.png",
+  "marks/mole@standard_64.png",
+  "marks/mole_forehead@long_32.png",
+  "marks/mole_forehead@long_64.png",
+  "marks/mole_forehead@oval_32.png",
+  "marks/mole_forehead@oval_64.png",
+  "marks/mole_forehead@round_32.png",
+  "marks/mole_forehead@round_64.png",
+  "marks/mole_forehead@square_32.png",
+  "marks/mole_forehead@square_64.png",
+  "marks/mole_forehead@standard_32.png",
+  "marks/mole_forehead@standard_64.png",
+  "marks/mole_lip@long_32.png",
+  "marks/mole_lip@long_64.png",
+  "marks/mole_lip@oval_32.png",
+  "marks/mole_lip@oval_64.png",
+  "marks/mole_lip@round_32.png",
+  "marks/mole_lip@round_64.png",
+  "marks/mole_lip@square_32.png",
+  "marks/mole_lip@square_64.png",
+  "marks/mole_lip@standard_32.png",
+  "marks/mole_lip@standard_64.png",
+  "marks/scar@long_32.png",
+  "marks/scar@long_64.png",
+  "marks/scar@oval_32.png",
+  "marks/scar@oval_64.png",
+  "marks/scar@round_32.png",
+  "marks/scar@round_64.png",
+  "marks/scar@square_32.png",
+  "marks/scar@square_64.png",
+  "marks/scar@standard_32.png",
+  "marks/scar@standard_64.png",
+  "marks/scar_cheek@long_32.png",
+  "marks/scar_cheek@long_64.png",
+  "marks/scar_cheek@oval_32.png",
+  "marks/scar_cheek@oval_64.png",
+  "marks/scar_cheek@round_32.png",
+  "marks/scar_cheek@round_64.png",
+  "marks/scar_cheek@square_32.png",
+  "marks/scar_cheek@square_64.png",
+  "marks/scar_cheek@standard_32.png",
+  "marks/scar_cheek@standard_64.png",
+  "marks/scar_chin@long_32.png",
+  "marks/scar_chin@long_64.png",
+  "marks/scar_chin@oval_32.png",
+  "marks/scar_chin@oval_64.png",
+  "marks/scar_chin@round_32.png",
+  "marks/scar_chin@round_64.png",
+  "marks/scar_chin@square_32.png",
+  "marks/scar_chin@square_64.png",
+  "marks/scar_chin@standard_32.png",
+  "marks/scar_chin@standard_64.png",
+  "mouth/full_32.png",
+  "mouth/full_64.png",
+  "mouth/neutral_32.png",
+  "mouth/neutral_64.png",
+  "mouth/smile_32.png",
+  "mouth/smile_64.png",
+  "mouth/thin_32.png",
+  "mouth/thin_64.png",
+  "nose/aquiline_32.png",
+  "nose/aquiline_64.png",
+  "nose/broad_32.png",
+  "nose/broad_64.png",
+  "nose/button_32.png",
+  "nose/button_64.png",
+  "nose/long_32.png",
+  "nose/long_64.png",
+  "nose/small_32.png",
+  "nose/small_64.png",
+  "nose/wide_32.png",
+  "nose/wide_64.png",
+  "shirt/field_32.png",
+  "shirt/field_64.png",
+  "shirt/goalkeeper_32.png",
+  "shirt/goalkeeper_64.png"
+ ],
+ "look_pools": [
+  "head",
+  "eyes",
+  "brows",
+  "nose",
+  "mouth",
+  "hair",
+  "facial_hair",
+  "marks",
+  "extras",
+  "skin",
+  "hair_color",
+  "eye_color",
+  "accessory"
+ ],
+ "pools": {
+  "head": [
+   "oval",
+   "square",
+   "round",
+   "long",
+   "standard"
+  ],
+  "eyes": [
+   "normal",
+   "narrow",
+   "big",
+   "almond",
+   "heavy_lid",
+   "deep_set"
+  ],
+  "brows": [
+   "straight",
+   "arched",
+   "thick"
+  ],
+  "nose": [
+   "small",
+   "long",
+   "wide",
+   "button",
+   "aquiline",
+   "broad"
+  ],
+  "mouth": [
+   "neutral",
+   "smile",
+   "thin",
+   "full"
+  ],
+  "hair": [
+   "short",
+   "side_part",
+   "buzz",
+   "curly",
+   "long",
+   "bald",
+   "crew_cut",
+   "quiff",
+   "undercut",
+   "fringe",
+   "mohawk",
+   "receding",
+   "afro",
+   "man_bun",
+   "cornrows",
+   "slicked_back",
+   "spiky"
+  ],
+  "facial_hair": [
+   "none",
+   "stubble",
+   "moustache",
+   "goatee",
+   "full_beard",
+   "stubble_3day",
+   "short_beard"
+  ],
+  "marks": [
+   "none",
+   "freckles",
+   "scar",
+   "mole",
+   "scar_cheek",
+   "scar_chin",
+   "mole_lip",
+   "mole_forehead"
+  ],
+  "extras": [
+   "none",
+   "earring",
+   "headband"
+  ]
+ },
+ "color_pools": {
+  "skin": [
+   "porcelain",
+   "fair",
+   "light",
+   "olive",
+   "tan",
+   "brown",
+   "dark",
+   "deep"
+  ],
+  "hair_color": [
+   "black",
+   "dark_brown",
+   "brown",
+   "light_brown",
+   "dark_blond",
+   "blond",
+   "platinum",
+   "ginger",
+   "auburn",
+   "grey",
+   "white"
+  ],
+  "eye_color": [
+   "dark_brown",
+   "brown",
+   "hazel",
+   "green",
+   "blue",
+   "grey"
+  ],
+  "accessory": [
+   "gold",
+   "silver",
+   "white",
+   "red",
+   "black"
+  ]
+ },
+ "shirts": [
+  "field",
+  "goalkeeper"
+ ],
+ "weights": {
+  "any": {
+   "head": {
+    "oval": 4.0,
+    "square": 1.0,
+    "round": 1.0,
+    "long": 1.0,
+    "standard": 6.0
+   },
+   "eyes": {
+    "normal": 5.0,
+    "narrow": 2.0,
+    "big": 2.0,
+    "almond": 2.0,
+    "heavy_lid": 2.0,
+    "deep_set": 2.0
+   },
+   "brows": {
+    "straight": 4.0,
+    "arched": 3.0,
+    "thick": 3.0
+   },
+   "nose": {
+    "small": 4.0,
+    "long": 3.0,
+    "wide": 3.0,
+    "button": 2.0,
+    "aquiline": 2.0,
+    "broad": 2.0
+   },
+   "mouth": {
+    "neutral": 4.0,
+    "smile": 3.0,
+    "thin": 2.0,
+    "full": 2.0
+   },
+   "hair": {
+    "short": 5.0,
+    "side_part": 3.0,
+    "buzz": 3.0,
+    "curly": 1.0,
+    "long": 1.0,
+    "bald": 1.0,
+    "crew_cut": 4.0,
+    "quiff": 2.0,
+    "undercut": 3.0,
+    "fringe": 2.0,
+    "mohawk": 1.0,
+    "receding": 2.0,
+    "afro": 1.0,
+    "man_bun": 1.0,
+    "cornrows": 1.0,
+    "slicked_back": 2.0,
+    "spiky": 2.0
+   },
+   "facial_hair": {
+    "none": 10.0,
+    "stubble": 4.0,
+    "moustache": 1.0,
+    "goatee": 2.0,
+    "full_beard": 2.0,
+    "stubble_3day": 3.0,
+    "short_beard": 2.0
+   },
+   "marks": {
+    "none": 20.0,
+    "freckles": 2.0,
+    "scar": 1.0,
+    "mole": 2.0,
+    "scar_cheek": 1.0,
+    "scar_chin": 1.0,
+    "mole_lip": 1.0,
+    "mole_forehead": 1.0
+   },
+   "extras": {
+    "none": 16.0,
+    "earring": 1.0,
+    "headband": 1.0
+   },
+   "skin": {
+    "porcelain": 1.0,
+    "fair": 1.0,
+    "light": 1.0,
+    "olive": 1.0,
+    "tan": 1.0,
+    "brown": 1.0,
+    "dark": 1.0,
+    "deep": 1.0
+   },
+   "hair_color": {
+    "black": 1.0,
+    "dark_brown": 1.0,
+    "brown": 1.0,
+    "light_brown": 1.0,
+    "dark_blond": 1.0,
+    "blond": 1.0,
+    "platinum": 1.0,
+    "ginger": 1.0,
+    "auburn": 1.0,
+    "grey": 1.0,
+    "white": 1.0
+   },
+   "eye_color": {
+    "dark_brown": 1.0,
+    "brown": 1.0,
+    "hazel": 1.0,
+    "green": 1.0,
+    "blue": 1.0,
+    "grey": 1.0
+   },
+   "accessory": {
+    "gold": 3.0,
+    "silver": 2.0,
+    "white": 3.0,
+    "red": 1.0,
+    "black": 2.0
+   }
+  },
+  "northern_europe": {
+   "marks": {
+    "none": 18.0,
+    "freckles": 4.0,
+    "scar": 1.0,
+    "mole": 1.0,
+    "scar_cheek": 1.0,
+    "scar_chin": 1.0,
+    "mole_lip": 1.0,
+    "mole_forehead": 1.0
+   },
+   "extras": {
+    "none": 18.0,
+    "earring": 1.0,
+    "headband": 1.0
+   },
+   "skin": {
+    "porcelain": 4.0,
+    "fair": 5.0,
+    "light": 2.0,
+    "olive": 0.0,
+    "tan": 0.0,
+    "brown": 0.0,
+    "dark": 0.0,
+    "deep": 0.0
+   },
+   "hair_color": {
+    "black": 0.0,
+    "dark_brown": 0.0,
+    "brown": 2.0,
+    "light_brown": 3.0,
+    "dark_blond": 4.0,
+    "blond": 4.0,
+    "platinum": 1.0,
+    "ginger": 1.0,
+    "auburn": 0.0,
+    "grey": 0.0,
+    "white": 0.0
+   },
+   "eye_color": {
+    "dark_brown": 0.0,
+    "brown": 1.0,
+    "hazel": 1.0,
+    "green": 2.0,
+    "blue": 5.0,
+    "grey": 3.0
+   }
+  },
+  "eastern_europe": {
+   "skin": {
+    "porcelain": 2.0,
+    "fair": 5.0,
+    "light": 3.0,
+    "olive": 0.0,
+    "tan": 0.0,
+    "brown": 0.0,
+    "dark": 0.0,
+    "deep": 0.0
+   },
+   "hair_color": {
+    "black": 1.0,
+    "dark_brown": 3.0,
+    "brown": 4.0,
+    "light_brown": 4.0,
+    "dark_blond": 3.0,
+    "blond": 1.0,
+    "platinum": 0.0,
+    "ginger": 0.0,
+    "auburn": 0.0,
+    "grey": 0.0,
+    "white": 0.0
+   },
+   "eye_color": {
+    "dark_brown": 0.0,
+    "brown": 2.0,
+    "hazel": 2.0,
+    "green": 2.0,
+    "blue": 3.0,
+    "grey": 3.0
+   }
+  },
+  "southern_europe": {
+   "skin": {
+    "porcelain": 0.0,
+    "fair": 2.0,
+    "light": 4.0,
+    "olive": 4.0,
+    "tan": 1.0,
+    "brown": 0.0,
+    "dark": 0.0,
+    "deep": 0.0
+   },
+   "hair_color": {
+    "black": 4.0,
+    "dark_brown": 5.0,
+    "brown": 3.0,
+    "light_brown": 1.0,
+    "dark_blond": 0.0,
+    "blond": 0.0,
+    "platinum": 0.0,
+    "ginger": 0.0,
+    "auburn": 0.0,
+    "grey": 0.0,
+    "white": 0.0
+   },
+   "eye_color": {
+    "dark_brown": 4.0,
+    "brown": 4.0,
+    "hazel": 2.0,
+    "green": 1.0,
+    "blue": 1.0,
+    "grey": 0.0
+   }
+  },
+  "south_america": {
+   "hair": {
+    "short": 4.0,
+    "side_part": 2.0,
+    "buzz": 3.0,
+    "curly": 2.0,
+    "long": 2.0,
+    "bald": 1.0,
+    "crew_cut": 3.0,
+    "quiff": 2.0,
+    "undercut": 3.0,
+    "fringe": 1.0,
+    "mohawk": 1.0,
+    "receding": 1.0,
+    "afro": 1.0,
+    "man_bun": 2.0,
+    "cornrows": 1.0,
+    "slicked_back": 2.0,
+    "spiky": 2.0
+   },
+   "marks": {
+    "none": 18.0,
+    "freckles": 1.0,
+    "scar": 1.0,
+    "mole": 2.0,
+    "scar_cheek": 1.0,
+    "scar_chin": 1.0,
+    "mole_lip": 1.0,
+    "mole_forehead": 1.0
+   },
+   "extras": {
+    "none": 16.0,
+    "earring": 2.0,
+    "headband": 2.0
+   },
+   "skin": {
+    "porcelain": 0.0,
+    "fair": 1.0,
+    "light": 4.0,
+    "olive": 5.0,
+    "tan": 3.0,
+    "brown": 2.0,
+    "dark": 1.0,
+    "deep": 0.0
+   },
+   "hair_color": {
+    "black": 5.0,
+    "dark_brown": 5.0,
+    "brown": 2.0,
+    "light_brown": 1.0,
+    "dark_blond": 0.0,
+    "blond": 0.0,
+    "platinum": 0.0,
+    "ginger": 0.0,
+    "auburn": 0.0,
+    "grey": 0.0,
+    "white": 0.0
+   },
+   "eye_color": {
+    "dark_brown": 5.0,
+    "brown": 4.0,
+    "hazel": 1.0,
+    "green": 1.0,
+    "blue": 0.0,
+    "grey": 0.0
+   }
+  },
+  "west_africa": {
+   "nose": {
+    "small": 1.0,
+    "long": 1.0,
+    "wide": 4.0,
+    "button": 1.0,
+    "aquiline": 0.0,
+    "broad": 4.0
+   },
+   "mouth": {
+    "neutral": 3.0,
+    "smile": 3.0,
+    "thin": 1.0,
+    "full": 4.0
+   },
+   "hair": {
+    "short": 2.0,
+    "side_part": 0.0,
+    "buzz": 5.0,
+    "curly": 4.0,
+    "long": 1.0,
+    "bald": 2.0,
+    "crew_cut": 3.0,
+    "quiff": 1.0,
+    "undercut": 2.0,
+    "fringe": 0.0,
+    "mohawk": 1.0,
+    "receding": 1.0,
+    "afro": 4.0,
+    "man_bun": 1.0,
+    "cornrows": 4.0,
+    "slicked_back": 0.0,
+    "spiky": 1.0
+   },
+   "marks": {
+    "none": 18.0,
+    "freckles": 0.0,
+    "scar": 1.0,
+    "mole": 1.0,
+    "scar_cheek": 1.0,
+    "scar_chin": 1.0,
+    "mole_lip": 1.0,
+    "mole_forehead": 1.0
+   },
+   "extras": {
+    "none": 16.0,
+    "earring": 2.0,
+    "headband": 1.0
+   },
+   "skin": {
+    "porcelain": 0.0,
+    "fair": 0.0,
+    "light": 0.0,
+    "olive": 0.0,
+    "tan": 1.0,
+    "brown": 3.0,
+    "dark": 5.0,
+    "deep": 4.0
+   },
+   "hair_color": {
+    "black": 10.0,
+    "dark_brown": 2.0,
+    "brown": 0.0,
+    "light_brown": 0.0,
+    "dark_blond": 0.0,
+    "blond": 0.0,
+    "platinum": 0.0,
+    "ginger": 0.0,
+    "auburn": 0.0,
+    "grey": 0.0,
+    "white": 0.0
+   },
+   "eye_color": {
+    "dark_brown": 8.0,
+    "brown": 3.0,
+    "hazel": 0.0,
+    "green": 0.0,
+    "blue": 0.0,
+    "grey": 0.0
+   }
+  },
+  "east_asia": {
+   "eyes": {
+    "normal": 3.0,
+    "narrow": 5.0,
+    "big": 1.0,
+    "almond": 3.0,
+    "heavy_lid": 2.0,
+    "deep_set": 0.0
+   },
+   "hair": {
+    "short": 5.0,
+    "side_part": 4.0,
+    "buzz": 2.0,
+    "curly": 0.0,
+    "long": 1.0,
+    "bald": 1.0,
+    "crew_cut": 3.0,
+    "quiff": 2.0,
+    "undercut": 3.0,
+    "fringe": 3.0,
+    "mohawk": 0.0,
+    "receding": 1.0,
+    "afro": 0.0,
+    "man_bun": 1.0,
+    "cornrows": 0.0,
+    "slicked_back": 2.0,
+    "spiky": 3.0
+   },
+   "facial_hair": {
+    "none": 16.0,
+    "stubble": 2.0,
+    "moustache": 1.0,
+    "goatee": 1.0,
+    "full_beard": 0.0,
+    "stubble_3day": 1.0,
+    "short_beard": 0.0
+   },
+   "skin": {
+    "porcelain": 2.0,
+    "fair": 4.0,
+    "light": 4.0,
+    "olive": 1.0,
+    "tan": 0.0,
+    "brown": 0.0,
+    "dark": 0.0,
+    "deep": 0.0
+   },
+   "hair_color": {
+    "black": 10.0,
+    "dark_brown": 3.0,
+    "brown": 0.0,
+    "light_brown": 0.0,
+    "dark_blond": 0.0,
+    "blond": 0.0,
+    "platinum": 0.0,
+    "ginger": 0.0,
+    "auburn": 0.0,
+    "grey": 0.0,
+    "white": 0.0
+   },
+   "eye_color": {
+    "dark_brown": 8.0,
+    "brown": 3.0,
+    "hazel": 0.0,
+    "green": 0.0,
+    "blue": 0.0,
+    "grey": 0.0
+   }
+  },
+  "middle_east": {
+   "facial_hair": {
+    "none": 5.0,
+    "stubble": 4.0,
+    "moustache": 1.0,
+    "goatee": 2.0,
+    "full_beard": 4.0,
+    "stubble_3day": 4.0,
+    "short_beard": 4.0
+   },
+   "skin": {
+    "porcelain": 0.0,
+    "fair": 0.0,
+    "light": 3.0,
+    "olive": 5.0,
+    "tan": 3.0,
+    "brown": 0.0,
+    "dark": 0.0,
+    "deep": 0.0
+   },
+   "hair_color": {
+    "black": 7.0,
+    "dark_brown": 4.0,
+    "brown": 1.0,
+    "light_brown": 0.0,
+    "dark_blond": 0.0,
+    "blond": 0.0,
+    "platinum": 0.0,
+    "ginger": 0.0,
+    "auburn": 0.0,
+    "grey": 0.0,
+    "white": 0.0
+   },
+   "eye_color": {
+    "dark_brown": 5.0,
+    "brown": 4.0,
+    "hazel": 2.0,
+    "green": 1.0,
+    "blue": 0.0,
+    "grey": 0.0
+   }
+  },
+  "western_europe": {
+   "skin": {
+    "porcelain": 1.0,
+    "fair": 4.0,
+    "light": 4.0,
+    "olive": 1.0,
+    "tan": 0.0,
+    "brown": 0.0,
+    "dark": 0.0,
+    "deep": 0.0
+   },
+   "hair_color": {
+    "black": 1.0,
+    "dark_brown": 3.0,
+    "brown": 4.0,
+    "light_brown": 3.0,
+    "dark_blond": 2.0,
+    "blond": 1.0,
+    "platinum": 0.0,
+    "ginger": 1.0,
+    "auburn": 1.0,
+    "grey": 0.0,
+    "white": 0.0
+   },
+   "eye_color": {
+    "dark_brown": 1.0,
+    "brown": 3.0,
+    "hazel": 2.0,
+    "green": 2.0,
+    "blue": 3.0,
+    "grey": 2.0
+   }
+  },
+  "north_africa": {
+   "facial_hair": {
+    "none": 6.0,
+    "stubble": 4.0,
+    "moustache": 1.0,
+    "goatee": 2.0,
+    "full_beard": 2.0,
+    "stubble_3day": 3.0,
+    "short_beard": 3.0
+   },
+   "skin": {
+    "porcelain": 0.0,
+    "fair": 0.0,
+    "light": 2.0,
+    "olive": 5.0,
+    "tan": 4.0,
+    "brown": 2.0,
+    "dark": 0.0,
+    "deep": 0.0
+   },
+   "hair_color": {
+    "black": 6.0,
+    "dark_brown": 4.0,
+    "brown": 1.0,
+    "light_brown": 0.0,
+    "dark_blond": 0.0,
+    "blond": 0.0,
+    "platinum": 0.0,
+    "ginger": 0.0,
+    "auburn": 0.0,
+    "grey": 0.0,
+    "white": 0.0
+   },
+   "eye_color": {
+    "dark_brown": 5.0,
+    "brown": 4.0,
+    "hazel": 2.0,
+    "green": 1.0,
+    "blue": 0.0,
+    "grey": 0.0
+   }
+  }
+ },
+ "allowed": {
+  "head": [
+   "oval",
+   "square",
+   "round",
+   "long",
+   "standard"
+  ],
+  "eyes": [
+   "normal",
+   "narrow",
+   "big",
+   "almond",
+   "heavy_lid",
+   "deep_set"
+  ],
+  "brows": [
+   "straight",
+   "arched",
+   "thick"
+  ],
+  "nose": [
+   "small",
+   "long",
+   "wide",
+   "button",
+   "aquiline",
+   "broad"
+  ],
+  "mouth": [
+   "neutral",
+   "smile",
+   "thin",
+   "full"
+  ],
+  "hair": [
+   "short",
+   "side_part",
+   "buzz",
+   "curly",
+   "long",
+   "bald",
+   "crew_cut",
+   "quiff",
+   "undercut",
+   "fringe",
+   "mohawk",
+   "receding",
+   "afro",
+   "man_bun",
+   "cornrows",
+   "slicked_back",
+   "spiky"
+  ],
+  "facial_hair": [
+   "none",
+   "stubble",
+   "moustache",
+   "goatee",
+   "full_beard",
+   "stubble_3day",
+   "short_beard"
+  ],
+  "marks": [
+   "none",
+   "freckles",
+   "scar",
+   "mole",
+   "scar_cheek",
+   "scar_chin",
+   "mole_lip",
+   "mole_forehead"
+  ],
+  "extras": [
+   "none",
+   "earring",
+   "headband"
+  ],
+  "skin": [
+   "porcelain",
+   "fair",
+   "light",
+   "olive",
+   "tan",
+   "brown",
+   "dark",
+   "deep"
+  ],
+  "hair_color": [
+   "black",
+   "dark_brown",
+   "brown",
+   "light_brown",
+   "dark_blond",
+   "blond",
+   "platinum",
+   "ginger",
+   "auburn",
+   "grey",
+   "white"
+  ],
+  "eye_color": [
+   "dark_brown",
+   "brown",
+   "hazel",
+   "green",
+   "blue",
+   "grey"
+  ],
+  "accessory": [
+   "gold",
+   "silver",
+   "white",
+   "red",
+   "black"
+  ]
+ },
+ "nationalities": {
+  "ENG": {
+   "western_europe": 7.0,
+   "west_africa": 2.0,
+   "middle_east": 1.0
+  },
+  "SCO": {
+   "northern_europe": 6.0,
+   "western_europe": 4.0
+  },
+  "WAL": {
+   "western_europe": 8.0,
+   "northern_europe": 2.0
+  },
+  "IRL": {
+   "northern_europe": 5.0,
+   "western_europe": 5.0
+  },
+  "FRA": {
+   "western_europe": 5.0,
+   "west_africa": 3.0,
+   "north_africa": 2.0
+  },
+  "GER": {
+   "western_europe": 7.0,
+   "eastern_europe": 1.0,
+   "middle_east": 1.0,
+   "west_africa": 1.0
+  },
+  "NED": {
+   "western_europe": 6.0,
+   "northern_europe": 2.0,
+   "west_africa": 2.0
+  },
+  "BEL": {
+   "western_europe": 6.0,
+   "west_africa": 2.0,
+   "north_africa": 2.0
+  },
+  "SUI": {
+   "western_europe": 7.0,
+   "eastern_europe": 2.0,
+   "west_africa": 1.0
+  },
+  "AUT": {
+   "western_europe": 7.0,
+   "eastern_europe": 3.0
+  },
+  "ESP": {
+   "southern_europe": 8.0,
+   "south_america": 1.0,
+   "north_africa": 1.0
+  },
+  "POR": {
+   "southern_europe": 8.0,
+   "west_africa": 2.0
+  },
+  "ITA": {
+   "southern_europe": 9.0,
+   "west_africa": 1.0
+  },
+  "GRE": {
+   "southern_europe": 9.0,
+   "eastern_europe": 1.0
+  },
+  "DEN": {
+   "northern_europe": 9.0,
+   "middle_east": 1.0
+  },
+  "SWE": {
+   "northern_europe": 7.0,
+   "middle_east": 2.0,
+   "west_africa": 1.0
+  },
+  "NOR": {
+   "northern_europe": 9.0,
+   "west_africa": 1.0
+  },
+  "FIN": {
+   "northern_europe": 1.0
+  },
+  "ISL": {
+   "northern_europe": 1.0
+  },
+  "POL": {
+   "eastern_europe": 1.0
+  },
+  "CZE": {
+   "eastern_europe": 1.0
+  },
+  "SVK": {
+   "eastern_europe": 1.0
+  },
+  "HUN": {
+   "eastern_europe": 1.0
+  },
+  "UKR": {
+   "eastern_europe": 1.0
+  },
+  "ROU": {
+   "eastern_europe": 7.0,
+   "southern_europe": 3.0
+  },
+  "CRO": {
+   "eastern_europe": 6.0,
+   "southern_europe": 4.0
+  },
+  "SRB": {
+   "eastern_europe": 7.0,
+   "southern_europe": 3.0
+  },
+  "TUR": {
+   "middle_east": 7.0,
+   "southern_europe": 3.0
+  },
+  "BRA": {
+   "south_america": 5.0,
+   "west_africa": 3.0,
+   "southern_europe": 2.0
+  },
+  "ARG": {
+   "southern_europe": 6.0,
+   "south_america": 4.0
+  },
+  "URU": {
+   "southern_europe": 6.0,
+   "south_america": 3.0,
+   "west_africa": 1.0
+  },
+  "COL": {
+   "south_america": 8.0,
+   "west_africa": 2.0
+  },
+  "CHI": {
+   "south_america": 9.0,
+   "southern_europe": 1.0
+  },
+  "PER": {
+   "south_america": 1.0
+  },
+  "ECU": {
+   "south_america": 7.0,
+   "west_africa": 3.0
+  },
+  "PAR": {
+   "south_america": 1.0
+  },
+  "MEX": {
+   "south_america": 9.0,
+   "southern_europe": 1.0
+  },
+  "USA": {
+   "western_europe": 5.0,
+   "west_africa": 2.0,
+   "south_america": 2.0,
+   "east_asia": 1.0
+  },
+  "CAN": {
+   "western_europe": 6.0,
+   "west_africa": 2.0,
+   "east_asia": 1.0,
+   "south_america": 1.0
+  },
+  "CRC": {
+   "south_america": 9.0,
+   "west_africa": 1.0
+  },
+  "JAM": {
+   "west_africa": 1.0
+  },
+  "NGA": {
+   "west_africa": 1.0
+  },
+  "GHA": {
+   "west_africa": 1.0
+  },
+  "SEN": {
+   "west_africa": 1.0
+  },
+  "CIV": {
+   "west_africa": 1.0
+  },
+  "CMR": {
+   "west_africa": 1.0
+  },
+  "RSA": {
+   "west_africa": 7.0,
+   "western_europe": 3.0
+  },
+  "MAR": {
+   "north_africa": 1.0
+  },
+  "ALG": {
+   "north_africa": 1.0
+  },
+  "TUN": {
+   "north_africa": 1.0
+  },
+  "EGY": {
+   "north_africa": 1.0
+  },
+  "KSA": {
+   "middle_east": 1.0
+  },
+  "IRN": {
+   "middle_east": 1.0
+  },
+  "JPN": {
+   "east_asia": 1.0
+  },
+  "KOR": {
+   "east_asia": 1.0
+  },
+  "AUS": {
+   "western_europe": 6.0,
+   "northern_europe": 2.0,
+   "east_asia": 1.0,
+   "middle_east": 1.0
+  }
+ },
+ "template_palette": {
+  "skin.hi": "#e7bc95",
+  "skin.light": "#e7bc95",
+  "skin.base": "#e0ab82",
+  "skin.shade": "#bc8566",
+  "skin.deep": "#98654f",
+  "hair.hi": "#65412a",
+  "hair.base": "#65412a",
+  "hair.shade": "#4f2e1f",
+  "hair.deep": "#3d2218",
+  "eye.iris": "#3e70b2",
+  "eye.dark": "#274975",
+  "acc.hi": "#e3b43d",
+  "acc.base": "#e3b43d",
+  "acc.shade": "#a37629",
+  "shirt.light": "#5eaf87",
+  "shirt.base": "#2f8a57",
+  "shirt.shade": "#226e3d",
+  "shirt.deep": "#1b562c",
+  "trim.base": "#f2d34c",
+  "trim.shade": "#c2a13d",
+  "skin.lip": "#be765e",
+  "skin.lip_dark": "#905243",
+  "mix.stubble": "#b98a69",
+  "mix.stubble_shade": "#93654d",
+  "mix.stubble_heavy": "#9c7155",
+  "mix.stubble_heavy_shade": "#7a523d",
+  "mix.beard": "#7d543b",
+  "mix.beard_shade": "#4f2f23",
+  "mix.buzz": "#94694b",
+  "mix.buzz_shade": "#724a36",
+  "mix.freckle": "#ce9169",
+  "fix.white": "#f3efe6",
+  "fix.pupil": "#151015",
+  "fix.teeth": "#ebe4d6",
+  "fix.outline": "#1e1519"
+ },
+ "template_colors": {
+  "#1e1519": "fix.outline",
+  "#ebe4d6": "fix.teeth",
+  "#151015": "fix.pupil",
+  "#f3efe6": "fix.white",
+  "#ce9169": "mix.freckle",
+  "#724a36": "mix.buzz_shade",
+  "#94694b": "mix.buzz",
+  "#4f2f23": "mix.beard_shade",
+  "#7d543b": "mix.beard",
+  "#7a523d": "mix.stubble_heavy_shade",
+  "#9c7155": "mix.stubble_heavy",
+  "#93654d": "mix.stubble_shade",
+  "#b98a69": "mix.stubble",
+  "#905243": "skin.lip_dark",
+  "#be765e": "skin.lip",
+  "#c2a13d": "trim.shade",
+  "#f2d34c": "trim.base",
+  "#1b562c": "shirt.deep",
+  "#226e3d": "shirt.shade",
+  "#2f8a57": "shirt.base",
+  "#5eaf87": "shirt.light",
+  "#a37629": "acc.shade",
+  "#e3b43d": "acc.base",
+  "#274975": "eye.dark",
+  "#3e70b2": "eye.iris",
+  "#3d2218": "hair.deep",
+  "#4f2e1f": "hair.shade",
+  "#65412a": "hair.base",
+  "#98654f": "skin.deep",
+  "#bc8566": "skin.shade",
+  "#e0ab82": "skin.base",
+  "#e7bc95": "skin.light"
+ },
+ "palettes": {
+  "skin": {
+   "porcelain": {
+    "hi": "#f9e5d1",
+    "light": "#f6dbc4",
+    "base": "#f3d2b9",
+    "shade": "#cca893",
+    "deep": "#a58374"
+   },
+   "fair": {
+    "hi": "#f7dfc4",
+    "light": "#f3d3b3",
+    "base": "#efc7a5",
+    "shade": "#c99e83",
+    "deep": "#a37a66"
+   },
+   "light": {
+    "hi": "#efceac",
+    "light": "#e7bc95",
+    "base": "#e0ab82",
+    "shade": "#bc8566",
+    "deep": "#98654f"
+   },
+   "olive": {
+    "hi": "#e1c093",
+    "light": "#d3a876",
+    "base": "#c6935f",
+    "shade": "#a67149",
+    "deep": "#875639"
+   },
+   "tan": {
+    "hi": "#d2aa81",
+    "light": "#bb8b61",
+    "base": "#a87148",
+    "shade": "#8d5537",
+    "deep": "#723f2a"
+   },
+   "brown": {
+    "hi": "#c1956c",
+    "light": "#a27049",
+    "base": "#87532f",
+    "shade": "#713d23",
+    "deep": "#5c2d1a"
+   },
+   "dark": {
+    "hi": "#ae8461",
+    "light": "#865b3c",
+    "base": "#633b22",
+    "shade": "#532b19",
+    "deep": "#431f13"
+   },
+   "deep": {
+    "hi": "#9f7659",
+    "light": "#6f4931",
+    "base": "#462818",
+    "shade": "#3b1d12",
+    "deep": "#30150d"
+   }
+  },
+  "hair_color": {
+   "black": {
+    "hi": "#4f464b",
+    "base": "#211c1f",
+    "shade": "#1a1518",
+    "deep": "#141013"
+   },
+   "dark_brown": {
+    "hi": "#654c34",
+    "base": "#3d2819",
+    "shade": "#301d13",
+    "deep": "#25150e"
+   },
+   "brown": {
+    "hi": "#856345",
+    "base": "#65412a",
+    "shade": "#4f2e1f",
+    "deep": "#3d2218"
+   },
+   "light_brown": {
+    "hi": "#a5865c",
+    "base": "#8d6741",
+    "shade": "#6e4b31",
+    "deep": "#553725"
+   },
+   "dark_blond": {
+    "hi": "#c0a56f",
+    "base": "#b08b55",
+    "shade": "#896640",
+    "deep": "#6a4c31"
+   },
+   "blond": {
+    "hi": "#e2cc85",
+    "base": "#dab86c",
+    "shade": "#aa8851",
+    "deep": "#83653e"
+   },
+   "platinum": {
+    "hi": "#f1eaca",
+    "base": "#ede1bb",
+    "shade": "#b9ac8e",
+    "deep": "#8e826d"
+   },
+   "ginger": {
+    "hi": "#c57c48",
+    "base": "#b65b2b",
+    "shade": "#8e3d1f",
+    "deep": "#6d2b18"
+   },
+   "auburn": {
+    "hi": "#96583f",
+    "base": "#7b3725",
+    "shade": "#60241b",
+    "deep": "#4a1915"
+   },
+   "grey": {
+    "hi": "#a6a4a2",
+    "base": "#8f8b87",
+    "shade": "#706b67",
+    "deep": "#56524f"
+   },
+   "white": {
+    "hi": "#e2e1e0",
+    "base": "#dad8d3",
+    "shade": "#aaa7a1",
+    "deep": "#83807c"
+   }
+  },
+  "eye_color": {
+   "dark_brown": {
+    "iris": "#3b2519",
+    "dark": "#271810"
+   },
+   "brown": {
+    "iris": "#6c4227",
+    "dark": "#472b18"
+   },
+   "hazel": {
+    "iris": "#806b34",
+    "dark": "#544621"
+   },
+   "green": {
+    "iris": "#4d7b45",
+    "dark": "#31512c"
+   },
+   "blue": {
+    "iris": "#3e70b2",
+    "dark": "#274975"
+   },
+   "grey": {
+    "iris": "#6e7f8d",
+    "dark": "#47535d"
+   }
+  },
+  "accessory": {
+   "gold": {
+    "hi": "#f7e8b5",
+    "base": "#e3b43d",
+    "shade": "#a37629"
+   },
+   "silver": {
+    "hi": "#f2f2f2",
+    "base": "#c8ccd2",
+    "shade": "#8d9297"
+   },
+   "white": {
+    "hi": "#fbfbfb",
+    "base": "#f1eee5",
+    "shade": "#aea9a1"
+   },
+   "red": {
+    "hi": "#eeb4ac",
+    "base": "#c33a31",
+    "shade": "#8c2024"
+   },
+   "black": {
+    "hi": "#c4c4c4",
+    "base": "#2b2729",
+    "shade": "#1f1b1e"
+   }
+  }
+ },
+ "palette_groups": {
+  "skin": "skin",
+  "hair_color": "hair",
+  "eye_color": "eye",
+  "accessory": "acc"
+ },
+ "team_ramp": {
+  "shirt": {
+   "light": [
+    0.2,
+    0.01,
+    -0.05
+   ],
+   "base": [
+    0,
+    0,
+    0
+   ],
+   "shade": [
+    -0.1,
+    -0.015,
+    0.03
+   ],
+   "deep": [
+    -0.19,
+    -0.025,
+    0.03
+   ]
+  },
+  "trim": {
+   "base": [
+    0,
+    0,
+    0
+   ],
+   "shade": [
+    -0.1,
+    -0.01,
+    0.0
+   ]
+  },
+  "contrast": 1.0,
+  "hue_shift": 1.0,
+  "saturation": 0.0
+ },
+ "derived_roles": [
+  [
+   "skin.lip",
+   "skin.shade",
+   "#c4524c",
+   0.3
+  ],
+  [
+   "skin.lip_dark",
+   "skin.deep",
+   "#7e2b28",
+   0.32
+  ],
+  [
+   "mix.stubble",
+   "skin.base",
+   "hair.deep",
+   0.24
+  ],
+  [
+   "mix.stubble_shade",
+   "skin.shade",
+   "hair.deep",
+   0.32
+  ],
+  [
+   "mix.stubble_heavy",
+   "skin.base",
+   "hair.deep",
+   0.42
+  ],
+  [
+   "mix.stubble_heavy_shade",
+   "skin.shade",
+   "hair.deep",
+   0.52
+  ],
+  [
+   "mix.beard",
+   "skin.shade",
+   "hair.base",
+   0.72
+  ],
+  [
+   "mix.beard_shade",
+   "skin.deep",
+   "hair.deep",
+   0.8
+  ],
+  [
+   "mix.buzz",
+   "skin.base",
+   "hair.base",
+   0.62
+  ],
+  [
+   "mix.buzz_shade",
+   "skin.shade",
+   "hair.shade",
+   0.68
+  ],
+  [
+   "mix.freckle",
+   "skin.base",
+   "#a5532e",
+   0.3
+  ]
+ ],
+ "fixed_roles": {
+  "fix.white": "#f3efe6",
+  "fix.pupil": "#151015",
+  "fix.teeth": "#ebe4d6",
+  "fix.outline": "#1e1519"
+ },
+ "collapse": {
+  "skin.hi": "skin.light",
+  "hair.hi": "hair.base",
+  "acc.hi": "acc.base"
+ }
+}

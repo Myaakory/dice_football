@@ -1,0 +1,41 @@
+{
+  "_comment": "Testowi zawodnicy: wygląd podany ręcznie (te same pola zapisze generator świata). style = styl pixel artu do porównania.",
+  "players": [
+    {
+      "id": "test_eklund",
+      "name": "Lars Eklund",
+      "region": "northern_europe",
+      "style": "retro",
+      "team": {"shirt": "#b8322a", "trim": "#f2efe6"},
+      "look": {
+        "head": "oval", "eyes": "normal", "brows": "straight", "nose": "long", "mouth": "neutral",
+        "hair": "side_part", "facial_hair": "stubble", "marks": "freckles", "extras": "none",
+        "skin": "fair", "hair_color": "blond", "eye_color": "blue", "accessory": "gold"
+      }
+    },
+    {
+      "id": "test_mensah",
+      "name": "Kwame Mensah",
+      "region": "west_africa",
+      "style": "soft",
+      "team": {"shirt": "#2f5fb3", "trim": "#f2efe6"},
+      "look": {
+        "head": "round", "eyes": "big", "brows": "arched", "nose": "wide", "mouth": "smile",
+        "hair": "curly", "facial_hair": "goatee", "marks": "none", "extras": "earring",
+        "skin": "dark", "hair_color": "black", "eye_color": "dark_brown", "accessory": "gold"
+      }
+    },
+    {
+      "id": "test_ferreira",
+      "name": "Diego Ferreira",
+      "region": "south_america",
+      "style": "bold",
+      "team": {"shirt": "#e6b422", "trim": "#1f6b3a"},
+      "look": {
+        "head": "square", "eyes": "narrow", "brows": "thick", "nose": "small", "mouth": "full",
+        "hair": "long", "facial_hair": "full_beard", "marks": "none", "extras": "headband",
+        "skin": "tan", "hair_color": "dark_brown", "eye_color": "brown", "accessory": "white"
+      }
+    }
+  ]
+}

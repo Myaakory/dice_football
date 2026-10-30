@@ -191,6 +191,8 @@ func _load_teams() -> void:
 		team.short_name = row["short_name"]
 		team.primary_color = Color.from_string(row["primary_color"], Color.WHITE)
 		team.secondary_color = Color.from_string(row["secondary_color"], Color.BLACK)
+		team.gk_primary_color = Color.from_string(row.get("gk_primary_color", ""), team.gk_primary_color)
+		team.gk_secondary_color = Color.from_string(row.get("gk_secondary_color", ""), team.gk_secondary_color)
 		team.default_tactic_id = StringName(row["default_tactic"])
 		if not tactics.has(team.default_tactic_id):
 			push_warning("GameData: team '%s' has unknown default tactic '%s'" % [team.id, team.default_tactic_id])
