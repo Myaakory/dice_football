@@ -10,7 +10,7 @@ Uruchom z katalogu projektu:
   python tools/portraits/portrait_tool.py random --nationality POL --nationality BRA --count 10
       to samo wg narodowości (data/nationalities.csv): najpierw pochodzenie z wag narodowości, potem wygląd.
   python tools/portraits/portrait_tool.py export --style retro [--out assets/graphics/portraits]
-      szablony wszystkich części (PNG w kolorach palety domyślnej) + manifest.json dla gry.
+      szablony zatwierdzonych części (PNG w kolorach palety domyślnej) + manifest.json dla gry.
 
 Ręczne poprawki: plik PNG z eksportu (w kolorach palety domyślnej) wrzucony do
 tools/portraits/overrides/<styl>/<warstwa>/<nazwa>.png zastępuje część rysowaną kodem – przy kolejnych
@@ -327,17 +327,33 @@ def random_sheet(regions_list, count, seed, style_id, palettes, regions, nations
 # ───────────────────────── eksport do gry ─────────────────────────
 
 def export(style_id, out_dir, palettes):
+    """Szablony tylko zatwierdzonych elementów (status approved; 'none' = brak pliku) + obie koszulki,
+    oraz manifest.json ze wszystkim, czego gra potrzebuje do losowania wyglądu i przekolorowania części.
+    Stare pliki eksportu (np. element, który stracił zatwierdzenie) są usuwane."""
+    import json
     out_dir = Path(out_dir) / style_id
     default = core.default_palette(style_id, palettes)
     check_template_palette(style_id, default)
-    count = 0
+    style = core.STYLES[style_id]
+    weights = load_weights(approved_only=True)
+    allowed = weights.pop("_allowed")
+    # Warianty w kolejności POOLS (= kolejność w arkuszu nie ma znaczenia dla gry).
+    variants = {pool: [v for v in options if v in allowed.get(pool, [])] for pool, options in parts.POOLS.items()}
+    colors = {pool: [k for k in palettes[src] if k in allowed.get(pool, [])]
+              for pool, src in parts.COLOR_POOLS.items()}
+    for pool, options in list(variants.items()) + list(colors.items()):
+        if not options:
+            raise ValueError(f"pula {pool}: brak zatwierdzonych elementów – gra nie ma z czego losować")
+    heads = variants["head"]
+
+    written = set()
     for n in core.SIZES:
         for layer in parts.LAYER_ORDER:
             pool = "hair" if layer == "hair_back" else layer
-            variants = parts.POOLS.get(pool, parts.SHIRTS)
-            heads = parts.POOLS["head"] if layer in parts.FITTED else [parts.POOLS["head"][0]]
-            for variant in variants:
-                for head in heads:
+            layer_variants = parts.SHIRTS if layer == "shirt" else variants[pool]
+            layer_heads = heads if layer in parts.FITTED else heads[:1]
+            for variant in layer_variants:
+                for head in layer_heads:
                     look = dict(BASE_LOOK, head=head)
                     if pool in parts.POOLS:
                         look[pool] = variant
@@ -347,44 +363,64 @@ def export(style_id, out_dir, palettes):
                     if not layers[layer]:
                         continue  # pusta część (np. brak zarostu): brak pliku = nic nie rysuj
                     img = core.to_image(layers[layer], n, default)
-                    path = out_dir / part_file(layer, variant, head, n)
+                    rel = part_file(layer, variant, head, n)
+                    path = out_dir / rel
                     path.parent.mkdir(parents=True, exist_ok=True)
                     img.save(path)
-                    count += 1
+                    written.add(rel)
+    removed = 0
+    if out_dir.exists():
+        for old in out_dir.rglob("*.png"):
+            if old.relative_to(out_dir).as_posix() not in written:
+                old.unlink()
+                Path(str(old) + ".import").unlink(missing_ok=True)
+                removed += 1
+
+    canon = lambda r: style["collapse"].get(r, r)
+    derived = [list(d) for d in core.DERIVED]
+    if style["outline"]["mode"] != "black":
+        derived.append(list(core.SELOUT_OUTLINE))
+    fixed = dict(core.FIXED)
+    if style["outline"]["mode"] == "black":
+        fixed["fix.outline"] = style["outline"]["color"]
     manifest = {
         "style": style_id,
         "sizes": list(core.SIZES),
         "layer_order": parts.LAYER_ORDER,
-        "pools": parts.POOLS,
         "fitted_to_head": sorted(parts.FITTED),
         "file_pattern": "<layer>/<variant>[@<head>]_<size>.png (brak pliku = pusta część)",
+        "files": sorted(written),
+        # Pule wyglądu w kolejności losowania (random_look): części, potem kolory. Tylko zatwierdzone warianty.
+        "look_pools": list(parts.POOLS) + list(parts.COLOR_POOLS),
+        "pools": variants,
+        "color_pools": colors,
+        "shirts": parts.SHIRTS,
+        # Wagi tylko zatwierdzonych elementów: {kolumna: {pula: {wariant: waga}}}; pula bez wag w kolumnie
+        # bierze "any", a bez wag w "any" – równo z allowed.
+        "weights": weights,
+        "allowed": allowed,
+        "nationalities": load_nationalities(),
+        # Kolor szablonu -> rola (role zwinięte przez collapse mają ten sam kolor i ten sam kolor zawodnika).
         "template_palette": default,
+        "template_colors": {color: canon(role) for role, color in reversed(list(default.items()))},
+        # Rampy kolorów wyglądu przed collapse (gra stosuje collapse na końcu, jak resolve_palette).
         "palettes": {
-            group: {key: {role: color for role, color in
-                          core.resolve_palette(style_id, palettes, **_one(group, key, palettes)).items()
-                          if role.startswith(prefix)}
-                    for key in palettes[src]}
-            for group, src, prefix in (("skin", "skin", "skin."), ("hair", "hair", "hair."),
-                                       ("eyes", "eyes", "eye."), ("accessory", "accessory", "acc."))
+            pool: {key: core.make_ramp(group, palettes[src][key], style) for key in colors[pool]}
+            for pool, src, group in (("skin", "skin", "skin"), ("hair_color", "hair", "hair"),
+                                     ("eye_color", "eyes", "eye"), ("accessory", "accessory", "acc"))
         },
+        "palette_groups": {"skin": "skin", "hair_color": "hair", "eye_color": "eye", "accessory": "acc"},
         "team_ramp": {"shirt": core.RAMPS["shirt"], "trim": core.RAMPS["trim"],
-                      "contrast": core.STYLES[style_id]["contrast"], "hue_shift": core.STYLES[style_id]["hue_shift"],
-                      "saturation": core.STYLES[style_id]["saturation"]},
-        "derived_roles": {
-            "skin.lip": "mix(skin.shade, #c4524c, 0.30)", "skin.lip_dark": "mix(skin.deep, #7e2b28, 0.32)",
-            "mix.stubble": "mix(skin.base, hair.deep, 0.24)", "mix.stubble_shade": "mix(skin.shade, hair.deep, 0.32)",
-            "mix.stubble_heavy": "mix(skin.base, hair.deep, 0.42)",
-            "mix.stubble_heavy_shade": "mix(skin.shade, hair.deep, 0.52)",
-            "mix.beard": "mix(skin.shade, hair.base, 0.72)", "mix.beard_shade": "mix(skin.deep, hair.deep, 0.8)",
-            "mix.buzz": "mix(skin.base, hair.base, 0.62)", "mix.buzz_shade": "mix(skin.shade, hair.shade, 0.68)",
-            "mix.freckle": "mix(skin.shade, #9c4a26, 0.35)",
-        },
-        "collapse": core.STYLES[style_id]["collapse"],
+                      "contrast": style["contrast"], "hue_shift": style["hue_shift"],
+                      "saturation": style["saturation"]},
+        # [rola, A, B, t] = mix(A, B, t), A/B = rola albo "#hex"; liczone po rampach, w tej kolejności.
+        "derived_roles": derived,
+        "fixed_roles": fixed,
+        "collapse": style["collapse"],
     }
-    import json
     with open(out_dir / "manifest.json", "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=1, ensure_ascii=False)
-    return out_dir, count
+    return out_dir, len(written), removed
 
 
 def check_template_palette(style_id, default):
@@ -399,14 +435,6 @@ def check_template_palette(style_id, default):
             if not (role.startswith("fix.") or other.startswith("fix.")):
                 raise ValueError(f"styl {style_id}: role {other} i {role} mają ten sam kolor szablonu {color}"
                                  " – zmień kolory 'default' w palettes.json")
-
-
-def _one(group, key, palettes):
-    d = palettes["default"]
-    args = dict(skin=d["skin"], hair=d["hair"], eyes=d["eyes"], accessory=d["accessory"], shirt=d["shirt"],
-                trim=d["trim"])
-    args[{"skin": "skin", "hair": "hair", "eyes": "eyes", "accessory": "accessory"}[group]] = key
-    return args
 
 
 # ───────────────────────── CLI ─────────────────────────
@@ -461,8 +489,8 @@ def main(argv):
             random_sheet(regs, args.count, args.seed, args.style, palettes, regions).save(path)
         print(path)
     elif cmd == "export":
-        out_dir, count = export(args.style, args.out, palettes)
-        print(f"templates: {count} -> {out_dir}")
+        out_dir, count, removed = export(args.style, args.out, palettes)
+        print(f"templates: {count} -> {out_dir}" + (f" (removed {removed} stale)" if removed else ""))
 
 
 if __name__ == "__main__":

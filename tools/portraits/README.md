@@ -7,7 +7,7 @@ portret z gotowych części i podmienia w nich kolory na kolory zawodnika i dru�
 ```
 python tools/portraits/portrait_tool.py demo                 # podglądy -> grafiki_brudnopis/portrety/
 python tools/portraits/portrait_tool.py random --region west_africa --count 12 --seed 7 --style retro
-python tools/portraits/portrait_tool.py export              # szablony -> assets/graphics/portraits/retro/
+python tools/portraits/portrait_tool.py export              # zatwierdzone szablony + manifest -> assets/graphics/portraits/retro/
 python tools/portraits/portrait_review.py                    # katalog do artefaktu "Przegląd portretów"
 python tools/sync_sheets.py --portraits                      # wagi losowania z arkusza -> data/portrait_weights.csv
 ```
@@ -34,7 +34,7 @@ python tools/sync_sheets.py --portraits                      # wagi losowania z 
   Po transferze ten sam zawodnik od razu wygląda tak samo, tylko w nowej koszulce. Koszulka ma dwa warianty:
   `field` (dekolt w serek) i `goalkeeper` (okrągły kołnierz + pas na piersi, jak koszulka bramkarza na boisku).
   Bramkarz dostaje `goalkeeper` w **bramkarskich barwach klubu** (`render(..., team={"shirt", "trim",
-  "kit": "goalkeeper"})`) – drużyny nie mają ich jeszcze w danych (`teams.csv` ma tylko barwy polowe).
+  "kit": "goalkeeper"})`; w grze `TeamData.gk_primary_color` / `gk_secondary_color`).
 - **Warstwy** w kolejności rysowania: `hair_back, head, shirt, eyes, brows, nose, facial_hair, mouth, hair,
   marks`. Każda warstwa to osobny PNG, a składanie to zwykłe nakładanie (alpha).
 - **Części dopasowane do głowy** (`hair`, `hair_back`, `facial_hair`, `marks`) istnieją w wersji dla każdego
@@ -107,4 +107,25 @@ wag portretów (`northern_europe`, `western_europe`, `eastern_europe`, `southern
 Wygląd zawodnika danej narodowości: najpierw losowane jest pochodzenie (wagi narodowości), potem każda pula z wag
 tego pochodzenia. Wszystko z jednego generatora liczb z seeda, więc ten sam seed daje tych samych zawodników:
 `python tools/portraits/portrait_tool.py random --approved --nationality POL --nationality BRA --seed 4`.
-Generator świata w grze (GDScript) jeszcze nie istnieje – ma powtórzyć te same kroki na tych samych danych.
+W grze te same kroki robi `PortraitLooks` (niżej) – na tych samych wagach, ale z generatorem liczb Godota, więc
+ten sam seed daje w grze inny wygląd niż w Pythonie (rozkład jest ten sam).
+
+## Gra (integracja)
+
+1. `python tools/portraits/portrait_tool.py export` zapisuje do `assets/graphics/portraits/retro/` **tylko zatwierdzone**
+   elementy (status `approved`; warianty `none` = brak pliku) i zawsze obie koszulki; pliki, które straciły
+   zatwierdzenie, usuwa. `manifest.json` zawiera: listę plików, pule i kolejność losowania (`look_pools`), wagi
+   zatwierdzonych elementów per kolumna (`weights`, `allowed`), narodowości, oraz wszystko do przekolorowania:
+   `template_colors` (kolor szablonu → rola), rampy kolorów wyglądu (`palettes`), `team_ramp`, `derived_roles`
+   (`[rola, A, B, t]` – to samo `DERIVED` z `portrait_core.py`), `fixed_roles`, `collapse`, `layer_order`, `fitted_to_head`.
+   Potem import w Godot (`--headless --path . --import`): PNG bez kompresji stratnej i bez mipmap, jak reszta pixel artu.
+2. `PortraitComposer` (`scripts/portraits/portrait_composer.gd`) ładuje manifest i szablony raz, liczy paletę zawodnika
+   (dokładny port `shift`/`make_ramp`/`mix`/collapse, z zaokrąglaniem jak `round()` w Pythonie), podmienia role
+   i nakłada warstwy. `get_player_texture(player, team, 64, 2)` – karta; 32 = boisko. Bramkarz dostaje koszulkę
+   `goalkeeper` w barwach bramkarskich klubu. Pamięć podręczna tylko wyświetlanych portretów (64 sztuki).
+3. `PortraitLooks.generate(id, nationality)` – wygląd z hasha id (FNV-1a → `RandomNumberGenerator`), kolumna `any`,
+   a z narodowością najpierw pochodzenie. `PlayerData.get_portrait_look()` liczy go przy pierwszym wyświetleniu.
+   Wygląd zależy od manifestu: po zmianie zatwierdzeń/wag zawodnicy wylosują się inaczej, dlatego zapis gry
+   (gdy powstanie) ma przechowywać `portrait_look` zawodnika.
+4. Zgodność z Pythonem: portret złożony w GDScript jest identyczny piksel w piksel z `portrait_tool.render()`
+   (sprawdzone na 80 obrazach 32/64 px, w tym bramkarze, i 3000 rampach kolorów drużyny).

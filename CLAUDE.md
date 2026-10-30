@@ -38,8 +38,9 @@ Portrety zawodników (32×32 boisko, 64×64 karta, styl `retro`) składa się z 
 każdy element przechodzi przegląd w artefakcie „Przegląd portretów”, wagi losowania są w arkuszu
 `portraits_weights_dice_football` (`data/portrait_weights.csv`). Koszulka = barwy aktualnego klubu, nie część
 wyglądu. Narodowości (`data/nationalities.csv`) wskazują pochodzenie wyglądu z wagami. Opis i cykl partii:
-[tools/portraits/README.md](tools/portraits/README.md). Obecny `PortraitGenerator`
-w grze to stary, rysowany w locie zastępnik.
+[tools/portraits/README.md](tools/portraits/README.md). W grze portret składa `PortraitComposer`
+(`scripts/portraits/`) z wyeksportowanych szablonów zatwierdzonych elementów (`assets/graphics/portraits/retro/`,
+`manifest.json`); wygląd losuje `PortraitLooks` deterministycznie z id zawodnika (`PlayerData.get_portrait_look()`).
 
 ## Konwencje
 

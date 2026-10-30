@@ -116,6 +116,27 @@ STYLES = {
 
 FIXED = {"fix.white": "#f3efe6", "fix.pupil": "#151015", "fix.teeth": "#ebe4d6"}
 
+# Role pochodne (zależą od dwóch palet naraz): (rola, kolor A, kolor B, t) = mix(A, B, t); A/B to rola albo "#hex".
+# Jedno źródło dla resolve_palette i manifestu gry (gra liczy je tym samym wzorem, w tej kolejności).
+DERIVED = [
+    ("skin.lip", "skin.shade", "#c4524c", 0.30),
+    ("skin.lip_dark", "skin.deep", "#7e2b28", 0.32),
+    ("mix.stubble", "skin.base", "hair.deep", 0.24),
+    ("mix.stubble_shade", "skin.shade", "hair.deep", 0.32),
+    ("mix.stubble_heavy", "skin.base", "hair.deep", 0.42),
+    ("mix.stubble_heavy_shade", "skin.shade", "hair.deep", 0.52),
+    ("mix.beard", "skin.shade", "hair.base", 0.72),
+    ("mix.beard_shade", "skin.deep", "hair.deep", 0.8),
+    ("mix.buzz", "skin.base", "hair.base", 0.62),
+    ("mix.buzz_shade", "skin.shade", "hair.shade", 0.68),
+    ("mix.freckle", "skin.base", "#a5532e", 0.30),
+]
+SELOUT_OUTLINE = ("fix.outline", "skin.deep", "#1e1519", 0.55)
+
+
+def apply_mix(pal, a, b, t):
+    return mix(a if a.startswith("#") else pal[a], b if b.startswith("#") else pal[b], t)
+
 
 # ───────────────────────── palety ─────────────────────────
 
@@ -134,23 +155,15 @@ def resolve_palette(style_id, palettes, skin, hair, eyes, accessory, shirt, trim
                          ("shirt", shirt), ("trim", trim)):
         for name, color in make_ramp(group, entry, style).items():
             pal[f"{group}.{name}"] = color
-    # Role pochodne (zależą od dwóch palet naraz) – gra liczy je tak samo.
-    pal["skin.lip"] = mix(pal["skin.shade"], "#c4524c", 0.30)
-    pal["skin.lip_dark"] = mix(pal["skin.deep"], "#7e2b28", 0.32)
-    pal["mix.stubble"] = mix(pal["skin.base"], pal["hair.deep"], 0.24)
-    pal["mix.stubble_shade"] = mix(pal["skin.shade"], pal["hair.deep"], 0.32)
-    pal["mix.stubble_heavy"] = mix(pal["skin.base"], pal["hair.deep"], 0.42)
-    pal["mix.stubble_heavy_shade"] = mix(pal["skin.shade"], pal["hair.deep"], 0.52)
-    pal["mix.beard"] = mix(pal["skin.shade"], pal["hair.base"], 0.72)
-    pal["mix.beard_shade"] = mix(pal["skin.deep"], pal["hair.deep"], 0.8)
-    pal["mix.buzz"] = mix(pal["skin.base"], pal["hair.base"], 0.62)
-    pal["mix.buzz_shade"] = mix(pal["skin.shade"], pal["hair.shade"], 0.68)
-    pal["mix.freckle"] = mix(pal["skin.base"], "#a5532e", 0.30)
+    # Role pochodne (zależą od dwóch palet naraz) – gra liczy je tak samo (manifest: derived_roles).
+    for role, a, b, t in DERIVED:
+        pal[role] = apply_mix(pal, a, b, t)
     pal.update(FIXED)
     if style["outline"]["mode"] == "black":
         pal["fix.outline"] = style["outline"]["color"]
     else:
-        pal["fix.outline"] = mix(pal["skin.deep"], "#1e1519", 0.55)
+        role, a, b, t = SELOUT_OUTLINE
+        pal[role] = apply_mix(pal, a, b, t)
     for role, target in style["collapse"].items():
         pal[role] = pal[target]
     return pal
