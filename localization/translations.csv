@@ -397,6 +397,18 @@ PLAY_CARD_CUTBACK_NAME,Cutback and shot,Wycofanie i strzał
 PLAY_CARD_CUTBACK_DESC,The ball is cut back to the centre of the box (start) and shot first time (target).,Wycofanie piłki na środek pola karnego (start) i strzał z pierwszej piłki (cel).
 PLAY_CARD_BOX_DRIBBLE_NAME,Dribble in the box,Rajd w polu karnym
 PLAY_CARD_BOX_DRIBBLE_DESC,Beating a defender at the ball (start) and a close-range shot (target).,Minięcie obrońcy przy piłce (start) i strzał z bliska (cel).
+PLAYER_CARD_TITLE,Player card,Karta zawodnika
+PLAYER_NATIONALITY,Nationality,Narodowość
+PLAYER_ACTIVE_TOTAL,Active,Aktywne
+PLAYER_PERKS,Perks,Perki
+PLAYER_PERKS_EMPTY,No perks yet,Brak perków
+PLAYER_MODULE_RECENT_MATCHES,Recent matches,Ostatnie mecze
+PLAYER_MODULE_TRANSFERS,Transfer history,Historia transferów
+PLAYER_MODULE_SEASON_STATS,Season statistics,Statystyki sezonu
+DIE_PHYSICAL_SHORT,Physical,Fizyczna
+DIE_TECHNICAL_SHORT,Technical,Techniczna
+DIE_DEFENSIVE_SHORT,Defensive,Defensywna
+DIE_GOALKEEPER_SHORT,Goalkeeper,Bramkarska
 NATION_ENG,England,Anglia
 NATION_SCO,Scotland,Szkocja
 NATION_WAL,Wales,Walia

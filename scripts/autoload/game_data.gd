@@ -14,6 +14,7 @@ var teams: Dictionary[StringName, TeamData] = {}
 var players: Dictionary[StringName, PlayerData] = {}
 var perks: Dictionary[StringName, PerkData] = {}
 var coaches: Dictionary[StringName, CoachData] = {}
+var nationalities: Dictionary[StringName, NationalityData] = {}
 
 
 func _ready() -> void:
@@ -21,8 +22,10 @@ func _ready() -> void:
 
 
 func load_all() -> void:
-	for table: Dictionary in [attributes, die_types, positions, roles, tactics, teams, players, perks, coaches]:
+	for table: Dictionary in [attributes, die_types, positions, roles, tactics, teams, players, perks, coaches,
+			nationalities]:
 		table.clear()
+	_load_nationalities()
 	_load_attributes()
 	_load_die_types()
 	_load_positions()
@@ -78,6 +81,11 @@ func get_player(id: StringName) -> PlayerData:
 	return players.get(id)
 
 
+## Narodowość o danym id; null, gdy id jest puste lub nieznane (PlayerData.nationality może być puste).
+func get_nationality(id: StringName) -> NationalityData:
+	return nationalities.get(id)
+
+
 func get_team_list() -> Array[TeamData]:
 	var result: Array[TeamData] = []
 	result.assign(teams.values())
@@ -99,6 +107,18 @@ func get_default_tactic(team: TeamData) -> TacticData:
 
 func _read(file_name: String) -> Array[Dictionary]:
 	return CsvLoader.load_table(DATA_DIR + file_name)
+
+
+## Narodowości. Kolumna "flag" jest opcjonalna (opis pasów: NationalityData.flag).
+func _load_nationalities() -> void:
+	for row in _read("nationalities.csv"):
+		var nationality := NationalityData.new()
+		nationality.id = StringName(row["id"])
+		nationality.name_key = row["name_key"]
+		nationality.flag = row.get("flag", "")
+		if not nationality.flag.is_empty() and not nationality.has_flag():
+			push_warning("GameData: nationality '%s' has invalid flag '%s'" % [nationality.id, nationality.flag])
+		nationalities[nationality.id] = nationality
 
 
 func _load_attributes() -> void:
@@ -260,9 +280,15 @@ func _load_players() -> void:
 		player.first_name = row["first_name"]
 		player.last_name = row["last_name"]
 		player.position_id = StringName(row["position"])
+		player.nationality = StringName(row.get("nationality", ""))
+		if player.nationality != &"" and not nationalities.has(player.nationality):
+			push_warning("GameData: player '%s' has unknown nationality '%s'" % [player.id, player.nationality])
 		player.age = row.get("age", "0").to_int()
 		player.natural_roles = CsvLoader.split_list(row.get("natural_roles", ""))
 		player.secondary_roles = CsvLoader.split_list(row.get("secondary_roles", ""))
+		for role_id in player.natural_roles + player.secondary_roles:
+			if not roles.has(role_id):
+				push_warning("GameData: player '%s' has unknown role '%s'" % [player.id, role_id])
 		if player.natural_roles.is_empty():
 			for role: RoleData in roles.values():
 				if role.position_id == player.position_id:

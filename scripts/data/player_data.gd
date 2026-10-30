@@ -8,6 +8,8 @@ var number: int = 0
 var first_name: String
 var last_name: String
 var position_id: StringName
+## Narodowość: id z nationalities.csv (GameData.get_nationality), puste = nieznana.
+var nationality: StringName = &""
 ## Wiek w latach (0 = nieznany – kolumna "age" w players.csv jest opcjonalna).
 var age: int = 0
 ## Role (id z roles.csv), na których zawodnik gra naturalnie / umie zagrać, ale czuje się gorzej.
@@ -15,8 +17,8 @@ var age: int = 0
 var natural_roles: Array[StringName] = []
 var secondary_roles: Array[StringName] = []
 var dice: Array[DieData] = []
-## Wygląd portretu {pula: wariant} (PortraitLooks). Pusty = wyliczany z id przy pierwszym wyświetleniu
-## (deterministycznie); generator świata może go ustawić sam (np. z narodowością).
+## Wygląd portretu {pula: wariant} (PortraitLooks). Pusty = wyliczany z id i narodowości przy pierwszym
+## wyświetleniu (deterministycznie); generator świata może go ustawić sam.
 var portrait_look: Dictionary = {}
 
 
@@ -45,5 +47,5 @@ func is_goalkeeper() -> bool:
 
 func get_portrait_look() -> Dictionary:
 	if portrait_look.is_empty():
-		portrait_look = PortraitLooks.generate(String(id))
+		portrait_look = PortraitLooks.generate(String(id), nationality)
 	return portrait_look

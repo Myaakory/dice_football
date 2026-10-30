@@ -40,7 +40,7 @@ każdy element przechodzi przegląd w artefakcie „Przegląd portretów”, wag
 wyglądu. Narodowości (`data/nationalities.csv`) wskazują pochodzenie wyglądu z wagami. Opis i cykl partii:
 [tools/portraits/README.md](tools/portraits/README.md). W grze portret składa `PortraitComposer`
 (`scripts/portraits/`) z wyeksportowanych szablonów zatwierdzonych elementów (`assets/graphics/portraits/retro/`,
-`manifest.json`); wygląd losuje `PortraitLooks` deterministycznie z id zawodnika (`PlayerData.get_portrait_look()`).
+`manifest.json`); wygląd losuje `PortraitLooks` deterministycznie z id i narodowości zawodnika (`PlayerData.get_portrait_look()`).
 
 ## Konwencje
 
