@@ -397,3 +397,59 @@ PLAY_CARD_CUTBACK_NAME,Cutback and shot,Wycofanie i strzał
 PLAY_CARD_CUTBACK_DESC,The ball is cut back to the centre of the box (start) and shot first time (target).,Wycofanie piłki na środek pola karnego (start) i strzał z pierwszej piłki (cel).
 PLAY_CARD_BOX_DRIBBLE_NAME,Dribble in the box,Rajd w polu karnym
 PLAY_CARD_BOX_DRIBBLE_DESC,Beating a defender at the ball (start) and a close-range shot (target).,Minięcie obrońcy przy piłce (start) i strzał z bliska (cel).
+NATION_ENG,England,Anglia
+NATION_SCO,Scotland,Szkocja
+NATION_WAL,Wales,Walia
+NATION_IRL,Ireland,Irlandia
+NATION_FRA,France,Francja
+NATION_GER,Germany,Niemcy
+NATION_NED,Netherlands,Holandia
+NATION_BEL,Belgium,Belgia
+NATION_SUI,Switzerland,Szwajcaria
+NATION_AUT,Austria,Austria
+NATION_ESP,Spain,Hiszpania
+NATION_POR,Portugal,Portugalia
+NATION_ITA,Italy,Włochy
+NATION_GRE,Greece,Grecja
+NATION_DEN,Denmark,Dania
+NATION_SWE,Sweden,Szwecja
+NATION_NOR,Norway,Norwegia
+NATION_FIN,Finland,Finlandia
+NATION_ISL,Iceland,Islandia
+NATION_POL,Poland,Polska
+NATION_CZE,Czechia,Czechy
+NATION_SVK,Slovakia,Słowacja
+NATION_HUN,Hungary,Węgry
+NATION_UKR,Ukraine,Ukraina
+NATION_ROU,Romania,Rumunia
+NATION_CRO,Croatia,Chorwacja
+NATION_SRB,Serbia,Serbia
+NATION_TUR,Türkiye,Turcja
+NATION_BRA,Brazil,Brazylia
+NATION_ARG,Argentina,Argentyna
+NATION_URU,Uruguay,Urugwaj
+NATION_COL,Colombia,Kolumbia
+NATION_CHI,Chile,Chile
+NATION_PER,Peru,Peru
+NATION_ECU,Ecuador,Ekwador
+NATION_PAR,Paraguay,Paragwaj
+NATION_MEX,Mexico,Meksyk
+NATION_USA,United States,Stany Zjednoczone
+NATION_CAN,Canada,Kanada
+NATION_CRC,Costa Rica,Kostaryka
+NATION_JAM,Jamaica,Jamajka
+NATION_NGA,Nigeria,Nigeria
+NATION_GHA,Ghana,Ghana
+NATION_SEN,Senegal,Senegal
+NATION_CIV,Ivory Coast,Wybrzeże Kości Słoniowej
+NATION_CMR,Cameroon,Kamerun
+NATION_RSA,South Africa,Republika Południowej Afryki
+NATION_MAR,Morocco,Maroko
+NATION_ALG,Algeria,Algieria
+NATION_TUN,Tunisia,Tunezja
+NATION_EGY,Egypt,Egipt
+NATION_KSA,Saudi Arabia,Arabia Saudyjska
+NATION_IRN,Iran,Iran
+NATION_JPN,Japan,Japonia
+NATION_KOR,South Korea,Korea Południowa
+NATION_AUS,Australia,Australia

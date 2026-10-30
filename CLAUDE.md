@@ -34,6 +34,12 @@ Boiska nie ma jako jednego PNG: `PitchBuilder` składa je w grze z elementów w 
 (jedna trawa 128×128 – pasy to filtr z maską wzoru, krzywe linii, bramki; tnie je `python tools/cut_pitch_parts.py` z
 `grafiki_brudnopis/pitch.aseprite`). Geometria (rozmiar, pole gry, strefy) jest w `PitchLayout` – widoki boiska
 nie mają własnych stałych rozmiaru; nakładki stref liczy `PitchOverlays`.
+Portrety zawodników (32×32 boisko, 64×64 karta, styl `retro`) składa się z części z narzędzia `tools/portraits/`;
+każdy element przechodzi przegląd w artefakcie „Przegląd portretów”, wagi losowania są w arkuszu
+`portraits_weights_dice_football` (`data/portrait_weights.csv`). Koszulka = barwy aktualnego klubu, nie część
+wyglądu. Narodowości (`data/nationalities.csv`) wskazują pochodzenie wyglądu z wagami. Opis i cykl partii:
+[tools/portraits/README.md](tools/portraits/README.md). Obecny `PortraitGenerator`
+w grze to stary, rysowany w locie zastępnik.
 
 ## Konwencje
 

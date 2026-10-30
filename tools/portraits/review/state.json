@@ -1,0 +1,1213 @@
+{
+ "elements": {
+  "head.oval": {
+   "batch": 1,
+   "version": 3,
+   "hash": "1e21d0a8b9",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "64 px: szyja prosta i nieco szersza – bez rozszerzania się w dół (twoja uwaga przy tym obrazku)"
+    },
+    {
+     "version": 3,
+     "date": "2026-10-30",
+     "note": "szyja przywrócona do pierwszej wersji (prosta, jak na początku)"
+    }
+   ]
+  },
+  "head.square": {
+   "batch": 1,
+   "version": 3,
+   "hash": "70f13c735c",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "64 px: szyja prosta i nieco szersza – bez rozszerzania się w dół"
+    },
+    {
+     "version": 3,
+     "date": "2026-10-30",
+     "note": "szyja przywrócona do pierwszej wersji (prosta, jak na początku)"
+    }
+   ]
+  },
+  "head.round": {
+   "batch": 1,
+   "version": 3,
+   "hash": "219ba1ef7b",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "64 px: szyja prosta i nieco szersza – bez rozszerzania się w dół"
+    },
+    {
+     "version": 3,
+     "date": "2026-10-30",
+     "note": "szyja przywrócona do pierwszej wersji (prosta, jak na początku)"
+    }
+   ]
+  },
+  "head.long": {
+   "batch": 1,
+   "version": 3,
+   "hash": "72d1b96534",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "64 px: szyja prosta i nieco szersza – bez rozszerzania się w dół"
+    },
+    {
+     "version": 3,
+     "date": "2026-10-30",
+     "note": "szyja przywrócona do pierwszej wersji (prosta, jak na początku)"
+    }
+   ]
+  },
+  "eyes.normal": {
+   "batch": 1,
+   "version": 1,
+   "hash": "774e5c05e5",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "eyes.narrow": {
+   "batch": 1,
+   "version": 1,
+   "hash": "310d4540fa",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "eyes.big": {
+   "batch": 1,
+   "version": 1,
+   "hash": "48030e348f",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "brows.straight": {
+   "batch": 1,
+   "version": 1,
+   "hash": "527c045aed",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "brows.arched": {
+   "batch": 1,
+   "version": 1,
+   "hash": "363278af25",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "brows.thick": {
+   "batch": 1,
+   "version": 1,
+   "hash": "afad4f50df",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "nose.small": {
+   "batch": 1,
+   "version": 1,
+   "hash": "da1ac537b2",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "nose.long": {
+   "batch": 1,
+   "version": 1,
+   "hash": "f6627b208e",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "nose.wide": {
+   "batch": 1,
+   "version": 1,
+   "hash": "5e5ea0779e",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "mouth.neutral": {
+   "batch": 1,
+   "version": 1,
+   "hash": "92f3c6879c",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "mouth.smile": {
+   "batch": 1,
+   "version": 1,
+   "hash": "ad0fed14d4",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "mouth.thin": {
+   "batch": 1,
+   "version": 1,
+   "hash": "98de364570",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "mouth.full": {
+   "batch": 1,
+   "version": 1,
+   "hash": "b67ff52867",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair.short": {
+   "batch": 1,
+   "version": 1,
+   "hash": "b0dcd653c4",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair.side_part": {
+   "batch": 1,
+   "version": 1,
+   "hash": "cf38cf0c94",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair.buzz": {
+   "batch": 1,
+   "version": 1,
+   "hash": "d29cc1d414",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair.curly": {
+   "batch": 1,
+   "version": 1,
+   "hash": "ffdfd244ee",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair.long": {
+   "batch": 1,
+   "version": 2,
+   "hash": "54a0c1bef5",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "tył włosów na czubku pokrywa się z grzywką – jeden kontur zamiast dwóch z jasną szczeliną"
+    }
+   ]
+  },
+  "hair.bald": {
+   "batch": 1,
+   "version": 1,
+   "hash": "d70656eaba",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "facial_hair.stubble": {
+   "batch": 1,
+   "version": 1,
+   "hash": "ece246c0c7",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "facial_hair.moustache": {
+   "batch": 1,
+   "version": 2,
+   "hash": "cb38d9aaed",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "64 px: łukowata góra, opadające i zwężone końce (32 px bez zmian)"
+    }
+   ]
+  },
+  "facial_hair.goatee": {
+   "batch": 1,
+   "version": 2,
+   "hash": "c0088f0326",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "64 px: wąsy jak wyżej + zaokrąglona, zwężająca się ku dołowi bródka (32 px bez zmian)"
+    }
+   ]
+  },
+  "facial_hair.full_beard": {
+   "batch": 1,
+   "version": 1,
+   "hash": "2b5700858e",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "marks.freckles": {
+   "batch": 1,
+   "version": 1,
+   "hash": "54079bbc66",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "marks.scar": {
+   "batch": 1,
+   "version": 1,
+   "hash": "9689f80d24",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "marks.mole": {
+   "batch": 1,
+   "version": 1,
+   "hash": "bc0a3f6f4f",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "skin.porcelain": {
+   "batch": 1,
+   "version": 2,
+   "hash": "8fbbad391c",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "cieplejsza i mniej blada"
+    }
+   ]
+  },
+  "skin.fair": {
+   "batch": 1,
+   "version": 1,
+   "hash": "154bc22395",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "skin.light": {
+   "batch": 1,
+   "version": 1,
+   "hash": "56579e6583",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "skin.olive": {
+   "batch": 1,
+   "version": 1,
+   "hash": "a2ea6d8a06",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "skin.tan": {
+   "batch": 1,
+   "version": 1,
+   "hash": "8db64802ae",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "skin.brown": {
+   "batch": 1,
+   "version": 1,
+   "hash": "2b885585dd",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "skin.dark": {
+   "batch": 1,
+   "version": 1,
+   "hash": "fb2f754a21",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "skin.deep": {
+   "batch": 1,
+   "version": 1,
+   "hash": "4581c44143",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.black": {
+   "batch": 1,
+   "version": 1,
+   "hash": "9b8095aee3",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.dark_brown": {
+   "batch": 1,
+   "version": 1,
+   "hash": "454e0ffdcf",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.brown": {
+   "batch": 1,
+   "version": 1,
+   "hash": "943c1c93dc",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.light_brown": {
+   "batch": 1,
+   "version": 1,
+   "hash": "42ae359a6b",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.dark_blond": {
+   "batch": 1,
+   "version": 1,
+   "hash": "071f6c8057",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.blond": {
+   "batch": 1,
+   "version": 1,
+   "hash": "9f1a121e63",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.platinum": {
+   "batch": 1,
+   "version": 1,
+   "hash": "03adaf43ee",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.ginger": {
+   "batch": 1,
+   "version": 1,
+   "hash": "5b1daab72b",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.auburn": {
+   "batch": 1,
+   "version": 1,
+   "hash": "4a7429db09",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.grey": {
+   "batch": 1,
+   "version": 1,
+   "hash": "168dc7d313",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair_color.white": {
+   "batch": 1,
+   "version": 1,
+   "hash": "59b3601cd0",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "eye_color.dark_brown": {
+   "batch": 1,
+   "version": 1,
+   "hash": "6aff0d3634",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "eye_color.brown": {
+   "batch": 1,
+   "version": 1,
+   "hash": "929522d248",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "eye_color.hazel": {
+   "batch": 1,
+   "version": 1,
+   "hash": "35fe158035",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "eye_color.green": {
+   "batch": 1,
+   "version": 1,
+   "hash": "b536aa8557",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "eye_color.blue": {
+   "batch": 1,
+   "version": 1,
+   "hash": "6f821d4f5b",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "eye_color.grey": {
+   "batch": 1,
+   "version": 1,
+   "hash": "51d4f56f95",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "accessory.gold": {
+   "batch": 1,
+   "version": 1,
+   "hash": "33162a8e6d",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "accessory.silver": {
+   "batch": 1,
+   "version": 1,
+   "hash": "11f1540c4a",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "accessory.white": {
+   "batch": 1,
+   "version": 1,
+   "hash": "b0e7187eda",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "accessory.red": {
+   "batch": 1,
+   "version": 1,
+   "hash": "16b1f93164",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "accessory.black": {
+   "batch": 1,
+   "version": 1,
+   "hash": "3eaaaf7d92",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "shirt.field": {
+   "batch": 1,
+   "version": 8,
+   "hash": "4279be7c55",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "szerszy dekolt i szyja w 64 px (twoja uwaga z 30.10)"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "64 px: lamówka jest krawędzią dekoltu (bez drugiego, węższego V w środku), szyja pod koszulką szersza"
+    },
+    {
+     "version": 3,
+     "date": "2026-10-30",
+     "note": "64 px: szyja rozszerza się ku ramionom i przechodzi prosto w krawędź kołnierza – bez węższego V szyi wewnątrz V dekoltu"
+    },
+    {
+     "version": 4,
+     "date": "2026-10-30",
+     "note": "64 px: szyja prosta, stałej szerokości (bez rozszerzania od brody), wchodzi prosto w krawędź kołnierza; dekolt odpowiednio węższy"
+    },
+    {
+     "version": 5,
+     "date": "2026-10-30",
+     "note": "64 px: zmieniony tylko dekolt – jeden prosty serek, który zaczyna się dokładnie na krawędziach szyi i schodzi do szpica bez załamania; szyja jak w pierwszej wersji"
+    },
+    {
+     "version": 6,
+     "date": "2026-10-30",
+     "note": "64 px: dekolt zbudowany jak w 32 px – cienki kontur i lamówka 1 px, bez grubej lamówki i pasa cienia, które tworzyły drugie, szersze V; szyja bez zmian"
+    },
+    {
+     "version": 7,
+     "date": "2026-10-30",
+     "note": "64 px: boki serka to prosta linia pod 45° od krawędzi szyi do szpica – bez załamania w połowie (zaznaczonego na czerwono)"
+    },
+    {
+     "version": 8,
+     "date": "2026-10-30",
+     "note": "64 px: czubek serka 2 px niżej, wycięcie zaczyna się 1 px poza szyją (minimalnie szersze od szyi), boki dalej prosto pod 45°; szyja bez zmian"
+    }
+   ]
+  },
+  "head.standard": {
+   "batch": 2,
+   "version": 3,
+   "hash": "575e14c56e",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa, pospolita głowa – pomiędzy owalną a kwadratową"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "64 px: szyja prosta i nieco szersza – bez rozszerzania się w dół"
+    },
+    {
+     "version": 3,
+     "date": "2026-10-30",
+     "note": "szyja przywrócona do pierwszej wersji (prosta, jak na początku)"
+    }
+   ]
+  },
+  "eyes.almond": {
+   "batch": 2,
+   "version": 2,
+   "hash": "a209343c5e",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowe: migdałowe, zewnętrzne kąciki lekko uniesione"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "wydłużone, kąciki na jednej wysokości, tęczówka na środku (w 32 px bez zeza)"
+    }
+   ]
+  },
+  "eyes.heavy_lid": {
+   "batch": 2,
+   "version": 1,
+   "hash": "83dfe92b33",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowe: ciężka, opadająca powieka"
+    }
+   ]
+  },
+  "eyes.deep_set": {
+   "batch": 2,
+   "version": 1,
+   "hash": "5f9dd0e8db",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowe: głęboko osadzone, cień pod łukiem brwiowym"
+    }
+   ]
+  },
+  "nose.button": {
+   "batch": 2,
+   "version": 1,
+   "hash": "55863e901f",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy: mały, zadarty, z jasnym czubkiem"
+    }
+   ]
+  },
+  "nose.aquiline": {
+   "batch": 2,
+   "version": 1,
+   "hash": "14d5338c4a",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy: orli, z garbkiem na grzbiecie"
+    }
+   ]
+  },
+  "nose.broad": {
+   "batch": 2,
+   "version": 1,
+   "hash": "f59eaef602",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy: szeroka nasada i duży czubek"
+    }
+   ]
+  },
+  "hair.crew_cut": {
+   "batch": 2,
+   "version": 1,
+   "hash": "1ed16bc15c",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: krótko, płasko na czubku, wysokie czoło bez grzywki"
+    }
+   ]
+  },
+  "hair.quiff": {
+   "batch": 2,
+   "version": 1,
+   "hash": "d0e29e58bb",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: podniesiony czub nad czołem"
+    }
+   ]
+  },
+  "hair.undercut": {
+   "batch": 2,
+   "version": 1,
+   "hash": "9329bfe6c2",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: wygolone boki, dłuższa góra zaczesana na bok"
+    }
+   ]
+  },
+  "hair.fringe": {
+   "batch": 2,
+   "version": 1,
+   "hash": "8597ef97a3",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: równa, gęsta grzywka do brwi"
+    }
+   ]
+  },
+  "hair.dreadlocks": {
+   "batch": 2,
+   "version": 3,
+   "hash": "e5b11430e3",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: dredy do ramion, każde pasmo osobno"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "jeden kontur wokół całej fryzury, pasma oddzielone ciemniejszym odcieniem zamiast czarnych linii"
+    },
+    {
+     "version": 3,
+     "date": "2026-10-30",
+     "note": "ostatnia próba: szersze pasma, jeden kontur wokół całości, między pasmami tylko cienka linia cienia"
+    }
+   ]
+  },
+  "hair.mohawk": {
+   "batch": 2,
+   "version": 1,
+   "hash": "e953c13e79",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: irokez z wygolonymi bokami"
+    }
+   ]
+  },
+  "hair.receding": {
+   "batch": 2,
+   "version": 1,
+   "hash": "acdd12bb90",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: krótkie włosy z zakolami"
+    }
+   ]
+  },
+  "shirt.goalkeeper": {
+   "batch": 2,
+   "version": 5,
+   "hash": "da5b9efe57",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: koszulka bramkarza – okrągły kołnierz i pas na piersi, bramkarskie barwy klubu"
+    },
+    {
+     "version": 2,
+     "date": "2026-10-30",
+     "note": "64 px: szyja dochodzi do krawędzi kołnierza (ta sama poprawka co w koszulce polowej)"
+    },
+    {
+     "version": 3,
+     "date": "2026-10-30",
+     "note": "64 px: ta sama prosta szyja co w koszulce polowej"
+    },
+    {
+     "version": 4,
+     "date": "2026-10-30",
+     "note": "64 px: okrągły kołnierz na szerokość szyi; szyja jak w pierwszej wersji"
+    },
+    {
+     "version": 5,
+     "date": "2026-10-30",
+     "note": "64 px: kołnierz jak w 32 px – cienki kontur i lamówka 1 px"
+    }
+   ]
+  },
+  "extras.earring": {
+   "batch": 1,
+   "version": 1,
+   "hash": "84a8a873eb",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "extras.headband": {
+   "batch": 1,
+   "version": 1,
+   "hash": "26958cc675",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy element"
+    }
+   ]
+  },
+  "hair.afro": {
+   "batch": 3,
+   "version": 1,
+   "hash": "4f8e85a349",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: duże, okrągłe afro"
+    }
+   ]
+  },
+  "hair.man_bun": {
+   "batch": 3,
+   "version": 1,
+   "hash": "ac21a39415",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: gładko zaczesane włosy z kokiem na czubku"
+    }
+   ]
+  },
+  "hair.cornrows": {
+   "batch": 3,
+   "version": 1,
+   "hash": "9acd8e1da1",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: warkoczyki przy skórze (cornrows)"
+    }
+   ]
+  },
+  "hair.slicked_back": {
+   "batch": 3,
+   "version": 1,
+   "hash": "51d8ce61c2",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: zaczesane do tyłu z połyskiem, wysokie czoło"
+    }
+   ]
+  },
+  "hair.spiky": {
+   "batch": 3,
+   "version": 1,
+   "hash": "0f6bf2f6fb",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: krótkie, postawione na żel kolce"
+    }
+   ]
+  },
+  "marks.scar_cheek": {
+   "batch": 3,
+   "version": 1,
+   "hash": "142b5cf7f7",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: skośna blizna na prawym policzku"
+    }
+   ]
+  },
+  "marks.scar_chin": {
+   "batch": 3,
+   "version": 1,
+   "hash": "14148430c5",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowa: krótka blizna na brodzie"
+    }
+   ]
+  },
+  "marks.mole_lip": {
+   "batch": 3,
+   "version": 1,
+   "hash": "18a955c946",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy: pieprzyk nad wargą"
+    }
+   ]
+  },
+  "marks.mole_forehead": {
+   "batch": 3,
+   "version": 1,
+   "hash": "d702ae5e1a",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy: pieprzyk na czole"
+    }
+   ]
+  },
+  "facial_hair.stubble_3day": {
+   "batch": 4,
+   "version": 1,
+   "hash": "09ed9b273d",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy: zarost kilkudniowy (ok. 3 dni) – ciemniejszy niż stubble, drobne kropki w 64 px"
+    }
+   ]
+  },
+  "facial_hair.short_beard": {
+   "batch": 4,
+   "version": 1,
+   "hash": "20d2cb7a7a",
+   "history": [
+    {
+     "version": 1,
+     "date": "2026-10-30",
+     "note": "nowy: zarost tygodniowy – krótka, przylegająca broda w kolorze włosów, miękkie przejście na policzkach"
+    }
+   ]
+  }
+ },
+ "hash_kind": "element"
+}

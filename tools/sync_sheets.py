@@ -5,11 +5,13 @@ Arkusze muszą być udostępnione przez link (co najmniej "Przeglądający").
 Konfiguracja: sheets_config.json obok skryptu
   - "spreadsheet_id" + "tabs": arkusz danych; nazwa pliku CSV (bez .csv) -> gid zakładki (liczba po "#gid="
     w adresie zakładki),
+  - "portraits": arkusz wag portretów ("spreadsheet_id" + "tabs" jak wyżej, pliki też do data/),
   - "translations": arkusz tekstów ("spreadsheet_id", "gid", "output" – ścieżka względem skryptu).
 
 Użycie:
-  python tools/sync_sheets.py                 pobiera dane i tłumaczenia, zapisuje zmienione pliki
+  python tools/sync_sheets.py                 pobiera dane, wagi portretów i tłumaczenia, zapisuje zmienione pliki
   python tools/sync_sheets.py --data          tylko dane
+  python tools/sync_sheets.py --portraits     tylko wagi portretów (data/portrait_weights.csv)
   python tools/sync_sheets.py --translations  tylko tłumaczenia
   python tools/sync_sheets.py --dry-run       tylko pokazuje, co by się zmieniło (łączy się z powyższymi)
 
@@ -111,21 +113,29 @@ def normalize_translations(text: str) -> tuple[str, list[str]]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Sync Google Sheets tabs to data/*.csv and translations")
     parser.add_argument("--data", action="store_true", help="only game data (data/*.csv)")
+    parser.add_argument("--portraits", action="store_true", help="only portrait weights")
     parser.add_argument("--translations", action="store_true", help="only translations")
     parser.add_argument("--dry-run", action="store_true", help="only show what would change")
     args = parser.parse_args()
-    sync_data = args.data or not args.translations
-    sync_translations = args.translations or not args.data
+    only = args.data or args.portraits or args.translations
+    sync_data = args.data or not only
+    sync_portraits = args.portraits or not only
+    sync_translations = args.translations or not only
 
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     output_dir = (SCRIPT_DIR / config["output_dir"]).resolve()
 
     downloaded: dict[Path, str] = {}
     errors = 0
+    sources = []
     if sync_data:
-        for name, gid in config["tabs"].items():
+        sources.append((config["spreadsheet_id"], config["tabs"]))
+    if sync_portraits:
+        sources.append((config["portraits"]["spreadsheet_id"], config["portraits"]["tabs"]))
+    for spreadsheet_id, tabs in sources:
+        for name, gid in tabs.items():
             try:
-                content = normalize(download_tab(config["spreadsheet_id"], gid))
+                content = normalize(download_tab(spreadsheet_id, gid))
                 downloaded[output_dir / f"{name}.csv"] = content
                 print(f"  ok      {name} ({content.count(chr(10)) - 1} rows)")
             except RuntimeError as error:

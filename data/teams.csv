@@ -1,3 +1,3 @@
-id,name,short_name,primary_color,secondary_color,default_tactic
-red,Redwood Rovers,RRV,#b8322a,#f2efe6,t_442
-blue,Bluecastle United,BCU,#2f5fb3,#f2efe6,t_433
+id,name,short_name,primary_color,secondary_color,default_tactic,gk_primary_color,gk_secondary_color
+red,Redwood Rovers,RRV,#b8322a,#f2efe6,t_442,#3fae49,#1c1c1c
+blue,Bluecastle United,BCU,#2f5fb3,#f2efe6,t_433,#f07c22,#1c1c1c
